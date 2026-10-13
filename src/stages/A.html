@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html data-dark-mode="false" data-code-theme="dark">
+<head>
+    <script src="/suat-robomaster-mech-website/markbind/js/theme-manager.js"></script>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="generator" content="MarkBind 7.2.1">
+    <meta name="viewport" content="width=device-width, initial-scale=1"><title>A阶段 · 对抗优化</title> <link rel="stylesheet" href="/suat-robomaster-mech-website/markbind/css/bootstrap.min.css"> <link rel="stylesheet" href="/suat-robomaster-mech-website/markbind/fontawesome/css/all.min.css">
+    
+    
+    <link rel="stylesheet" id="markbind-highlight-light" href="/suat-robomaster-mech-website/markbind/css/codeblock-light.min.css">
+    <link rel="stylesheet" id="markbind-highlight-dark" href="/suat-robomaster-mech-website/markbind/css/codeblock-dark.min.css">
+    <script src="/suat-robomaster-mech-website/markbind/js/code-theme.js"></script><link rel="stylesheet" href="/suat-robomaster-mech-website/markbind/css/markbind.min.css"><link rel="stylesheet" href="/suat-robomaster-mech-website/plugins/markbind-plugin-anchors/markbind-plugin-anchors.css"><link rel="stylesheet" href="/suat-robomaster-mech-website/plugins/markbind-plugin-tree/markbind-plugin-tree.css"></head>
+<script>
+  const baseUrl = '/suat-robomaster-mech-website'
+</script>
+<body 
+   
+  data-code-theme="dark">
+<div id="app"><!--[--><h1 id="a">A 阶段 · 对抗优化与迭代<a class="fa fa-anchor" href="#a" onclick="event.stopPropagation()"></a></h1> <div class="alert box-container seamless" style="" data-v-2c3d295c><!--Icon and vertical divider for seamless header box--><!----><div class="header-and-body" data-v-2c3d295c><!-- Header wrapper, not rendered if there is no header attribute --><!----><!-- Body wrapper --><div class="box-body-wrapper" data-v-2c3d295c><!-- icon on the left, not shown if there is a header --><div class="icon-wrapper text-warning" style="" data-v-2c3d295c><!--[--><i class="fas fa-exclamation" data-v-2c3d295c></i><!--]--></div><!-- Icon -- content divider for seamless boxes without the header attribute --><div class="alert-warning vertical-divider" aria-hidden="true" data-v-2c3d295c></div><!-- Content wrapper --><div class="contents" style="" data-v-2c3d295c><!--[--><b>阶段目标</b>：基于实战/测试反馈，对整机进行迭代优化，形成&quot;测试 → 发现问题 → 改设计 → 再测试&quot;的闭环。
+<br><b>预计周期</b>：贯穿赛季
+<br><b>前置</b>：B 阶段整机完成
+<!--]--></div><!-- dismiss button on the right, not shown if there is a header --><!----></div></div></div> <hr> <h2 id>一、阶段总结</h2> <p>A 阶段不再是学习，而是<b>实战打磨</b>。谁能快速迭代，谁就能赢。</p> <p>核心方法：</p> <ol><li><strong>数据驱动</strong>：每场测试记录问题（卡弹、翻车、电机过热、结构断裂）。</li> <li><strong>小步快跑</strong>：每次只改一个变量，不要一次大改。</li> <li><strong>复盘文化</strong>：每次迭代出 changelog，记录为什么改。</li></ol> <hr> <h2 id="-2">二、学习项目<a class="fa fa-anchor" href="#-2" onclick="event.stopPropagation()"></a></h2> <h3 id="a1">A1 · 问题记录与优先级 ★★★★★<a class="fa fa-anchor" href="#a1" onclick="event.stopPropagation()"></a></h3> <p><strong>内容</strong>：</p> <ul><li>建一个飞书多维表格&quot;问题跟踪表&quot;：问题描述、发现场景、严重度、负责人、状态。</li> <li>严重度分级：
+<ul><li>P0：比赛直接不能打（断结构、卡弹）。</li> <li>P1：影响性能（精度差、重心偏）。</li> <li>P2：体验问题（走线乱、难维护）。</li></ul></li></ul> <hr> <h3 id="a2">A2 · 结构加固与轻量化 ★★★★★<a class="fa fa-anchor" href="#a2" onclick="event.stopPropagation()"></a></h3> <p><strong>内容</strong>：</p> <ul><li>根据 A1 的问题，对断裂/变形位置加强筋。</li> <li>对非受力位置挖减重孔。</li> <li>用 SW 仿真验证改进前后应力。</li></ul> <hr> <h3 id="a3">A3 · 人机工程与快拆 ★★★★★<a class="fa fa-anchor" href="#a3" onclick="event.stopPropagation()"></a></h3> <p><strong>内容</strong>：</p> <ul><li>比赛中电池要 30 秒快拆。</li> <li>摩擦轮要快速换间距。</li> <li>弹仓要快速补弹。</li></ul> <hr> <h3 id="a4">A4 · 复盘与版本管理 ★★★★★<a class="fa fa-anchor" href="#a4" onclick="event.stopPropagation()"></a></h3> <p><strong>内容</strong>：</p> <ul><li>每个版本打 tag：<code class="hljs inline no-lang">v1.0 / v1.1 / v2.0</code>。</li> <li>写 changelog：改了什么、为什么、效果。</li> <li>旧版本保留，不要覆盖。</li></ul> <hr> <h2 id="a-2">三、A 阶段产出<a class="fa fa-anchor" href="#a-2" onclick="event.stopPropagation()"></a></h2> <ul><li>问题跟踪表（持续更新）。</li> <li>整机最终版装配体。</li> <li>赛季复盘文档。</li></ul> <hr> <h2 id="-3">四、常见错误<a class="fa fa-anchor" href="#-3" onclick="event.stopPropagation()"></a></h2> <ol><li><strong>一次改一堆</strong> → 出问题不知道是哪个改动引起的。</li> <li><strong>不记录旧版本</strong> → 改坏了回不去。</li> <li><strong>只改结构不看数据</strong> → 凭感觉改，不如不改。</li> <li><strong>忽略小问题</strong> → 赛场上小问题会被放大。</li></ol><!--]--></div>
+</body><script src="/suat-robomaster-mech-website/markbind/js/bootstrap-utility.min.js"></script>
+<script src="/suat-robomaster-mech-website/markbind/js/polyfill.min.js"></script>
+<script src="/suat-robomaster-mech-website/markbind/js/vue.global.prod.min.js"></script>
+<script src="/suat-robomaster-mech-website/markbind/js/markbind.min.js"></script>
+<script src="A.page-vue-render.js"></script>
+<script>
+  MarkBind.setupWithSearch()
+</script>
+</html>

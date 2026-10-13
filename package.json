@@ -1,0 +1,15 @@
+{
+  "name": "robomaster-mech-learning",
+  "version": "1.0.0",
+  "description": "深理工 RoboMaster 机械组学习平台 - MarkBind 站点",
+  "main": "index.md",
+  "scripts": {
+    "dev": "markbind serve",
+    "build": "markbind build",
+    "deploy": "markbind deploy"
+  },
+  "dependencies": {
+    "markbind-cli": "^5.5.0"
+  },
+  "license": "MIT"
+}
