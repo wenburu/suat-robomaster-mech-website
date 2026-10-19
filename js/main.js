@@ -30,6 +30,12 @@
     else if (path.indexOf("e") === 0 && href === "e/") a.classList.add("active");
   });
 
+  /* 页面深度：子目录页（f/、e/ 下）的链接要加 ../ 前缀，否则跳转 404 */
+  var scriptSrc = document.currentScript ? document.currentScript.src : location.href;
+  var pageDir = location.pathname.substring(0, location.pathname.lastIndexOf("/"));
+  var scriptDir = scriptSrc.substring(0, scriptSrc.lastIndexOf("/"));
+  var PREFIX = pageDir.length > scriptDir.length ? "../" : "";
+
   /* 任务内导航（讲义页顶部跳转条） */
   var jumpBox = document.getElementById("taskJump");
   if (jumpBox) {
@@ -38,7 +44,7 @@
     var list = TASKS.filter(function (t) { return t.stage === stage; });
     var html = '<label>本阶段任务：</label><select onchange="location.href=this.value">';
     list.forEach(function (t) {
-      html += '<option value="' + t.file + '"' + (t.id === cur ? " selected" : "") + ">" + t.num + " · " + t.title + "</option>";
+      html += '<option value="' + PREFIX + t.file + '"' + (t.id === cur ? " selected" : "") + ">" + t.num + " · " + t.title + "</option>";
     });
     html += "</select>";
     jumpBox.innerHTML = html;
@@ -76,7 +82,7 @@
       if (!hits.length) { res.style.display = "block"; res.innerHTML = '<div class="hit">没有找到匹配任务，换个关键词试试（如：草图 / 装配 / 旋转）。</div>'; return; }
       res.style.display = "block";
       res.innerHTML = hits.map(function (t) {
-        return '<div class="hit"><a href="' + t.file + '">' + t.num + " · " + t.title + "</a><div style='font-size:12.5px;color:#6b7078'>" + t.stage + " 阶段</div></div>";
+        return '<div class="hit"><a href="' + PREFIX + t.file + '">' + t.num + " · " + t.title + "</a><div style='font-size:12.5px;color:#6b7078'>" + t.stage + " 阶段</div></div>";
       }).join("");
     });
   }
