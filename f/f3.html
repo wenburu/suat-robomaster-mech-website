@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>F3 草图约束与尺寸标注 - SUAT RoboMaster 机械组</title>
+<link rel="stylesheet" href="../css/style.css">
+</head>
+<body data-stage="F" data-task="f3">
+
+<header class="topbar">
+  <div class="brand"><span class="logo">RM</span>SUAT 机械组 <small>RoboMaster 学习平台</small></div>
+  <nav>
+    <a href="../index.html">首页</a>
+    <a href="index.html" class="active">F 阶段</a>
+    <a href="../e/index.html">E 阶段</a>
+    <a href="../links.html">外部资源库</a>
+  </nav>
+  <div class="right">2026 · 深理工第一届 RM 战队</div>
+</header>
+
+<main class="wrap">
+  <div class="crumb"><a href="../index.html">首页</a> / <a href="index.html">F 阶段</a> / F3</div>
+  <span class="stage-badge"><span class="dot"></span>F3 · 草图约束与尺寸标注</span>
+  <h1 style="font-size:28px;margin-bottom:8px">让草图"变黑"，不再散架</h1>
+
+  <div class="panel" id="taskJump"></div>
+
+  <div class="lecture">
+
+    <h2>一、学习目标</h2>
+    <ul>
+      <li>理解"完全定义"：草图从蓝色变成黑色</li>
+      <li>分清欠定义 / 完全定义 / 过定义三种状态</li>
+      <li>掌握常用几何约束：水平、竖直、重合、对称、相等</li>
+      <li>会用智能尺寸标注关键尺寸</li>
+    </ul>
+
+    <h2>二、讲义：三种状态（F 阶段最重要概念）</h2>
+    <table>
+      <tr><th>状态</th><th>线条颜色</th><th>含义</th><th>怎么办</th></tr>
+      <tr><td><strong>欠定义</strong></td><td>蓝色</td><td>还能拖动，位置/大小没定死</td><td>继续加约束和尺寸</td></tr>
+      <tr><td><strong>完全定义</strong></td><td>黑色</td><td>所有自由度都被锁住，拖不动</td><td>✅ 目标状态，可以安心拉伸</td></tr>
+      <tr><td><strong>过定义</strong></td><td>红色报错</td><td>约束/尺寸给重复了，冲突</td><td>删掉多余的约束</td></tr>
+    </table>
+    <div class="callout info"><span class="ct">为什么必须完全定义？</span>草图欠定义就去拉伸，模型参数是"漂"的。改一个尺寸，其它部分可能乱跑，后面装配和出图全乱。RM 零件尺寸必须可控，这是机械工程师的基本功。</div>
+
+    <h2>三、讲义：几何约束（先加约束，再标尺寸）</h2>
+    <p>约束 = 告诉软件"这两条线必须保持什么关系"。命令入口：<span class="path">草图 → 显示/删除几何关系</span>，或选中两条线后右键选"添加几何关系"。</p>
+    <table>
+      <tr><th>约束</th><th>图标</th><th>作用</th><th>典型用途</th></tr>
+      <tr><td>水平 / 竖直</td><td>— / |</td><td>把线摆正</td><td>底板轮廓线</td></tr>
+      <tr><td>重合</td><td>⌖</td><td>两点/线贴在一起</td><td>圆心落在某条线上</td></tr>
+      <tr><td>相等</td><td>=</td><td>两条线一样长</td><td>对称零件的一半</td></tr>
+      <tr><td>对称</td><td>⇆</td><td>绕中心线镜像对称</td><td>左右对称的孔位</td></tr>
+      <tr><td>相切</td><td>◎</td><td>圆弧与直线相切</td><td>圆角过渡</td></tr>
+    </table>
+    <p><strong>操作原则（记死）</strong>：先加几何约束 → 再标尺寸。约束管"形状关系"，尺寸管"具体数值"。</p>
+
+    <h2>四、讲义：智能尺寸 <kbd>S</kbd></h2>
+    <ol class="steps">
+      <li><strong>点智能尺寸</strong>：草图标签 → 智能尺寸，或按 <kbd>S</kbd></li>
+      <li><strong>标直线长度</strong>：点直线 → 移动鼠标 → 点一下放置尺寸</li>
+      <li><strong>标圆直径</strong>：点圆 → 移动 → 放置（显示 Φ）</li>
+      <li><strong>标两孔距离</strong>：先点一个圆心 → 再点另一个圆心 → 放置</li>
+      <li><strong>输入数值</strong>：弹出对话框，输入 100 → 回车</li>
+    </ol>
+    <div class="callout tip"><span class="ct">小技巧</span>尺寸放好后直接双击它，可以快速改数值。尺寸一旦与约束冲突会变红，说明有矛盾，检查哪里加错了。</div>
+
+    <h2>五、练习项目</h2>
+    <p><strong>项目名称</strong>：L 形板（F 阶段必做，F4 考核会用到类似图形）</p>
+    <ol class="steps">
+      <li>前视基准面 → 草图，画一个 L 形：外轮廓 100×80，内凹 40×40</li>
+      <li><strong>先加约束</strong>：所有外轮廓线标水平/竖直；内凹的角与外形对齐加重合</li>
+      <li><strong>再加尺寸</strong>：100、80、40、40 四个关键尺寸标完</li>
+      <li><strong>验证完全定义</strong>：所有线条变黑；试着拖动任意一条线，拖不动 = 成功</li>
+      <li>检查状态：右下角状态栏显示"完全定义"</li>
+    </ol>
+    <p><strong>产出</strong>：完全定义的 L 形板草图（截图 + .SLDPRT）。</p>
+
+    <h2>六、外部学习链接</h2>
+    <div class="link-card">
+      <div class="ic official">官</div>
+      <div class="body">
+        <div class="t"><span class="tag official">官方</span>完全定义草图（SW 2026 帮助·中文）</div>
+        <div class="d">"完全定义草图"工具的官方说明：软件如何帮你计算还缺哪些尺寸和约束。</div>
+        <div class="u">https://help.solidworks.com/2026/Chinese-simplified/SolidWorks/sldworks/c_Fully_Defined_Sketches.htm</div>
+      </div>
+    </div>
+    <div class="link-card">
+      <div class="ic official">官</div>
+      <div class="body">
+        <div class="t"><span class="tag official">官方</span>标注 2D 草图尺寸（SW 2026 帮助·中文）</div>
+        <div class="d">智能尺寸怎么用、不同类型尺寸（点到点/角度/圆）怎么标，官方图文教程。</div>
+        <div class="u">https://help.solidworks.com/2026/chinese-simplified/SolidWorks/sldworks/t_Dimensioning_a_2D_Sketch.htm</div>
+      </div>
+    </div>
+    <div class="link-card">
+      <div class="ic video">视</div>
+      <div class="body">
+        <div class="t"><span class="tag video">视频</span>阿奇教程 · 草图约束与尺寸章节</div>
+        <div class="d">阿奇教程中讲"草图几何关系 + 智能尺寸"的部分，重点看"完全定义"演示。</div>
+        <div class="u">https://www.bilibili.com/video/BV1iw411Z7HZ</div>
+      </div>
+    </div>
+
+    <details>
+      <summary>弹性方案：无电脑 / 考试周</summary>
+      <div class="body">
+        <p><strong>无电脑成员</strong>：看"完全定义"讲解视频 → 整理「欠定义/完全定义/过定义」三态对照表（文字或手写拍照）：每种状态的颜色、含义、怎么办。电脑到位后补实操。</p>
+        <p><strong>考试周</strong>：本任务可拆两周：第 1 周"画 + 加约束"，第 2 周"标尺寸 + 验证变黑"。</p>
+      </div>
+    </details>
+
+    <h2>七、提交要求</h2>
+    <ul>
+      <li>命名：<span class="path">F3_姓名_日期.SLDPRT</span> + 完全定义截图</li>
+      <li>提交到多维表格「进度跟踪表」</li>
+      <li>截止：本周日 23:59</li>
+    </ul>
+
+    <h2>八、常见错误</h2>
+    <ol>
+      <li><strong>以为尺寸标得越多越好</strong> → 错。约束优先，尺寸只标关键尺寸；标多了反而过定义。</li>
+      <li><strong>"假完全定义"</strong> → 变黑后要拖动验证；有时只是"局部定义"，拖一下才发现没锁住。</li>
+      <li><strong>过定义报错不会删</strong> → 右键有问题的线 → "显示/删除几何关系"，找到红色冲突项删掉。</li>
+      <li><strong>两条线明明该相等，分别标了两个尺寸</strong> → 用"相等"约束，改一处自动同步，这才是参数化设计。</li>
+    </ol>
+
+  </div>
+</main>
+
+<footer class="footer">SUAT RoboMaster 机械组学习平台 · F3 · 组内专用</footer>
+<script src="../js/main.js"></script>
+</body>
+</html>

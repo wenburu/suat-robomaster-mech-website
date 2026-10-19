@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>E阶段常见错误合集 - SUAT RoboMaster 机械组</title>
+<link rel="stylesheet" href="../css/style.css">
+</head>
+<body data-stage="E" data-task="eerr">
+
+<header class="topbar">
+  <div class="brand"><span class="logo">RM</span>SUAT 机械组 <small>RoboMaster 学习平台</small></div>
+  <nav>
+    <a href="../index.html">首页</a>
+    <a href="../f/index.html">F 阶段</a>
+    <a href="index.html" class="active">E 阶段</a>
+    <a href="../links.html">外部资源库</a>
+  </nav>
+  <div class="right">2026 · 深理工第一届 RM 战队</div>
+</header>
+
+<main class="wrap">
+  <div class="crumb"><a href="../index.html">首页</a> / <a href="index.html">E 阶段</a> / 常见错误</div>
+  <span class="stage-badge"><span class="dot"></span>E 阶段 · 常见错误合集</span>
+  <h1 style="font-size:28px;margin-bottom:8px">E 阶段高频坑，一次看全</h1>
+
+  <div class="lecture">
+
+    <h2>一、特征与建模</h2>
+    <ol>
+      <li><strong>特征顺序乱</strong> → 建模前先想顺序：先基体 → 加减材料 → 细节；顺序错了用编辑/删除，不硬拖。</li>
+      <li><strong>旋转没画中心线</strong> → 旋转轴必须是中心线，普通直线当轴必报错。</li>
+      <li><strong>旋转轮廓跨中心线</strong> → 轮廓全部放中心线一侧。</li>
+      <li><strong>扫描轮廓不在路径端点</strong> → 先在端点新建基准面再画轮廓。</li>
+      <li><strong>放样"扭了"</strong> → 拖动连接点让截面起点对齐。</li>
+    </ol>
+
+    <h2>二、装配</h2>
+    <ol>
+      <li><strong>第一个零件没固定</strong> → 装配体第一个零件必须固定。</li>
+      <li><strong>配合过定义</strong> → 删多余配合；看配合文件夹红色图标。</li>
+      <li><strong>不检查干涉就提交</strong> → E4 起每个装配体必须 0 干涉。</li>
+      <li><strong>只交 .SLDASM</strong> → 必须「打包」，否则零件丢失。</li>
+    </ol>
+
+    <h2>三、文件管理</h2>
+    <ol>
+      <li><strong>零件名叫"零件1"</strong> → 另存为时就改好名，别拖。</li>
+      <li><strong>BOM 里零件没材料</strong> → 右键零件 → 属性 → 填零件号/材料/说明。</li>
+      <li><strong>版本混用</strong> → 全组 2026，高版本能开低版本，反之不行。</li>
+    </ol>
+
+    <div class="callout info"><span class="ct">如何补充</span>评论区补充新坑，组长每周整理更新到本站与飞书。</div>
+
+  </div>
+</main>
+
+<footer class="footer">SUAT RoboMaster 机械组学习平台 · E 常见错误 · 组内专用</footer>
+<script src="../js/main.js"></script>
+</body>
+</html>

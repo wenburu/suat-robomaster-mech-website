@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>E1 特征树与基准 - SUAT RoboMaster 机械组</title>
+<link rel="stylesheet" href="../css/style.css">
+</head>
+<body data-stage="E" data-task="e1">
+
+<header class="topbar">
+  <div class="brand"><span class="logo">RM</span>SUAT 机械组 <small>RoboMaster 学习平台</small></div>
+  <nav>
+    <a href="../index.html">首页</a>
+    <a href="../f/index.html">F 阶段</a>
+    <a href="index.html" class="active">E 阶段</a>
+    <a href="../links.html">外部资源库</a>
+  </nav>
+  <div class="right">2026 · 深理工第一届 RM 战队</div>
+</header>
+
+<main class="wrap">
+  <div class="crumb"><a href="../index.html">首页</a> / <a href="index.html">E 阶段</a> / E1</div>
+  <span class="stage-badge"><span class="dot"></span>E1 · 特征树与基准</span>
+  <h1 style="font-size:28px;margin-bottom:8px">建模历史 = 你的设计笔记</h1>
+
+  <div class="panel" id="taskJump"></div>
+
+  <div class="lecture">
+
+    <h2>一、学习目标</h2>
+    <ul>
+      <li>理解特征树：从上到下就是建模顺序，改模型就是改特征树</li>
+      <li>学会编辑特征 / 编辑草图 / 特征重命名</li>
+      <li>会新建基准面（偏移法），为 E2/E3 打基础</li>
+    </ul>
+
+    <h2>二、讲义：特征树就是"建模历史"</h2>
+    <p>特征树（设计树）在界面左侧，记录了从第一个特征到最后一个特征的全部步骤。它就像菜谱：<strong>步骤顺序不同，结果不同</strong>。</p>
+    <table>
+      <tr><th>操作</th><th>怎么做</th><th>什么时候用</th></tr>
+      <tr><td>编辑特征</td><td>右键特征 → 编辑特征</td><td>改拉伸深度、改圆角半径</td></tr>
+      <tr><td>编辑草图</td><td>右键特征 → 编辑草图</td><td>改形状、改尺寸</td></tr>
+      <tr><td>重命名</td><td>左键慢点两下名字，或 F2</td><td>每个特征都要改："拉伸-板厚5"</td></tr>
+      <tr><td>删除</td><td>右键 → 删除（或按 Delete）</td><td>做错了整步删掉重来</td></tr>
+      <tr><td>拖动重排</td><td>按住特征拖到新位置</td><td>极少用，且可能报错——新手别乱拖</td></tr>
+    </table>
+    <div class="callout warn"><span class="ct">先理解再改</span>拖动特征重排会改变建模历史，很多新手在这里把模型改崩。E 阶段统一规则：<strong>不拖动重排</strong>，想改就编辑/删除重做。</div>
+
+    <h2>三、讲义：三个默认基准面 + 新建基准面</h2>
+    <p>SolidWorks 默认有<strong>前视、上视、右视</strong>三个基准面，是所有零件的地基。但很多零件需要在"空中"建特征，这时要新建基准面。</p>
+    <h3>3.1 新建基准面（偏移法，最稳）</h3>
+    <ol class="steps">
+      <li>「特征」标签 → 「参考几何体」→ 「基准面」</li>
+      <li>选一个已有平面（如"前视基准面"）</li>
+      <li>属性管理器输入<strong>偏移距离</strong>（如 50mm），可改方向</li>
+      <li>点 ✅ 确定——特征树出现"基准面1"</li>
+    </ol>
+    <h3>3.2 基准面的作用</h3>
+    <ul>
+      <li>在偏移出的基准面上画草图 → 生成"悬空"的特征</li>
+      <li>E3 扫描的轮廓草图、E2 旋转的草图，都常需要基准面配合</li>
+      <li>隐藏/显示基准面：<span class="path">视图 → 隐藏/显示 → 基准面</span></li>
+    </ul>
+
+    <h2>四、练习项目</h2>
+    <ol class="steps">
+      <li>打开 F4 的连接板零件</li>
+      <li><strong>观察</strong>：把特征树从上到下读一遍，说出每个特征是什么、为什么这个顺序</li>
+      <li><strong>改名</strong>：把所有特征改成有意义的名字（拉伸-板厚5 / 切除-M6孔×4 / 切除-中心孔 / 圆角-R2）</li>
+      <li><strong>改尺寸</strong>：编辑"拉伸-板厚5"，把深度改成 8mm，观察模型变化</li>
+      <li><strong>新建基准面</strong>：平行于前视基准面，偏移 50mm，确认特征树出现"基准面1"</li>
+      <li><strong>删掉它</strong>：右键"基准面1"删除，练习删除操作（没事，练习而已）</li>
+    </ol>
+    <p><strong>产出</strong>：特征树截图（含改名后的特征 + 新建的基准面）。</p>
+
+    <h2>五、外部学习链接</h2>
+    <div class="link-card">
+      <div class="ic official">官</div>
+      <div class="body">
+        <div class="t"><span class="tag official">官方</span>特征树（FeatureManager）相关帮助</div>
+        <div class="d">SW 帮助里搜索"FeatureManager 设计树"，查看官方对设计树的说明。</div>
+        <div class="u">https://help.solidworks.com/2026/chinese-simplified/</div>
+      </div>
+    </div>
+    <div class="link-card">
+      <div class="ic video">视</div>
+      <div class="body">
+        <div class="t"><span class="tag video">视频</span>阿奇教程 · 参考几何体/基准面章节</div>
+        <div class="d">看"基准面"和"参考几何体"部分，理解三种建基准面的方式（偏移/角度/三点）。</div>
+        <div class="u">https://www.bilibili.com/video/BV1iw411Z7HZ</div>
+      </div>
+    </div>
+
+    <details>
+      <summary>弹性方案：无电脑成员</summary>
+      <div class="body">
+        <p>画一张"特征树示意图"：左边画特征树（拉伸→切除→圆角），右边标注每个特征的含义；再抄写"新建基准面四步"。拍照提交。电脑到位后补实操。</p>
+      </div>
+    </details>
+
+    <h2>六、提交要求</h2>
+    <ul>
+      <li>命名：<span class="path">E1_姓名_日期</span>（截图即可）</li>
+      <li>提交到多维表格「进度跟踪表」</li>
+    </ul>
+
+    <h2>七、常见错误</h2>
+    <ol>
+      <li><strong>特征拖乱导致报错</strong> → Ctrl+Z 撤回，不要硬删。</li>
+      <li><strong>基准面新建时选不到平面</strong> → 先在特征树点一下目标基准面/面，再点"参考几何体→基准面"。</li>
+      <li><strong>默认基准面被隐藏找不回</strong> → 视图 → 隐藏/显示 → 基准面。</li>
+      <li><strong>特征全是"拉伸1""切除1"</strong> → 不改名，别人看你的文件像看天书，必须改名。</li>
+    </ol>
+
+  </div>
+</main>
+
+<footer class="footer">SUAT RoboMaster 机械组学习平台 · E1 · 组内专用</footer>
+<script src="../js/main.js"></script>
+</body>
+</html>
