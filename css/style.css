@@ -232,3 +232,8 @@ details .body { padding: 2px 16px 14px; font-size: 14px; }
 .progress { display: flex; align-items: center; gap: 10px; font-size: 13px; color: var(--text-sub); margin: 6px 0 18px; }
 .progress .bar { flex: 1; height: 8px; background: #e8eaee; border-radius: 999px; overflow: hidden; }
 .progress .bar i { display: block; height: 100%; background: linear-gradient(90deg, var(--rm-red), #ff6a4d); border-radius: 999px; }
+
+/* 完成图例 */
+.fig { margin: 18px 0 22px; text-align: center; }
+.fig img { max-width: 100%; border: 1px solid var(--line); border-radius: 10px; box-shadow: var(--shadow); background: #fff; }
+.fig figcaption { font-size: 13px; color: var(--text-sub); margin-top: 8px; }
