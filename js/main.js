@@ -44,7 +44,7 @@
     var cur = document.body.getAttribute("data-task");
     var stage = document.body.getAttribute("data-stage");
     var list = TASKS.filter(function (t) { return t.stage === stage; });
-    var html = '<label>本阶段任务：</label><select onchange="location.href=this.value">';
+    var html = '<label>本阶段任务：</label><select onchange="location.href=new URL(this.value, location.href).href">';
     list.forEach(function (t) {
       html += '<option value="' + PREFIX + t.file + '"' + (t.id === cur ? " selected" : "") + ">" + t.num + " · " + t.title + "</option>";
     });
