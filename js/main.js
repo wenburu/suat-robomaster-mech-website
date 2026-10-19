@@ -31,10 +31,12 @@
   });
 
   /* 页面深度：子目录页（f/、e/ 下）的链接要加 ../ 前缀，否则跳转 404 */
-  /* 注意：用 getAttribute("src") 取原始相对路径（"../js/main.js" / "js/main.js"），
-     .src 会被浏览器解析成带域名的绝对 URL，无法与页面路径比较 */
+  /* 优先用每页 HTML 硬编码的 SITE_PREFIX（不受 JS 缓存影响）；
+     回退按 script 标签原始相对路径判断 */
   var scriptSrc = document.currentScript ? document.currentScript.getAttribute("src") : "";
-  var PREFIX = scriptSrc.indexOf("../") === 0 ? "../" : "";
+  var PREFIX = (typeof window.SITE_PREFIX !== "undefined" && window.SITE_PREFIX !== null)
+    ? window.SITE_PREFIX
+    : (scriptSrc.indexOf("../") === 0 ? "../" : "");
 
   /* 任务内导航（讲义页顶部跳转条） */
   var jumpBox = document.getElementById("taskJump");
