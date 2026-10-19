@@ -44,11 +44,11 @@
     var cur = document.body.getAttribute("data-task");
     var stage = document.body.getAttribute("data-stage");
     var list = TASKS.filter(function (t) { return t.stage === stage; });
-    var html = '<label>本阶段任务：</label><select onchange="location.href=new URL(this.value, location.href).href">';
+    var html = '<label>本阶段任务：</label><div class="task-nav">';
     list.forEach(function (t) {
-      html += '<option value="' + PREFIX + t.file + '"' + (t.id === cur ? " selected" : "") + ">" + t.num + " · " + t.title + "</option>";
+      html += '<a href="' + PREFIX + t.file + '" title="' + t.num + ' · ' + t.title + '"' + (t.id === cur ? ' class="active"' : "") + ">" + t.num + "</a>";
     });
-    html += "</select>";
+    html += "</div>";
     jumpBox.innerHTML = html;
   }
 
