@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>E4 简单装配体 - SUAT RoboMaster 机械组</title>
+<title>E4 装配体 - SUAT RoboMaster 机械组</title>
 <link rel="stylesheet" href="../css/style.css">
 </head>
 <body data-stage="E" data-task="e4">
@@ -22,23 +22,19 @@
 <main class="wrap">
   <div class="crumb"><a href="../index.html">首页</a> / <a href="index.html">E 阶段</a> / E4</div>
   <span class="stage-badge"><span class="dot"></span>E4 · 简单装配体</span>
-  <h1 style="font-size:28px;margin-bottom:8px">把零件装起来，不散架、不干涉</h1>
+  <h1 style="font-size:28px;margin-bottom:8px">E4 装配体：把零件装起来，不散架、不干涉</h1>
 
   <div class="panel" id="taskJump"></div>
 
   <div class="lecture">
 
-    <h2>一、学习目标</h2>
-    <ul>
-      <li>理解装配体（.SLDASM）与零件（.SLDPRT）的关系</li>
-      <li>掌握三大配合：重合、同轴心、距离</li>
-      <li>会做干涉检查，知道"配合过定义"怎么解决</li>
-      <li>会用「打包」提交完整装配</li>
-    </ul>
+    <h2>这一部分讲什么</h2>
+    <p>零件做出来了，机器人不是一堆散件，是装在一起的。装配体（.SLDASM）就是把零件按位置"约束"在一起的文件。这一部分学三大配合、装配流程和干涉检查，最后把前面做的零件装成一个"底板组件"。</p>
 
-    <h2>二、讲义：装配的核心概念</h2>
-    <p>装配体 = 把零件按位置"约束"在一起的文件。它不复制零件，只<strong>引用</strong>零件——所以零件文件不能丢，交作业必须「打包」。</p>
-    <h3>2.1 配合（Mate）三件套</h3>
+    <h2>装配的核心概念</h2>
+    <p>装配体不复制零件，只<strong>引用</strong>零件文件。所以零件文件不能丢、不能改名乱来；交作业必须用「打包」功能，把装配体和所有零件一起打成一个 zip。</p>
+
+    <h2>配合（Mate）三件套</h2>
     <table>
       <tr><th>配合</th><th>作用</th><th>什么时候用</th></tr>
       <tr><td><strong>重合</strong></td><td>两个面贴在一起</td><td>板与板、面与面定位</td></tr>
@@ -47,40 +43,40 @@
     </table>
     <div class="callout tip"><span class="ct">选面口诀</span>配合前先想"哪两个<strong>面</strong>发生关系"——选面比选线稳；圆柱面选"面"而不是"边线"。</div>
 
-    <h2>三、讲义：装配五步</h2>
+    <h2>装配五步</h2>
     <ol class="steps">
       <li><strong>新建装配体</strong>：文件 → 新建 → 装配体（.SLDASM）</li>
       <li><strong>插入第一个零件</strong>：第一个零件最好选"底座"，插入后<strong>固定</strong>（特征树里名字旁有个 (f)）</li>
       <li><strong>插入后续零件</strong>：插入 → 现有零件/装配体 → 选零件 → 在图形区放下</li>
       <li><strong>加配合</strong>：「装配体」标签 → 「配合」→ 依次选两个面 → 选配合类型 → ✅</li>
-      <li><strong>检查</strong>：拖动零件看是否"动不了该动的、能动能动的"</li>
+      <li><strong>检查</strong>：拖动零件看是否"该固定的固定、该动的能动"</li>
     </ol>
 
-    <h2>四、讲义：干涉检查（必做！）</h2>
+    <h2>干涉检查（每个装配体都要做）</h2>
     <ol class="steps">
       <li>「评估」标签 → 「干涉检查」</li>
       <li>点「计算」</li>
       <li>有干涉：红色高亮区域 → 分析是配合错还是尺寸错 → 修改</li>
     </ol>
-    <div class="callout danger"><span class="ct">干涉 = 真实世界的"撞车"</span>图纸上干涉，加工出来就装不上或者干磨。RM 整车几十个零件，全靠装配后干涉检查兜底。E4 起每个装配体必须过干涉检查。</div>
+    <div class="callout danger"><span class="ct">干涉 = 真实世界的"撞车"</span>图纸上干涉，加工出来就装不上或者干磨。RM 整车几十个零件，全靠装配后干涉检查兜底。从 E4 开始，每个装配体交作业前必须过一遍干涉检查。</div>
 
-    <h2>五、练习项目</h2>
-    <p><strong>项目名称</strong>：底板组件（底板 + 阶梯轴 + 两个支撑板）</p>
+    <h2>练习：底板组件</h2>
+    <p>把前面做过的零件装在一起：</p>
     <ol class="steps">
-      <li>底板：F4 连接板改一个（120×80×5，中心 Φ20 孔）</li>
+      <li>底板：F4 连接板改一块（120×80×5，中心 Φ20 孔）</li>
       <li>支撑板 ×2：60×40×5，中心 Φ8 孔（竖着装）</li>
-      <li>阶梯轴：用 E2 的（Φ15 段要能穿进 Φ20 孔，做个 Φ15 段）</li>
+      <li>阶梯轴：用 E2 的（Φ15 段能穿进 Φ20 孔）</li>
       <li>装配：底板固定 → 支撑板与底板"重合+距离"定位 → 阶梯轴与孔"同轴心"</li>
-      <li>干涉检查：必须 0 干涉</li>
+      <li>干涉检查：0 干涉</li>
       <li>保存 → 文件 → 打包 → 生成 zip</li>
     </ol>
-    <p><strong>产出</strong>：<span class="path">E4_底板组件_姓名.zip</span>（内含装配体+全部零件）+ 无干涉截图。</p>
+    <p><strong>没有电脑的同学</strong>：纸笔画"装配关系图"：底板在上、支撑板在下、轴穿中心孔，标出每对配合（底板-支撑板：重合+距离；轴-孔：同轴心），拍照提交。</p>
 
-    <h2>六、外部学习链接</h2>
+    <h2>参考资料</h2>
     <div class="link-card">
       <div class="ic official">官</div>
       <div class="body">
-        <div class="t"><span class="tag official">官方</span>基本配合操作（SW 2026 帮助·中文）</div>
+        <div class="t"><span class="tag official">官方</span>基本配合操作</div>
         <div class="d">固定零部件、默认配合类型、配合到原点——官方装配基础。</div>
         <div class="u">https://help.solidworks.com/2026/chinese-simplified/SolidWorks/sldworks/c_Basic_Mate_Operations.htm</div>
       </div>
@@ -88,7 +84,7 @@
     <div class="link-card">
       <div class="ic official">官</div>
       <div class="body">
-        <div class="t"><span class="tag official">官方</span>识别配合状态（SW 2026 帮助·中文）</div>
+        <div class="t"><span class="tag official">官方</span>识别配合状态</div>
         <div class="d">配合文件夹里的图标含义：满足/未满足/过定义——读懂报错图标。</div>
         <div class="u">https://help.solidworks.com/2026/Chinese-simplified/SolidWorks/sldworks/t_Identifying_Mate_Status_SWassy.htm</div>
       </div>
@@ -104,32 +100,25 @@
     <div class="link-card">
       <div class="ic rm">RM</div>
       <div class="body">
-        <div class="t"><span class="tag rm">RM 专属</span>RM 社区 · 机械板块（真实装配体讨论）</div>
+        <div class="t"><span class="tag rm">RM 专属</span>RM 社区 · 机械板块</div>
         <div class="d">看真实战队装配遇到的问题（干涉、公差、配合习惯），提前建立工程意识。</div>
         <div class="u">https://bbs.robomaster.com/article?category=机械</div>
       </div>
     </div>
 
-    <details>
-      <summary>弹性方案：无电脑成员</summary>
-      <div class="body">
-        <p>用纸笔画"装配关系图"：底板在上、支撑板在下、轴穿中心孔，标出每对配合（底板-支撑板：重合+距离；轴-孔：同轴心）。拍照提交。电脑到位后按图装配。</p>
-      </div>
-    </details>
-
-    <h2>七、提交要求</h2>
+    <h2>作业</h2>
     <ul>
-      <li>必须用「打包」功能导出 zip（包含所有零件），只传 .SLDASM 算未完成</li>
+      <li>必须用「打包」功能导出 zip（包含所有零件），只传 .SLDASM 算没交</li>
       <li>命名：<span class="path">E4_底板组件_姓名.zip</span></li>
       <li>附无干涉截图</li>
     </ul>
 
-    <h2>八、常见错误</h2>
+    <h2>常见问题</h2>
     <ol>
-      <li><strong>第一个零件没固定</strong> → 装配体第一个零件必须固定，否则全散。</li>
-      <li><strong>配合过定义</strong> → 删除多余配合；配合文件夹里看红色报错项。</li>
-      <li><strong>不打包就交</strong> → 换电脑零件全丢，永远用「打包」。</li>
-      <li><strong>零件透明/找不到</strong> → 特征树右键零件 → 「显示」。</li>
+      <li><strong>第一个零件没固定</strong>：装配体第一个零件必须固定，否则全散。</li>
+      <li><strong>配合过定义</strong>：删除多余配合；配合文件夹里看红色报错项。</li>
+      <li><strong>不打包就交</strong>：换电脑零件全丢，永远用「打包」。</li>
+      <li><strong>零件透明/找不到</strong>：特征树右键零件 → 「显示」。</li>
     </ol>
 
   </div>

@@ -4,14 +4,14 @@
 
   /* 任务索引（供搜索 + 首页/阶段页导航复用） */
   var TASKS = [
-    { id: "f0", stage: "F", num: "F0", title: "阶段说明与学习目标", file: "f/f0.html" },
+    { id: "f0", stage: "F", num: "F0", title: "阶段说明", file: "f/f0.html" },
     { id: "f1", stage: "F", num: "F1", title: "SW2026 安装与界面熟悉", file: "f/f1.html" },
     { id: "f2", stage: "F", num: "F2", title: "草图绘制基础", file: "f/f2.html" },
     { id: "f3", stage: "F", num: "F3", title: "草图约束与尺寸标注", file: "f/f3.html" },
     { id: "f4", stage: "F", num: "F4", title: "简单拉伸零件练习", file: "f/f4.html" },
     { id: "f5", stage: "F", num: "F5", title: "F 阶段考核任务", file: "f/f5.html" },
     { id: "ferr", stage: "F", num: "F!", title: "F 阶段常见错误合集", file: "f/err.html" },
-    { id: "e0", stage: "E", num: "E0", title: "阶段说明与学习目标", file: "e/e0.html" },
+    { id: "e0", stage: "E", num: "E0", title: "阶段说明", file: "e/e0.html" },
     { id: "e1", stage: "E", num: "E1", title: "特征树与基准", file: "e/e1.html" },
     { id: "e2", stage: "E", num: "E2", title: "旋转特征", file: "e/e2.html" },
     { id: "e3", stage: "E", num: "E3", title: "扫描与放样", file: "e/e3.html" },

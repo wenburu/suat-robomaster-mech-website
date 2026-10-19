@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>F1 SW2026 安装与界面熟悉 - SUAT RoboMaster 机械组</title>
+<title>F1 安装与界面 - SUAT RoboMaster 机械组</title>
 <link rel="stylesheet" href="../css/style.css">
 </head>
 <body data-stage="F" data-task="f1">
@@ -21,74 +21,67 @@
 
 <main class="wrap">
   <div class="crumb"><a href="../index.html">首页</a> / <a href="index.html">F 阶段</a> / F1</div>
-  <span class="stage-badge"><span class="dot"></span>F1 · SW2026 安装与界面熟悉</span>
-  <h1 style="font-size:28px;margin-bottom:8px">把软件装好，认识它，别慌</h1>
+  <span class="stage-badge"><span class="dot"></span>F1 · 安装激活与认识界面</span>
+  <h1 style="font-size:28px;margin-bottom:8px">F1 安装 SolidWorks 2026，认识界面和鼠标</h1>
 
   <div class="panel" id="taskJump"></div>
 
   <div class="lecture">
 
-    <h2>一、学习目标</h2>
+    <h2>这一部分讲什么</h2>
+    <p>先把 SolidWorks 2026 装好、激活，然后认识界面上的四个区域，学会用鼠标转模型、选对象。这些都是后面每个操作的地基，装完软件当天就能过。</p>
+
+    <h2>安装与激活</h2>
+    <ol class="steps">
+      <li><strong>下载</strong>：到 SOLIDWORKS 学生版官网或学校提供的教育许可渠道下载 2026 版本（认准"学生版"字样）。</li>
+      <li><strong>安装</strong>：双击安装包 → 选"个人安装" → 一路下一步 → 安装路径保持默认即可。</li>
+      <li><strong>激活</strong>：学生版用学校邮箱注册账号激活；RM 教育许可按战队渠道激活。激活失败看错误码，多数是邮箱没验证。</li>
+      <li><strong>验证</strong>：打开软件，帮助 → 关于 SOLIDWORKS，确认版本是 2026。</li>
+    </ol>
+    <div class="callout danger"><span class="ct">注意</span>全组统一 2026 版本，不装破解版、不装其他版本。高版本能打开低版本的文件，反过来不行，版本不统一后面协作全是坑。</div>
+
+    <h2>界面四个区域</h2>
+    <p>打开一个新建零件，界面分成四块：</p>
+    <table>
+      <tr><th>区域</th><th>位置</th><th>干什么用的</th></tr>
+      <tr><td><strong>特征树</strong></td><td>左侧</td><td>从上到下记录所有操作历史：基准面→草图→特征。点哪个看哪个</td></tr>
+      <tr><td><strong>属性管理器</strong></td><td>左侧（跟特征树同区域）</td><td>执行命令时填参数的地方（拉伸多深、旋转多少度）</td></tr>
+      <tr><td><strong>图形区</strong></td><td>中间</td><td>画图和看模型的地方</td></tr>
+      <tr><td><strong>命令管理器</strong></td><td>顶部</td><td>各种命令按钮，按标签页分组（草图/特征/评估…）</td></tr>
+    </table>
+
+    <h2>鼠标三键</h2>
     <ul>
-      <li>正确安装并激活 SolidWorks 2026（学生版 / RM 教育许可）</li>
-      <li>说出界面四大区域的位置和用途</li>
-      <li>会用鼠标三键旋转、平移、缩放视图</li>
+      <li><strong>左键</strong>：选中对象（点线面、点零件）</li>
+      <li><strong>右键</strong>：弹出菜单（草图、特征、快捷操作）</li>
+      <li><strong>中键（滚轮）</strong>：按住旋转模型；滚动缩放</li>
     </ul>
+    <div class="callout tip"><span class="ct">立刻试</span>新建零件 → 按住中键转一转 → 滚轮放大缩小。三秒学会，后面天天用。</div>
 
-    <h2>二、讲义：安装与激活</h2>
-    <h3>2.1 版本铁律</h3>
-    <div class="callout danger"><span class="ct">全组统一：SolidWorks 2026</span>只允许学生版或 RM 教育许可，<strong>严禁破解版</strong>。理由：① 破解版文件与正版互相打不开，全组协作直接崩；② 组内传播破解工具有法律风险；③ RM 官方培训/裁判检查版本时会出问题。</div>
+    <h2>三大基准面</h2>
+    <p>SolidWorks 是三维软件，画图前先选在哪一"面"上画。零件里默认有三个相互垂直的基准面：</p>
+    <ul>
+      <li><strong>前视基准面</strong>：从正面看</li>
+      <li><strong>上视基准面</strong>：从上面俯视</li>
+      <li><strong>右视基准面</strong>：从右侧看</li>
+    </ul>
+    <p>特征树里双击任一基准面，模型会转到正对它，然后就可以开始画草图。</p>
 
-    <h3>2.2 安装步骤</h3>
-    <ol class="steps">
-      <li><strong>拿到安装包</strong>：由组长/运营组统一提供 2026 安装包或学生版下载渠道（MySolidWorks 学生账号），不要各自从网上乱下。</li>
-      <li><strong>关闭杀毒软件</strong>：安装过程可能被拦截，装完可再开。</li>
-      <li><strong>以管理员身份运行安装程序</strong>：右键安装包 → 以管理员身份运行。</li>
-      <li><strong>选择安装位置</strong>：默认 C 盘即可；如果 C 盘紧张，改到 D 盘，但<strong>记下路径</strong>（后面找文件要用）。</li>
-      <li><strong>等待 10-30 分钟</strong>：中途别关电源别强制退出。</li>
-      <li><strong>激活</strong>：学生版用学校/官方提供的序列号在教育许可通道激活；RM 教育许可按官方指引操作。激活失败截图发群里求助，已装同学远程指导。</li>
+    <h2>练习</h2>
+    <ol>
+      <li>完成安装和激活，软件里确认版本 2026</li>
+      <li>新建零件，用中键旋转、滚轮缩放，各试 1 分钟</li>
+      <li>在特征树里依次点三个基准面，观察模型如何转动</li>
+      <li>对着上面的四区表格，在自己软件里指出四个区域各在哪</li>
     </ol>
-    <div class="callout warn"><span class="ct">安装失败怎么办</span>① 重启电脑再试一次；② 检查安装包是否完整（大小是否一致）；③ 别自己找"绿色版/破解版"——找组长或已装同学，换官方渠道。</div>
+    <p><strong>没有电脑的同学</strong>：抄一遍"界面四区"和"鼠标三键"到笔记本，再看一遍阿奇安装章节（链接在下面），电脑到位后照着做。</p>
 
-    <h2>三、讲义：认识界面（对着软件指一遍）</h2>
-    <p>首次打开：<span class="path">文件 → 新建 → 零件</span>，进入建模界面。记住四大区域：</p>
-    <table>
-      <tr><th>区域</th><th>位置</th><th>作用</th><th>零基础怎么用</th></tr>
-      <tr><td><strong>特征树</strong>（设计树）</td><td>左侧</td><td>记录建模历史，从下往上就是你的操作步骤</td><td>想改哪里，就在树里找到那一步，右键→编辑</td></tr>
-      <tr><td><strong>属性管理器</strong></td><td>左侧（点命令时弹出）</td><td>设置当前命令的参数</td><td>点了"拉伸"它就出现，参数在这里填</td></tr>
-      <tr><td><strong>图形区</strong></td><td>中间</td><td>画图和看模型的地方</td><td>鼠标操作都在这里发生</td></tr>
-      <tr><td><strong>命令管理器</strong></td><td>顶部</td><td>功能区：草图/特征/装配体等标签页</td><td>先点标签页，再点里面的命令按钮</td></tr>
-    </table>
-
-    <h3>3.1 鼠标三键（最关键，马上练）</h3>
-    <table>
-      <tr><th>操作</th><th>效果</th><th>说明</th></tr>
-      <tr><td>滚轮滚动</td><td>视图缩放</td><td>往前放大，往后缩小</td></tr>
-      <tr><td>按住滚轮拖动</td><td>视图平移</td><td>把模型"抓住"移来移去</td></tr>
-      <tr><td>按住中键/右键拖动</td><td>视图旋转</td><td>绕模型转圈看</td></tr>
-      <tr><td>右键</td><td>快捷菜单</td><td>弹出上下文操作</td></tr>
-    </table>
-    <div class="callout tip"><span class="ct">练手动作</span>打开软件后，随便建个零件，用鼠标三键把视图转几圈、放大缩小几次，直到<strong>不假思索</strong>能完成。</div>
-
-    <h3>3.2 三个基准面</h3>
-    <p>建模要"躺在"某个面上画草图。SolidWorks 默认三个基准面：<strong>前视、上视、右视</strong>。F2 起会频繁用到，现在只需知道它们存在于特征树最上面，且可以隐藏/显示（<span class="path">视图 → 隐藏/显示 → 基准面</span>）。</p>
-
-    <h2>四、练习项目</h2>
-    <p><strong>项目名称</strong>：界面熟悉练习</p>
-    <ol class="steps">
-      <li><strong>新建零件</strong>：文件 → 新建 → 零件 → 确定</li>
-      <li><strong>画一个矩形</strong>：顶部「草图」标签 → 选择"前视基准面" → 点「矩形」→ 在图形区拖出一个矩形 → 观察特征树出现了什么</li>
-      <li><strong>观察</strong>：特征树出现"草图1"了吗？属性管理器弹出过参数吗？</li>
-      <li><strong>截图</strong>：把整个界面截图，用画图工具圈出四大区域，标注名称</li>
-    </ol>
-    <p><strong>产出</strong>：一张标注好的界面截图（四大区域 + 特征树里的"草图1"）。</p>
-
-    <h2>五、外部学习链接</h2>
+    <h2>参考资料</h2>
     <div class="link-card">
       <div class="ic official">官</div>
       <div class="body">
-        <div class="t"><span class="tag official">官方</span>SOLIDWORKS「学习」标签页 · CAD 入门学习路径</div>
-        <div class="d">软件右上角 →「学习」→「SOLIDWORKS CAD 入门」，官方的第一个草图→零件→装配体→工程图完整路径。</div>
+        <div class="t"><span class="tag official">官方</span>软件自带「学习」标签页</div>
+        <div class="d">装好后点帮助 → 学习，里面有官方入门路径：第一个草图 → 零件 → 装配 → 工程图。</div>
         <div class="u">https://help.solidworks.com/2026/Chinese-simplified/SolidWorks/Sldworks/c_learn_tab.htm</div>
       </div>
     </div>
@@ -96,56 +89,39 @@
       <div class="ic official">官</div>
       <div class="body">
         <div class="t"><span class="tag official">官方</span>MySolidWorks 免费训练（400+ 课程）</div>
-        <div class="d">MySolidWorks 训练资源已免费开放，注册学生账号后可用；适合零基础系统补课。</div>
+        <div class="d">注册学生账号免费学，按课程走一遍入门路径，比看零散视频系统。</div>
         <div class="u">https://my.solidworks.com/training/path/58/introduccin-a-solidworks?lang=cn</div>
       </div>
     </div>
     <div class="link-card">
       <div class="ic video">视</div>
       <div class="body">
-        <div class="t"><span class="tag video">视频</span>阿奇设计分享《SOLIDWORKS 教学精品教程》第 1 集</div>
-        <div class="d">B 站点赞 NO.1 的 SW 全套教程，第 1 集讲软件下载安装与界面认识，正好对应本任务。别囤课，看完动手。</div>
+        <div class="t"><span class="tag video">视频</span>阿奇设计分享《SOLIDWORKS 教学精品教程》</div>
+        <div class="d">B 站点赞最高的 SW 全套教程。本任务看开头"安装与界面"章节即可。</div>
         <div class="u">https://www.bilibili.com/video/BV1iw411Z7HZ</div>
       </div>
     </div>
     <div class="link-card">
-      <div class="ic video">视</div>
+      <div class="ic rm">RM</div>
       <div class="body">
-        <div class="t"><span class="tag video">视频</span>阿奇设计分享主页（全部系列）</div>
-        <div class="d">机械臂大作战、练习题 40 道等系列都在主页，后续任务按需取用。</div>
-        <div class="u">https://space.bilibili.com/257459324/video</div>
+        <div class="t"><span class="tag rm">RM 专属</span>RM2025 新生培训（机械组篇）</div>
+        <div class="d">官方新生培训 PDF，里面有 SW 安装和基础操作的战队版说明。</div>
+        <div class="u">https://bbs-web-static.robomaster.com/bbs-prod/6112b90b2b424ee39a9bee46b1508305/RM2025%20%E6%96%B0%E7%94%9F%E5%9F%B9%E8%AE%AD.pdf</div>
       </div>
     </div>
 
-    <details>
-      <summary>💡 弹性方案：无电脑 / 未装 SW</summary>
-      <div class="body">
-        <p><strong>无电脑成员（11 月中旬购机）</strong>：</p>
-        <ol>
-          <li>看阿奇教程第 1 集 2 遍，边看边做笔记</li>
-          <li>找结对成员要"界面四区标注截图"，自己对照复述每区作用</li>
-          <li>在纸上画出界面布局草图（四区位置 + 基准面），拍照提交</li>
-          <li>电脑到位后 2 天内补 F1 实操截图</li>
-        </ol>
-        <p><strong>未装 SW / 配置不确定</strong>：本周先解决安装；装完跑一个矩形草图测流畅度；卡顿明显 → 用机房电脑补练。</p>
-      </div>
-    </details>
-
-    <h2>六、提交要求</h2>
+    <h2>作业</h2>
     <ul>
-      <li>产出：界面标注截图（或替代方案的笔记照片）</li>
-      <li>命名：<span class="path">F1_姓名_日期</span></li>
-      <li>提交到飞书多维表格「进度跟踪表」</li>
-      <li>截止：本周日 23:59</li>
+      <li>把"软件版本确认页"截图 + "界面四区指认截图"提交到多维表格「进度跟踪表」</li>
+      <li>命名：<span class="path">F1_界面_姓名.png</span></li>
     </ul>
 
-    <h2>七、常见错误</h2>
+    <h2>常见问题</h2>
     <ol>
-      <li><strong>装错版本</strong>（装了 2024/2025）→ 与全组文件不兼容，重装 2026。</li>
-      <li><strong>打开卡在"正在准备"</strong> → 重启电脑；或用管理员身份运行 SolidWorks。</li>
-      <li><strong>在群里发破解激活工具</strong> → 立即撤回，组内通报；一律走官方许可。</li>
-      <li><strong>找不到特征树</strong> → 界面左侧若收起，点左下角"特征"标签展开。</li>
-      <li><strong>鼠标操作不熟练</strong> → 别急，练 10 分钟就有感觉，这是肌肉记忆。</li>
+      <li><strong>安装完打不开</strong>：右键图标 → 以管理员身份运行；还不行就重启电脑。</li>
+      <li><strong>激活一直失败</strong>：看错误码。多数是注册邮箱没点验证链接，去邮箱点一下再试。</li>
+      <li><strong>界面跟教程不一样</strong>：可能装成了其他版本。确认是 2026；菜单位置偶尔不同，功能名字都一样。</li>
+      <li><strong>找不到三个基准面</strong>：特征树第一行"前视/上视/右视"就是，双击即可。</li>
     </ol>
 
   </div>

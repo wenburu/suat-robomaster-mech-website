@@ -22,21 +22,17 @@
 <main class="wrap">
   <div class="crumb"><a href="../index.html">首页</a> / <a href="index.html">E 阶段</a> / E2</div>
   <span class="stage-badge"><span class="dot"></span>E2 · 旋转特征</span>
-  <h1 style="font-size:28px;margin-bottom:8px">一根中心线，转出所有轴类零件</h1>
+  <h1 style="font-size:28px;margin-bottom:8px">E2 旋转特征：一根中心线，转出所有轴类零件</h1>
 
   <div class="panel" id="taskJump"></div>
 
   <div class="lecture">
 
-    <h2>一、学习目标</h2>
-    <ul>
-      <li>理解旋转的原理：轮廓绕中心线转 360° = 回转体</li>
-      <li>会用旋转做阶梯轴（RM 云台/底盘最常见的零件）</li>
-      <li>能在轴上做螺纹孔和键槽（后续任务基础）</li>
-    </ul>
+    <h2>这一部分讲什么</h2>
+    <p>机器人上到处是"转的东西"：舵机轴、云台轴、轮轴、销。它们都是回转体——绕一根轴线转出来的。SolidWorks 里做回转体用「旋转」命令：画出半剖面轮廓，绕中心线转 360°，就是完整零件。这一部分学旋转，并做出一根阶梯轴。</p>
 
-    <h2>二、讲义：旋转命令三大铁律</h2>
-    <div class="callout danger"><span class="ct">旋转命令报错，99% 是这三条</span>
+    <h2>旋转命令三大铁律</h2>
+    <div class="callout danger"><span class="ct">旋转报错，99% 是这三条</span>
       <ol>
         <li>必须画一条<strong>中心线</strong>作为旋转轴（草图标签 → 中心线，不是普通直线）</li>
         <li>轮廓必须画在中心线的<strong>一侧</strong></li>
@@ -44,7 +40,7 @@
       </ol>
     </div>
 
-    <h3>2.1 旋转步骤</h3>
+    <h2>旋转步骤</h2>
     <ol class="steps">
       <li>前视基准面 → 草图</li>
       <li>画一条<strong>中心线</strong>（竖直，作为旋转轴）</li>
@@ -52,34 +48,37 @@
       <li>退出草图 → 「特征」→ 「旋转凸台/基体」</li>
       <li>确认旋转轴选的是中心线，角度 360° → 确定</li>
     </ol>
-    <div class="callout tip"><span class="ct">为什么是"半剖面"？</span>轴是回转体，任何过轴线的截面都是一样的。你只要画出"半边"，转一圈就是整根轴。旋转零件全部这么画。</div>
+    <div class="callout tip"><span class="ct">为什么是"半剖面"？</span>轴是回转体，任何过轴线的截面都是一样的。只要画出"半边"，转一圈就是整根轴。所有旋转零件都这么画。</div>
 
-    <h2>三、讲义：实例——阶梯轴</h2>
-    <p>我们要做：Φ20 × 30mm + Φ15 × 20mm 的阶梯轴，一端 M6 螺纹孔。</p>
+    <h2>实例：阶梯轴</h2>
+    <p>做一根 Φ20 × 30mm + Φ15 × 20mm 的阶梯轴，一端带 M6 螺纹底孔。</p>
     <ol class="steps">
       <li>前视基准面 → 草图</li>
-      <li>画竖直中心线（长度约 60mm）</li>
-      <li>在右侧画半剖面：外轮廓从上到下：<br>
-          水平线 Φ20 段（宽 30）→ 竖直阶梯线 → 水平线 Φ15 段（宽 20）→ 回到轴线上 → 沿轴线闭合</li>
+      <li>画竖直中心线（长约 60mm）</li>
+      <li>在右侧画半剖面：外轮廓从上到下——水平线 Φ20 段（宽 30）→ 竖直阶梯线 → 水平线 Φ15 段（宽 20）→ 回到轴线上 → 沿轴线闭合</li>
       <li>退出草图 → 旋转 360° → 得到阶梯轴</li>
       <li>选中轴端面 → 草图 → 画 Φ5.2 圆（M6 螺纹底孔）→ 拉伸切除 → 深度 15mm</li>
       <li>特征树全部改名，保存</li>
     </ol>
-    <p><strong>产出</strong>：<span class="path">E2_阶梯轴_姓名.SLDPRT</span>，特征树干净、命名规范。</p>
+    <p>为什么底孔是 Φ5.2？M6 螺纹的底孔直径标准是 5mm（内螺纹底孔≈公称直径−螺距，M6 螺距 1，即 6−1=5；加工常用 5.0~5.2）。这类"标准孔尺寸"后面 D 阶段会系统学。</p>
 
-    <h2>四、外部学习链接</h2>
+    <h2>练习</h2>
+    <p>练习：按上面的实例做阶梯轴，保存为 <span class="path">E2_阶梯轴_姓名.SLDPRT</span>。</p>
+    <p><strong>没有电脑的同学</strong>：用纸笔画出阶梯轴的"半剖面草图"（标注 Φ20/Φ15/30/20），拍照提交。</p>
+
+    <h2>参考资料</h2>
     <div class="link-card">
       <div class="ic official">官</div>
       <div class="body">
-        <div class="t"><span class="tag official">官方</span>旋转特征（Revolves）官方说明</div>
-        <div class="d">SW 帮助对旋转特征的完整指南：轮廓选择、旋转轴、角度设置、多轮廓旋转。</div>
+        <div class="t"><span class="tag official">官方</span>旋转特征（Revolves）</div>
+        <div class="d">旋转特征的完整指南：轮廓选择、旋转轴、角度、多轮廓旋转。</div>
         <div class="u">https://help.solidworks.com/2026/english/solidworks/sldworks/c_Revolves_Folder.htm</div>
       </div>
     </div>
     <div class="link-card">
       <div class="ic official">官</div>
       <div class="body">
-        <div class="t"><span class="tag official">官方</span>逐步教程：完成旋转基体（英文）</div>
+        <div class="t"><span class="tag official">官方</span>逐步教程：完成旋转基体</div>
         <div class="d">官方分步教程，跟着点一遍旋转命令全流程。</div>
         <div class="u">https://help.solidworks.com/2026/english/swtutorialonline/t_tut_pattern_completerevolvedbase.htm</div>
       </div>
@@ -93,26 +92,19 @@
       </div>
     </div>
 
-    <details>
-      <summary>弹性方案：无电脑成员</summary>
-      <div class="body">
-        <p>抄写"旋转三大铁律"到笔记本；用纸笔画出阶梯轴的"半剖面草图"（标注 Φ20/Φ15/30/20），拍照提交。这是识图训练，电脑到位后照着自己的图建模。</p>
-      </div>
-    </details>
-
-    <h2>五、提交要求</h2>
+    <h2>作业</h2>
     <ul>
       <li>命名：<span class="path">E2_阶梯轴_姓名.SLDPRT</span></li>
       <li>附等轴测截图，特征树可见（命名规范）</li>
       <li>提交到多维表格「进度跟踪表」</li>
     </ul>
 
-    <h2>六、常见错误</h2>
+    <h2>常见问题</h2>
     <ol>
-      <li><strong>没画中心线，用普通直线当轴</strong> → 旋转命令不知道绕哪转。</li>
-      <li><strong>轮廓跨在中心线两侧</strong> → 报错"轮廓与中心线交叉"，把轮廓全挪到一侧。</li>
-      <li><strong>轮廓没封闭</strong> → 旋转报错，检查缺口。</li>
-      <li><strong>旋转角度输错</strong> → 需要完整回转体就 360°；只转 90° 想生成 1/4 圆环时才用其它角度。</li>
+      <li><strong>没画中心线，用普通直线当轴</strong>：旋转命令不知道绕哪转。</li>
+      <li><strong>轮廓跨在中心线两侧</strong>：报错"轮廓与中心线交叉"，把轮廓全挪到一侧。</li>
+      <li><strong>轮廓没封闭</strong>：旋转报错，检查缺口。</li>
+      <li><strong>旋转角度输错</strong>：完整回转体用 360°；只转 90° 是在做 1/4 圆环时才用。</li>
     </ol>
 
   </div>

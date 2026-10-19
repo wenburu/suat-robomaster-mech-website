@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>F2 草图绘制基础 - SUAT RoboMaster 机械组</title>
+<title>F2 草图基本命令 - SUAT RoboMaster 机械组</title>
 <link rel="stylesheet" href="../css/style.css">
 </head>
 <body data-stage="F" data-task="f2">
@@ -21,130 +21,99 @@
 
 <main class="wrap">
   <div class="crumb"><a href="../index.html">首页</a> / <a href="index.html">F 阶段</a> / F2</div>
-  <span class="stage-badge"><span class="dot"></span>F2 · 草图绘制基础</span>
-  <h1 style="font-size:28px;margin-bottom:8px">六个命令，画出任何草图</h1>
+  <span class="stage-badge"><span class="dot"></span>F2 · 草图基本命令</span>
+  <h1 style="font-size:28px;margin-bottom:8px">F2 草图：直线、圆、矩形、圆弧</h1>
 
   <div class="panel" id="taskJump"></div>
 
   <div class="lecture">
 
-    <h2>一、学习目标</h2>
-    <ul>
-      <li>掌握 6 个核心草图命令：直线、矩形、圆、圆弧、修剪、延伸</li>
-      <li>理解"草图要画在基准面上"</li>
-      <li>养成看右下角提示栏的习惯</li>
-    </ul>
+    <h2>这一部分讲什么</h2>
+    <p>SolidWorks 的建模方式：先在平面上画二维草图（直线、圆、矩形、圆弧），再把草图"拉"成三维实体。所以草图命令是每天都要用的基本功。这一部分学会六个最常用的命令和快捷键。</p>
 
-    <h2>二、讲义：进入草图</h2>
+    <h2>草图的基本流程</h2>
     <ol class="steps">
-      <li><strong>新建零件</strong>：文件 → 新建 → 零件</li>
-      <li><strong>选基准面</strong>：在特征树里点一下"前视基准面"（它会高亮）</li>
-      <li><strong>进入草图</strong>：顶部「草图」标签 → 点「草图绘制」，或直接按快捷键画</li>
+      <li>选基准面（比如前视基准面）→ 点「草图」标签 → 「草图绘制」</li>
+      <li>画线、圆、矩形等（下方有快捷键）</li>
+      <li>画完点右上角「退出草图」（或点确认符号）</li>
     </ol>
-    <p>进入后右下角会出现提示栏，显示当前鼠标状态（如"水平""竖直""重合"）。<strong>画图永远盯着右下角提示</strong>，它是你的导航仪。</p>
+    <div class="callout tip"><span class="ct">快捷键</span>进入/退出草图按键盘 S 键，弹出快捷命令栏，比找按钮快得多。</div>
 
-    <h2>三、讲义：六个核心命令</h2>
+    <h2>六个基本命令</h2>
+    <table>
+      <tr><th>命令</th><th>按钮位置</th><th>用途</th></tr>
+      <tr><td>直线</td><td>草图 → 直线</td><td>画直线段、折线</td></tr>
+      <tr><td>圆</td><td>草图 → 圆</td><td>画圆（先点圆心，再拉半径）</td></tr>
+      <tr><td>矩形</td><td>草图 → 矩形</td><td>画矩形（对角线两点）</td></tr>
+      <tr><td>圆弧</td><td>草图 → 三点圆弧</td><td>画圆弧（依次点起点、终点、弧上一点）</td></tr>
+      <tr><td>中心线</td><td>草图 → 中心线</td><td>画辅助线（虚线），做对称、旋转轴时用</td></tr>
+      <tr><td>智能尺寸</td><td>草图 → 智能尺寸（或 D 键）</td><td>标尺寸，让线有确定长度（下一部分细讲）</td></tr>
+    </table>
 
-    <h3>3.1 直线 <kbd>L</kbd></h3>
-    <ol>
-      <li>点「直线」命令，鼠标变成铅笔</li>
-      <li>在图形区点第一下（起点），拖动，点第二下（终点）</li>
-      <li>想连续画：继续点第三下、第四下……按 <kbd>Esc</kbd> 或双击结束</li>
-      <li><strong>注意</strong>：线旁出现红色小符号 = 自动添加了约束（水平/竖直），这是好事</li>
-    </ol>
+    <h2>快捷键</h2>
+    <table>
+      <tr><th>按键</th><th>功能</th></tr>
+      <tr><td>L</td><td>直线</td></tr>
+      <tr><td>C</td><td>圆</td></tr>
+      <tr><td>R</td><td>矩形</td></tr>
+      <tr><td>D</td><td>智能尺寸</td></tr>
+      <tr><td>Ctrl+Z</td><td>撤销</td></tr>
+      <tr><td>Esc</td><td>结束当前命令</td></tr>
+    </table>
+    <p>记不住没关系，按钮上悬停有提示；用多了就记住了。</p>
 
-    <h3>3.2 矩形 <kbd>R</kbd></h3>
-    <p>常用两种：</p>
+    <h2>捕捉与推理线</h2>
+    <p>画线时出现的虚线、符号，是软件在"提醒"你：</p>
     <ul>
-      <li><strong>边角矩形</strong>：点第一个角 → 拖到对角 → 松手</li>
-      <li><strong>中心矩形</strong>：先点中心 → 再拖出一个角（对称零件超好用）</li>
+      <li>红色/绿色小方块：线的端点或中点，鼠标放上去自动"吸"住</li>
+      <li>虚线虚线：对齐提示（跟某条线水平/垂直对齐）</li>
+      <li>竖直/水平符号：当前线正好竖直或水平</li>
     </ul>
+    <div class="callout tip"><span class="ct">意思</span>出现这些提示时直接点下鼠标，软件自动帮你对齐、连接，画出来的图又准又快。</div>
 
-    <h3>3.3 圆 <kbd>C</kbd></h3>
-    <ol>
-      <li>点「圆」命令 → 先点圆心 → 拖动定半径 → 点一下完成</li>
-      <li>画"中心圆"（圆心在某个点/中点/交点上）：先捕捉该点再拖</li>
-    </ol>
-    <div class="callout tip"><span class="ct">捕捉提示</span>鼠标靠近中点/端点/交点时会出现<strong>绿色小方块/圆点</strong>，这就是捕捉，画准的关键。</div>
+    <h2>练习</h2>
+    <p>练习 1（10 分钟）：新建草图，画一个矩形 + 一个圆 + 一条直线，再撤销重画两遍，熟悉快捷键。</p>
+    <p>练习 2（30 分钟）：画"连接板草图"——一个 120×80 的矩形，四角各一个 Φ10 圆（圆心距离边 10mm），中心一个 Φ20 圆。先不标尺寸，只把形状画出来。</p>
+    <p><strong>没有电脑的同学</strong>：用方格纸画练习 2 的草图，标注尺寸，拍照保存。</p>
 
-    <h3>3.4 圆弧</h3>
-    <ul>
-      <li><strong>三点圆弧</strong>：起点 → 终点 → 弧上一点（最常见）</li>
-      <li><strong>圆心/起/终点圆弧</strong>：圆心 → 起点 → 终点（画规则圆角用）</li>
-    </ul>
-
-    <h3>3.5 修剪 <kbd>T</kbd>（剪掉多余）</h3>
-    <ol>
-      <li>点「修剪实体」→ 鼠标划过要<strong>删掉</strong>的线段</li>
-      <li>线段像被刀割一样消失</li>
-    </ol>
-
-    <h3>3.6 延伸（补上断口）</h3>
-    <ol>
-      <li>点「延伸实体」→ 点要延伸的线段的<strong>端点一侧</strong></li>
-      <li>它会自动伸到碰上下一条线为止</li>
-    </ol>
-
-    <div class="callout warn"><span class="ct">最容易忽略的一步</span>草图画完想退出，点右上角/命令栏的<strong>「退出草图」</strong>。不退出就做不了拉伸等特征。</div>
-
-    <h2>四、练习项目</h2>
-    <p><strong>练习 1（必做）</strong>：100mm × 60mm 的矩形，四角倒 R10 圆角。</p>
-    <ol class="steps">
-      <li>前视基准面 → 草图</li>
-      <li>按 <kbd>R</kbd> 画边角矩形（尺寸先不管，F3 学完标尺寸）</li>
-      <li>用「圆角」命令（草图标签页里）：依次点矩形相邻两边，半径先随便，F3 标尺寸</li>
-      <li>退出草图，另存为 <span class="path">F2_姓名_日期.SLDPRT</span></li>
-    </ol>
-    <p><strong>练习 2（选做）</strong>：矩形中心画一个 Φ20 圆（捕捉矩形中心点）。</p>
-    <p><strong>产出</strong>：两张草图截图（含右下角提示栏），或一个 .SLDPRT 文件。</p>
-
-    <h2>五、外部学习链接</h2>
+    <h2>参考资料</h2>
     <div class="link-card">
       <div class="ic official">官</div>
       <div class="body">
-        <div class="t"><span class="tag official">官方</span>草图绘制概念（SW 2026 帮助·中文）</div>
-        <div class="d">官方对"草图是什么、尺寸与几何关系怎么起作用"的系统讲解，1 页读完建立概念。</div>
+        <div class="t"><span class="tag official">官方</span>草图绘制概念</div>
+        <div class="d">官方对草图概念的解释：草图是什么、尺寸和几何关系怎么起作用。</div>
         <div class="u">https://help.solidworks.com/2026/chinese-simplified/SolidWorks/acadhelp/c_moving2d3d_sketching_concepts.htm</div>
       </div>
     </div>
     <div class="link-card">
       <div class="ic official">官</div>
       <div class="body">
-        <div class="t"><span class="tag official">官方</span>草图（SW Design 帮助·中文）</div>
-        <div class="d">草图工具栏、草图实体（直线/圆/矩形/圆弧）逐个讲解，遇到不会的命令来查。</div>
+        <div class="t"><span class="tag official">官方</span>草图（SW 2026 帮助）</div>
+        <div class="d">草图命令总入口，哪个命令不会点哪个。</div>
         <div class="u">https://help.solidworks.com/2025/Chinese-Simplified/SolidWorks/sldworks/c_Sketch.htm</div>
       </div>
     </div>
     <div class="link-card">
       <div class="ic video">视</div>
       <div class="body">
-        <div class="t"><span class="tag video">视频</span>阿奇《SOLIDWORKS 教学精品教程》· 草图绘制集</div>
-        <div class="d">教程中"草图绘制"章节讲了直线/矩形/圆/槽/圆弧/圆角/点，照着他画一遍再自己做练习。</div>
+        <div class="t"><span class="tag video">视频</span>阿奇教程 · 草图章节</div>
+        <div class="d">看"草图绘制"部分，跟着画一遍直线、圆、矩形。</div>
         <div class="u">https://www.bilibili.com/video/BV1iw411Z7HZ</div>
       </div>
     </div>
 
-    <details>
-      <summary>弹性方案：无电脑 / 时间不足</summary>
-      <div class="body">
-        <p><strong>无电脑成员</strong>：看阿奇草图章节视频 1 遍 → 画出"进入草图 → 画矩形 → 倒圆角 → 退出草图"四步流程图（手绘拍照）→ 标注每个命令的快捷键。</p>
-        <p><strong>时间不足（考试周）</strong>：只做练习 1（矩形+圆角），练习 2 选做；下周补。</p>
-      </div>
-    </details>
-
-    <h2>六、提交要求</h2>
+    <h2>作业</h2>
     <ul>
-      <li>命名：<span class="path">F2_姓名_日期.SLDPRT</span>（或截图）</li>
+      <li>把练习 2 的草图保存，命名 <span class="path">F2_连接板草图_姓名.SLDPRT</span>，附一张截图</li>
       <li>提交到多维表格「进度跟踪表」</li>
-      <li>截止：本周日 23:59</li>
     </ul>
 
-    <h2>七、常见错误</h2>
+    <h2>常见问题</h2>
     <ol>
-      <li><strong>画线不看右下角提示</strong> → 线是歪的还不知道，必须养成看提示的习惯。</li>
-      <li><strong>不退出草图就点拉伸</strong> → 有些版本能直接转，有些会报错；先退草图再做特征，习惯统一。</li>
-      <li><strong>矩形画成了四条独立的线</strong> → 用「矩形」命令一次画成，别用四条直线拼。</li>
-      <li><strong>修剪把要留的线剪了</strong> → 按 <kbd>Ctrl</kbd>+<kbd>Z</kbd> 撤回，别硬改。</li>
+      <li><strong>画不了线/命令灰的</strong>：多半没进草图模式。先点「草图绘制」，再画。</li>
+      <li><strong>退出草图按钮找不到</strong>：右上角有个勾，点它；或按 Esc 再点确认。</li>
+      <li><strong>圆画出来是椭圆</strong>：视角歪了。按 Ctrl+7 切回正视角。</li>
+      <li><strong>线画歪了</strong>：画的时候看竖直/水平提示，出现再点下。</li>
     </ol>
 
   </div>

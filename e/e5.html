@@ -22,20 +22,16 @@
 <main class="wrap">
   <div class="crumb"><a href="../index.html">首页</a> / <a href="index.html">E 阶段</a> / E5</div>
   <span class="stage-badge"><span class="dot"></span>E5 · 爆炸视图与 BOM</span>
-  <h1 style="font-size:28px;margin-bottom:8px">让装配体"拆开说话"，给采购一张账单</h1>
+  <h1 style="font-size:28px;margin-bottom:8px">E5 爆炸视图与 BOM：让装配体"拆开说话"，给采购一张账单</h1>
 
   <div class="panel" id="taskJump"></div>
 
   <div class="lecture">
 
-    <h2>一、学习目标</h2>
-    <ul>
-      <li>生成爆炸视图：把装配体零件拆开展示</li>
-      <li>导出材料明细表（BOM）：每个零件的名称/数量/材料</li>
-      <li>理解 BOM 是"对接采购的第一张账单"</li>
-    </ul>
+    <h2>这一部分讲什么</h2>
+    <p>装配体做出来之后，还要让"别人"看懂：组会讲解时怎么拆开展示？采购要下单时，怎么知道这个组件有哪些零件、各几个、什么材料？这一部分学爆炸视图和材料明细表（BOM），做完 E5，就走通了"零件 → 装配 → 采购清单"的完整流程。</p>
 
-    <h2>二、讲义：爆炸视图</h2>
+    <h2>爆炸视图</h2>
     <p>爆炸视图 = 把装配体里套在一起的零件"拉开"，让所有人一眼看懂结构。用途：组会讲解、装配指导、文档插图。</p>
     <ol class="steps">
       <li>打开 E4 的装配体</li>
@@ -47,37 +43,38 @@
     </ol>
     <div class="callout warn"><span class="ct">爆炸视图存在哪？</span>爆炸视图存在<strong>配置</strong>里（配置管理器），不是模型空间。想恢复原样：配置里双击"默认"配置。</div>
 
-    <h2>三、讲义：材料明细表（BOM）</h2>
+    <h2>材料明细表（BOM）</h2>
     <p>BOM = Bill of Materials = 材料账单。它告诉采购和生产：这个组件有哪些零件、各多少个、什么材料。</p>
-    <h3>3.1 生成 BOM 前置条件：零件必须有名字</h3>
+
+    <h3>生成 BOM 前：给每个零件填名字</h3>
     <ol class="steps">
       <li>打开每个零件 → 右键特征树顶部零件名 → 「属性」</li>
       <li>在"自定义"标签里填：<strong>零件号</strong>（如 PLA-T-01）、<strong>材料</strong>（如 6061 铝）、<strong>说明</strong>（底板）</li>
       <li>保存</li>
     </ol>
-    <div class="callout danger"><span class="ct">BOM 里出现"零件1"= 不合格</span>不填属性就导出 BOM，采购看到一堆"零件1"根本没法下单。E5 的验收标准之一就是 BOM 里没有无名零件。</div>
+    <div class="callout danger"><span class="ct">BOM 里出现"零件1"= 不合格</span>不填属性就导出 BOM，采购看到一堆"零件1"根本没法下单。这一部分的作业要求就是：BOM 里不能有无名零件。</div>
 
-    <h3>3.2 导出 BOM</h3>
+    <h3>导出 BOM</h3>
     <ol class="steps">
       <li>回到装配体 → 「插入」→ 「表格」→ 「材料明细表」</li>
       <li>选择表格模板（默认即可）→ 放在图形区</li>
       <li>右键表格 → 「另存为」→ 选 Excel 格式（.xlsx）</li>
     </ol>
 
-    <h2>四、练习项目</h2>
-    <ol class="steps">
+    <h2>练习</h2>
+    <ol>
       <li>给 E4 组件全部零件填好属性（零件号/材料/说明）</li>
       <li>生成爆炸视图（至少 3 个爆炸步骤）</li>
       <li>插入材料明细表并导出 Excel</li>
       <li>检查 BOM：每个零件都有名字、数量正确</li>
     </ol>
-    <p><strong>产出</strong>：爆炸视图截图 + BOM Excel，一起打包提交。</p>
+    <p><strong>没有电脑的同学</strong>：纸笔给"底板组件"画一张爆炸示意图（零件错开画出），手写 BOM 草表（序号/零件名/数量/材料），拍照提交。这是工程文档思维的入门训练。</p>
 
-    <h2>五、外部学习链接</h2>
+    <h2>参考资料</h2>
     <div class="link-card">
       <div class="ic official">官</div>
       <div class="body">
-        <div class="t"><span class="tag official">官方</span>创建爆炸视图（SW 帮助·英文）</div>
+        <div class="t"><span class="tag official">官方</span>创建爆炸视图</div>
         <div class="d">官方爆炸视图创建教程：爆炸步骤、旋转、拖动方向。</div>
         <div class="u">https://help.solidworks.com/2024/english/SWConnected/swdotworks/t_Creating_Exploded_Views.htm</div>
       </div>
@@ -85,7 +82,7 @@
     <div class="link-card">
       <div class="ic official">官</div>
       <div class="body">
-        <div class="t"><span class="tag official">官方</span>装配体文档中的材料明细表（SW 帮助·中文）</div>
+        <div class="t"><span class="tag official">官方</span>装配体文档中的材料明细表</div>
         <div class="d">BOM 的官方说明：插入、配置、列设置、导出。</div>
         <div class="u">https://help.solidworks.com/2021/chinese-simplified/SolidWorks/sldworks/c_Bills_of_Material_in_Assembly_DocumentsOH.htm</div>
       </div>
@@ -99,25 +96,18 @@
       </div>
     </div>
 
-    <details>
-      <summary>弹性方案：无电脑成员</summary>
-      <div class="body">
-        <p>用纸笔给"底板组件"画一张爆炸示意图（零件错开画出），并手写 BOM 草表（序号/零件名/数量/材料）。这是工程文档思维的入门训练。拍照提交。</p>
-      </div>
-    </details>
-
-    <h2>六、提交要求</h2>
+    <h2>作业</h2>
     <ul>
       <li>命名：<span class="path">E5_姓名_日期.zip</span>（爆炸截图 + BOM Excel + 打包装配体）</li>
       <li>提交到多维表格「进度跟踪表」</li>
     </ul>
 
-    <h2>七、常见错误</h2>
+    <h2>常见问题</h2>
     <ol>
-      <li><strong>爆炸完没点"完成"</strong> → 白做，切换配置就没了。</li>
-      <li><strong>BOM 里全是"零件1"</strong> → 回去给每个零件填属性。</li>
-      <li><strong>BOM 数量不对</strong> → 检查装配体里是不是漏装了零件。</li>
-      <li><strong>只交 .SLDASM</strong> → 必须打包，否则零件缺失。</li>
+      <li><strong>爆炸完没点"完成"</strong>：白做，切换配置就没了。</li>
+      <li><strong>BOM 里全是"零件1"</strong>：回去给每个零件填属性。</li>
+      <li><strong>BOM 数量不对</strong>：检查装配体里是不是漏装了零件。</li>
+      <li><strong>只交 .SLDASM</strong>：必须打包，否则零件缺失。</li>
     </ol>
 
   </div>

@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>F阶段常见错误合集 - SUAT RoboMaster 机械组</title>
+<title>F阶段常见问题 - SUAT RoboMaster 机械组</title>
 <link rel="stylesheet" href="../css/style.css">
 </head>
 <body data-stage="F" data-task="ferr">
@@ -20,48 +20,46 @@
 </header>
 
 <main class="wrap">
-  <div class="crumb"><a href="../index.html">首页</a> / <a href="index.html">F 阶段</a> / 常见错误</div>
-  <span class="stage-badge"><span class="dot"></span>F 阶段 · 常见错误合集</span>
-  <h1 style="font-size:28px;margin-bottom:8px">前人踩过的坑，你不用再踩</h1>
+  <div class="crumb"><a href="../index.html">首页</a> / <a href="index.html">F 阶段</a> / 常见问题</div>
+  <span class="stage-badge"><span class="dot"></span>F 阶段 · 常见问题</span>
+  <h1 style="font-size:28px;margin-bottom:8px">F 阶段高频问题，一次看全</h1>
 
   <div class="lecture">
 
-    <h2>一、版本与软件</h2>
+    <h2>软件与版本</h2>
     <ol>
-      <li><strong>版本不统一</strong> → 全组锁定 SolidWorks <strong>2026</strong>，别装 2024/2025。</li>
-      <li><strong>用破解版</strong> → 严禁。文件不兼容 + 法律风险，一律官方教育许可。</li>
-      <li><strong>打开卡在"正在准备"</strong> → 重启电脑 / 管理员身份运行。</li>
+      <li><strong>版本不统一</strong>：高版本能开低版本，反之不行。全组统一 2026，发现有人装别的版本立刻提醒换。</li>
+      <li><strong>破解版/试用版</strong>：一律不装。用学生版或 RM 教育许可，否则后面工程文件可能打不开。</li>
+      <li><strong>文件损坏打不开</strong>：别反复覆盖保存。另存为新文件，把能救的草图/特征复制过来。</li>
     </ol>
 
-    <h2>二、草图</h2>
+    <h2>草图</h2>
     <ol>
-      <li><strong>草图欠定义就拉伸</strong> → 先变黑（完全定义）再退出草图。</li>
-      <li><strong>尺寸标得越多越好</strong> → 错。约束优先，尺寸只标关键尺寸。</li>
-      <li><strong>"假完全定义"</strong> → 变黑后要拖动验证，拖不动才是真定义。</li>
-      <li><strong>过定义不会删</strong> → 右键线条 → "显示/删除几何关系"，删红色冲突项。</li>
-      <li><strong>草图没封闭就退出</strong> → 检查出头线，用修剪/延伸闭合。</li>
+      <li><strong>欠定义（蓝色）就交</strong>：草图能乱拖 = 图纸废了。交之前拖一下，能动的就是没定死。</li>
+      <li><strong>过定义（红色）</strong>：约束重复了，删掉最后加的那个。</li>
+      <li><strong>轮廓没封闭</strong>：拉伸报错的大头。放大看缺口，或用「工具 → 草图工具 → 封闭轮廓到草图」检查。</li>
+      <li><strong>圆角/倒角画在草图里</strong>：RM 板件结构用实体圆角更合理，草图里先画直角。</li>
     </ol>
 
-    <h2>三、建模习惯</h2>
+    <h2>建模</h2>
     <ol>
-      <li><strong>特征树乱</strong> → 每个特征右键重命名："拉伸-板厚5mm"。</li>
-      <li><strong>文件乱存乱命名</strong> → 统一 <span class="path">任务_姓名_日期.SLDPRT</span>，按任务归档。</li>
-      <li><strong>打孔用凸台</strong> → 孔是「拉伸切除」，记死。</li>
+      <li><strong>拉伸方向反了</strong>：属性管理器里点"反向"。</li>
+      <li><strong>孔深不够/没贯穿</strong>：用「完全贯穿」。</li>
+      <li><strong>特征树乱命名</strong>：拉伸1/切除1 看不出是什么。双击特征改名（如"底板轮廓""中心孔"），别人打开一眼懂。</li>
     </ol>
 
-    <h2>四、协作</h2>
+    <h2>协作</h2>
     <ol>
-      <li><strong>3D 打印文件自己发群</strong> → .STL 统一交加工负责人，机械组不负责打印执行（学校/运营组负责）。</li>
-      <li><strong>无电脑成员掉队</strong> → 结对成员每周确认一次进度，组长组会过一遍。</li>
-      <li><strong>作业最后一天才交</strong> → 周日 23:59 截止，逾期按组规处理。</li>
+      <li><strong>文件命名乱</strong>：统一 <span class="path">阶段_名称_姓名.SLDPRT</span>，不要"新建零件(3)"。</li>
+      <li><strong>作业不按时交</strong>：每周拆两次做，别压最后一天。</li>
     </ol>
 
-    <div class="callout info"><span class="ct">如何补充</span>谁踩了新坑，在飞书对应页面评论区补充；组长每周整理一次，更新到本站。</div>
+    <div class="callout info"><span class="ct">怎么补充</span>页面评论区可以随时加新问题，组长每周整理一次，更新到本站和飞书。</div>
 
   </div>
 </main>
 
-<footer class="footer">SUAT RoboMaster 机械组学习平台 · F 常见错误 · 组内专用</footer>
+<footer class="footer">SUAT RoboMaster 机械组学习平台 · F 常见问题 · 组内专用</footer>
 <script src="../js/main.js"></script>
 </body>
 </html>
