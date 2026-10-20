@@ -1,4 +1,4 @@
-/* SUAT RoboMaster 机械组 · 站点交互 v6
+/* SUAT RoboMaster 机械组 · 站点交互 v7
    新增：本地账号 / 学习进度 / 作业提交 / 评论区（数据保存在本机浏览器 localStorage） */
 (function () {
   "use strict";
@@ -277,7 +277,7 @@
     if (!cb) return;
     var u = getUser();
     var cmts = loadCmts();
-    var html = '<div class="p-head"><b>评论区</b><span class="p-sub">提问 / 交流 / 补充错误。记录保存在本机浏览器；如需全组可见，组长可在 GitHub Discussions 开启后启用站内评论（见交付说明）</span></div>';
+    var html = '<div class="p-head"><b>评论区</b><span class="p-sub">提问 / 交流 / 补充错误。全组评论在下方（GitHub Discussions，不用登录 GitHub 也能留言）；上方本机评论仅自己可见，可作草稿备忘</span></div>';
     if (!u) {
       html += '<div class="p-actions"><a href="javascript:void(0)" class="btn-mini" id="cLogin">登录后留言</a></div>';
     } else {
