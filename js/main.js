@@ -188,7 +188,7 @@
     var prog = loadProg();
     var html = '<div class="p-head"><b>' + esc(u.name) + ' 的学习进度</b><span class="p-sub">本机保存 · 完成状态一览</span></div><div class="hp-grid">';
     ["F", "E"].forEach(function (st) {
-      var arr = TASKS.filter(function (t) { return t.stage === st && t.id.indexOf("err") !== 0 && t.id.indexOf("0") !== 0; });
+      var arr = TASKS.filter(function (t) { return t.stage === st && !/0$/.test(t.id) && t.id.indexOf("err") < 0; });
       var n = arr.length, c = 0; arr.forEach(function (t) { if (prog[t.id]) c++; });
       html += '<div class="hp-col"><div class="hp-stage">' + st + " 阶段</div><div class='p-bar'><div class='p-fill' style='width:" + Math.round(c / n * 100) + "%'></div></div><div class='hp-sub'>" + c + " / " + n + " 个任务完成</div>";
       arr.forEach(function (t) {
