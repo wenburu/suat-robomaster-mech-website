@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <script>window.SITE_PREFIX="../";</script>
 <title>E1 特征树与基准面 - SUAT RoboMaster 机械组</title>
-<link rel="stylesheet" href="../css/style.css?v=4">
+<link rel="stylesheet" href="../css/style.css?v=5">
 </head>
 <body data-stage="E" data-task="e1">
 
@@ -17,7 +17,7 @@
     <a href="index.html" class="active">E 阶段</a>
     <a href="../links.html">外部资源库</a>
   </nav>
-  <div class="right">2026 · 深理工第一届 RM 战队</div>
+  <div class="right">2026 · 深理工第一届 RM 战队</div><span id="userBox" class="userbox"></span>
 </header>
 
 <main class="wrap">
@@ -91,10 +91,11 @@
       </div>
     </div>
 
-    <h2>作业</h2>
+    <h2>自检</h2>
     <ul>
-      <li>提交 <span class="path">E1_连接板改_姓名.SLDPRT</span>，截图里特征树名字可见</li>
-      <li>在微信群发阶段记录：截图 + 一句话说明</li>
+      <li>能按规范命名特征（草图1 → 连接板轮廓、凸台-拉伸1 → 板厚、切除-拉伸1 → 安装孔）</li>
+      <li>特征树从上到下能讲出每个特征的用途，双击可选中对应几何</li>
+      <li>会隐藏 / 显示特征和基准面，熟悉特征树的图标含义</li>
     </ul>
 
     <h2>常见问题</h2>
@@ -107,7 +108,11 @@
   </div>
 </main>
 
+
+<div class="panel" id="progressBox"></div>
+<div class="panel" id="submitBox"></div>
+<div class="panel comments" id="commentsBox"></div>
 <footer class="footer">SUAT RoboMaster 机械组学习平台 · E1 · 组内专用</footer>
-<script src="../js/main.js?v=5"></script>
+<script src="../js/main.js?v=6"></script>
 </body>
 </html>

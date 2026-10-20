@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <script>window.SITE_PREFIX="../";</script>
 <title>F1 安装与界面 - SUAT RoboMaster 机械组</title>
-<link rel="stylesheet" href="../css/style.css?v=4">
+<link rel="stylesheet" href="../css/style.css?v=5">
 </head>
 <body data-stage="F" data-task="f1">
 
@@ -17,7 +17,7 @@
     <a href="../e/index.html">E 阶段</a>
     <a href="../links.html">外部资源库</a>
   </nav>
-  <div class="right">2026 · 深理工第一届 RM 战队</div>
+  <div class="right">2026 · 深理工第一届 RM 战队</div><span id="userBox" class="userbox"></span>
 </header>
 
 <main class="wrap">
@@ -36,13 +36,32 @@
     <figcaption>完成图例：SolidWorks 2026 主界面（特征树 / 命令管理器 / 图形区）</figcaption>
   </figure>
 
-    <h2>安装与激活</h2>
-    <ol class="steps">
-      <li><strong>下载</strong>：到 SOLIDWORKS 学生版官网或学校提供的教育许可渠道下载 2026 版本（认准"学生版"字样）。</li>
-      <li><strong>安装</strong>：双击安装包 → 选"个人安装" → 一路下一步 → 安装路径保持默认即可。</li>
-      <li><strong>激活</strong>：学生版用学校邮箱注册账号激活；RM 教育许可按战队渠道激活。激活失败看错误码，多数是邮箱没验证。</li>
-      <li><strong>验证</strong>：打开软件，帮助 → 关于 SOLIDWORKS，确认版本是 2026。</li>
-    </ol>
+    <h2>软件获取与安装</h2>
+    <p>安装统一使用 SolidWorks 2026 学生版 / RM 教育许可。不需要自己摸索步骤，直接按官方指引操作，这里给三份材料：</p>
+    <div class="link-card">
+      <div class="ic official">官</div>
+      <div class="body">
+        <div class="t"><span class="tag official">官方中文指南</span>EDU / SEK / SDK 安装指南（PDF）</div>
+        <div class="d">达索官方中文安装指南。讲清三种学生产品（Student Edition / Student Premium / Student Standard）的区别，以及社区下载、安装、激活的完整流程。全组统一用它作为安装主文档。</div>
+        <a class="u" href="../guides/EDU_SW_SEK_Installation_Guide_ZH.pdf" target="_blank" rel="noopener">下载 PDF</a>
+      </div>
+    </div>
+    <div class="link-card">
+      <div class="ic official">官</div>
+      <div class="body">
+        <div class="t"><span class="tag official">官方英文指引</span>Student Premium 2026 安装与考试说明（PDF）</div>
+        <div class="d">2026 学生版包含哪些模块（CAD / Simulation / Flow / Motion 等）、用 9020 开头序列号安装激活、CSWA / CSWP 两张免费考试券怎么用。关注模块清单和考证的同学看这份。</div>
+        <a class="u" href="../guides/SOLIDWORKS_Student_Premium_Instructions_2026_v2.pdf" target="_blank" rel="noopener">下载 PDF</a>
+      </div>
+    </div>
+    <div class="link-card">
+      <div class="ic video">组</div>
+      <div class="body">
+        <div class="t"><span class="tag video">组内实操</span>深理工学生版申请与安装实操（中文步骤）</div>
+        <div class="d">按深理工学生邮箱实际走通的申请流程：官网填表 → 收到序列号 → 下载 → 安装 → 激活，逐步截图说明。跟着这份走最快。序列号在申请邮件里，不要公开传播。</div>
+        <a class="u" href="../guides/setup.html" target="_blank" rel="noopener">查看实操步骤</a>
+      </div>
+    </div>
     <div class="callout danger"><span class="ct">注意</span>全组统一 2026 版本，不装破解版、不装其他版本。高版本能打开低版本的文件，反过来不行，版本不统一会导致后续协作出现文件无法打开等问题。</div>
 
     <h2>界面四个区域</h2>
@@ -115,10 +134,12 @@
       </div>
     </div>
 
-    <h2>作业</h2>
+    <h2>自检</h2>
     <ul>
-      <li>把"软件版本确认页"截图 + "界面四区指认截图"在微信群发阶段记录：两张截图 + 一句话说明</li>
-      <li>命名：<span class="path">F1_界面_姓名.png</span></li>
+      <li>软件打开后，帮助 → 关于 SOLIDWORKS，版本显示 2026</li>
+      <li>能指出特征树、属性管理器、图形区、命令管理器四个区域的位置</li>
+      <li>能用中键旋转模型、滚轮缩放</li>
+      <li>特征树里双击三个基准面，模型随之转动</li>
     </ul>
 
     <h2>常见问题</h2>
@@ -132,7 +153,11 @@
   </div>
 </main>
 
+
+<div class="panel" id="progressBox"></div>
+<div class="panel" id="submitBox"></div>
+<div class="panel comments" id="commentsBox"></div>
 <footer class="footer">SUAT RoboMaster 机械组学习平台 · F1 · 组内专用</footer>
-<script src="../js/main.js?v=5"></script>
+<script src="../js/main.js?v=6"></script>
 </body>
 </html>

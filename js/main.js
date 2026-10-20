@@ -1,8 +1,9 @@
-/* SUAT RoboMaster 机械组 · 站点交互 */
+/* SUAT RoboMaster 机械组 · 站点交互 v6
+   新增：本地账号 / 学习进度 / 作业提交 / 评论区（数据保存在本机浏览器 localStorage） */
 (function () {
   "use strict";
 
-  /* 任务索引（供搜索 + 首页/阶段页导航复用） */
+  /* 任务索引（搜索 + 导航 + 进度共用） */
   var TASKS = [
     { id: "f0", stage: "F", num: "F0", title: "阶段说明", file: "f/f0.html" },
     { id: "f1", stage: "F", num: "F1", title: "SW2026 安装与界面熟悉", file: "f/f1.html" },
@@ -20,6 +21,14 @@
     { id: "e6", stage: "E", num: "E6", title: "E 阶段考核任务", file: "e/e6.html" },
     { id: "eerr", stage: "E", num: "E!", title: "E 阶段常见错误合集", file: "e/err.html" }
   ];
+  /* 有成品作业的任务（其余任务只自检、不提交） */
+  var SUBMIT_TASKS = { f4: 1, f5: 1, e2: 1, e3: 1, e4: 1, e5: 1, e6: 1 };
+
+  function esc(s) {
+    return String(s == null ? "" : s)
+      .replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;")
+      .replace(/"/g, "&quot;").replace(/'/g, "&#39;");
+  }
 
   /* 顶栏导航高亮 */
   var path = location.pathname.split("/").pop() || "index.html";
@@ -30,15 +39,12 @@
     else if (path.indexOf("e") === 0 && href === "e/") a.classList.add("active");
   });
 
-  /* 页面深度：子目录页（f/、e/ 下）的链接要加 ../ 前缀，否则跳转 404 */
-  /* 优先用每页 HTML 硬编码的 SITE_PREFIX（不受 JS 缓存影响）；
-     回退按 script 标签原始相对路径判断 */
   var scriptSrc = document.currentScript ? document.currentScript.getAttribute("src") : "";
   var PREFIX = (typeof window.SITE_PREFIX !== "undefined" && window.SITE_PREFIX !== null)
     ? window.SITE_PREFIX
     : (scriptSrc.indexOf("../") === 0 ? "../" : "");
 
-  /* 任务内导航（讲义页顶部跳转条） */
+  /* 任务内导航 */
   var jumpBox = document.getElementById("taskJump");
   if (jumpBox) {
     var cur = document.body.getAttribute("data-task");
@@ -46,19 +52,19 @@
     var list = TASKS.filter(function (t) { return t.stage === stage; });
     var html = '<label>本阶段任务：</label><div class="task-nav">';
     list.forEach(function (t) {
-      html += '<a href="' + PREFIX + t.file + '" title="' + t.num + ' · ' + t.title + '"' + (t.id === cur ? ' class="active"' : "") + ">" + t.num + "</a>";
+      html += '<a href="' + PREFIX + t.file + '" title="' + t.num + " · " + t.title + '"' + (t.id === cur ? ' class="active"' : "") + ">" + t.num + "</a>";
     });
     html += "</div>";
     jumpBox.innerHTML = html;
   }
 
-  /* 站点搜索（任务标题 + 关键词） */
+  /* 站点搜索 */
   var q = document.getElementById("q");
   var res = document.getElementById("searchResults");
   if (q && res) {
     var KEYWORDS = {
       f0: "阶段 目标 路线 提交 考核 零基础",
-      f1: "安装 激活 界面 特征树 学生版 教育许可 破解",
+      f1: "安装 激活 界面 特征树 学生版 教育许可 破解 指引",
       f2: "草图 直线 矩形 圆 圆弧 修剪 延伸",
       f3: "约束 尺寸 完全定义 欠定义 过定义 几何关系",
       f4: "拉伸 凸台 切除 打孔 倒圆角 零件",
@@ -88,4 +94,223 @@
       }).join("");
     });
   }
+
+  /* ============ 本地账号 ============ */
+  var USER_KEY = "rm_user";
+  function getUser() { try { return JSON.parse(localStorage.getItem(USER_KEY)) || null; } catch (e) { return null; } }
+  function setUser(u) { localStorage.setItem(USER_KEY, JSON.stringify(u)); }
+
+  var ub = document.getElementById("userBox");
+  function renderUser() {
+    if (!ub) return;
+    var u = getUser();
+    if (!u) {
+      ub.innerHTML = '<a href="javascript:void(0)" class="u-login" id="loginBtn">登录</a>';
+      document.getElementById("loginBtn").addEventListener("click", openLogin);
+    } else {
+      ub.innerHTML = '<span class="u-name" title="学习进度保存在本机浏览器">' + esc(u.name) + '<i>#' + esc(u.id4 || "----") + '</i></span>' +
+        '<a href="javascript:void(0)" class="u-out" id="logoutBtn">退出</a>';
+      document.getElementById("logoutBtn").addEventListener("click", function () {
+        if (window.confirm("退出后本机保存的进度、提交、评论记录仍保留，重新登录同账号可继续查看。")) {
+          setUser(null);
+          renderUser(); refreshAll();
+        }
+      });
+    }
+  }
+
+  function openLogin() {
+    var m = document.createElement("div");
+    m.className = "modal-mask";
+    m.innerHTML = '<div class="modal">' +
+      '<div class="m-title">登录（仅保存在本机浏览器）</div>' +
+      '<label class="m-label">昵称（怎么称呼你，如：张三）</label>' +
+      '<input id="mName" type="text" maxlength="12" placeholder="输入昵称">' +
+      '<label class="m-label">学号后四位</label>' +
+      '<input id="mId4" type="text" maxlength="4" placeholder="如 0007">' +
+      '<div class="m-tip">账号信息、学习进度、作业提交与评论均只存在你自己电脑的浏览器里，不会上传服务器。换电脑需要重新登录。</div>' +
+      '<div class="m-btns"><button class="btn-cancel" id="mCancel">取消</button><button class="btn-ok" id="mOk">登录</button></div>' +
+      '</div>';
+    document.body.appendChild(m);
+    function close() { document.body.removeChild(m); }
+    document.getElementById("mCancel").addEventListener("click", close);
+    m.addEventListener("click", function (e) { if (e.target === m) close(); });
+    document.getElementById("mOk").addEventListener("click", function () {
+      var n = document.getElementById("mName").value.trim();
+      var id4 = document.getElementById("mId4").value.trim();
+      if (!n) { document.getElementById("mName").focus(); return; }
+      setUser({ name: n, id4: id4 || "----" });
+      close(); renderUser(); refreshAll();
+    });
+    document.getElementById("mName").focus();
+  }
+
+  /* ============ 学习进度 ============ */
+  function progKey() { var u = getUser(); return "rm_prog_" + (u ? u.name : "guest"); }
+  function loadProg() { try { return JSON.parse(localStorage.getItem(progKey())) || {}; } catch (e) { return {}; } }
+  function saveProg(p) { localStorage.setItem(progKey(), JSON.stringify(p)); }
+
+  var pb = document.getElementById("progressBox");
+  function renderProgress() {
+    if (!pb) return;
+    var task = document.body.getAttribute("data-task");
+    var u = getUser();
+    if (!u) {
+      pb.innerHTML = '<div class="p-head"><b>学习进度</b><span class="p-sub">登录后记录完成状态（本机保存）</span></div><div class="p-actions"><a href="javascript:void(0)" class="btn-mini" id="pLogin">先登录</a></div>';
+      document.getElementById("pLogin").addEventListener("click", openLogin);
+      return;
+    }
+    var prog = loadProg();
+    var done = !!prog[task];
+    var same = TASKS.filter(function (t) { return t.stage === document.body.getAttribute("data-stage"); });
+    var cnt = 0; same.forEach(function (t) { if (prog[t.id]) cnt++; });
+    var pct = Math.round(cnt / same.length * 100);
+    var tinfo = null; TASKS.forEach(function (t) { if (t.id === task) tinfo = t; });
+    pb.innerHTML = '<div class="p-head"><b>学习进度 · ' + esc(tinfo ? tinfo.num : task) + '</b><span class="p-sub">本阶段已完成 ' + cnt + " / " + same.length + "（" + pct + "%）</span></div>" +
+      '<div class="p-bar"><div class="p-fill" style="width:' + pct + '%"></div></div>' +
+      '<div class="p-actions"><a href="javascript:void(0)" class="btn-mini ' + (done ? "done" : "") + '" id="pToggle">' + (done ? "✓ 已完成（点击撤销）" : "标记本任务完成") + '</a></div>';
+    document.getElementById("pToggle").addEventListener("click", function () {
+      if (done) delete prog[task]; else prog[task] = 1;
+      saveProg(prog); renderProgress();
+    });
+  }
+
+  /* 首页进度总览 */
+  var hp = document.getElementById("homeProgress");
+  function renderHomeProgress() {
+    if (!hp) return;
+    var u = getUser();
+    if (!u) {
+      hp.innerHTML = '<div class="p-head"><b>我的学习进度</b><span class="p-sub">登录后各任务完成状态自动汇总（本机保存）</span></div><div class="p-actions"><a href="javascript:void(0)" class="btn-mini" id="hpLogin">登录</a></div>';
+      document.getElementById("hpLogin").addEventListener("click", openLogin);
+      return;
+    }
+    var prog = loadProg();
+    var html = '<div class="p-head"><b>' + esc(u.name) + ' 的学习进度</b><span class="p-sub">本机保存 · 完成状态一览</span></div><div class="hp-grid">';
+    ["F", "E"].forEach(function (st) {
+      var arr = TASKS.filter(function (t) { return t.stage === st && t.id.indexOf("err") !== 0 && t.id.indexOf("0") !== 0; });
+      var n = arr.length, c = 0; arr.forEach(function (t) { if (prog[t.id]) c++; });
+      html += '<div class="hp-col"><div class="hp-stage">' + st + " 阶段</div><div class='p-bar'><div class='p-fill' style='width:" + Math.round(c / n * 100) + "%'></div></div><div class='hp-sub'>" + c + " / " + n + " 个任务完成</div>";
+      arr.forEach(function (t) {
+        html += '<div class="hp-task"><a href="' + PREFIX + t.file + '">' + t.num + " " + t.title + '</a><span class="hp-dot ' + (prog[t.id] ? "on" : "") + '"></span></div>';
+      });
+      html += "</div>";
+    });
+    html += "</div>";
+    hp.innerHTML = html;
+  }
+
+  /* ============ 作业提交 ============ */
+  function submitKey() { var u = getUser(); return "rm_submit_" + (u ? u.name : "guest"); }
+  function loadSubs() { try { return JSON.parse(localStorage.getItem(submitKey())) || {}; } catch (e) { return {}; } }
+  function saveSubs(s) { localStorage.setItem(submitKey(), JSON.stringify(s)); }
+
+  var sb = document.getElementById("submitBox");
+  function renderSubmit() {
+    if (!sb) return;
+    var task = document.body.getAttribute("data-task");
+    var u = getUser();
+    if (!SUBMIT_TASKS[task]) { sb.style.display = "none"; return; }
+    if (!u) {
+      sb.innerHTML = '<div class="p-head"><b>作业提交</b><span class="p-sub">本任务的成品作业有提交要求，登录后填写（本机保存，共享发微信群）</span></div><div class="p-actions"><a href="javascript:void(0)" class="btn-mini" id="sLogin">先登录</a></div>';
+      document.getElementById("sLogin").addEventListener("click", openLogin);
+      return;
+    }
+    var subs = loadSubs();
+    var mine = subs[task] || [];
+    var html = '<div class="p-head"><b>作业提交 · ' + esc(task.toUpperCase()) + '</b><span class="p-sub">记录保存在本机；需要组长/组员看到时，点「复制提交消息」发到微信群</span></div>';
+    html += '<div class="s-form"><input id="sDesc" type="text" maxlength="60" placeholder="作品说明（一句话，如：连接板，孔径 10，圆角 3）"><div class="s-row">' +
+      '<input id="sFile" type="text" maxlength="40" placeholder="文件名（按命名规范）"><input id="sLink" type="text" maxlength="80" placeholder="作品链接/网盘链接（可选）">' +
+      '</div><div class="p-actions"><a href="javascript:void(0)" class="btn-mini" id="sSave">保存这条提交</a></div></div>';
+    if (mine.length) {
+      html += '<div class="s-list"><div class="s-title">我的提交（' + mine.length + "）</div>";
+      mine.forEach(function (it, i) {
+        var when = new Date(it.t).toLocaleString("zh-CN", { month: "numeric", day: "numeric", hour: "2-digit", minute: "2-digit" });
+        html += '<div class="s-item"><div><b>' + esc(it.desc) + '</b><div class="s-meta">' + esc(it.file || "无文件名") + (it.link ? " · <a href='" + esc(it.link) + "' target='_blank' rel='noopener'>链接</a>" : "") + "</div></div>" +
+          '<div class="s-right"><span class="s-time">' + when + '</span><a href="javascript:void(0)" class="s-del" data-i="' + i + '">删</a></div></div>';
+      });
+      html += '<div class="p-actions"><a href="javascript:void(0)" class="btn-mini" id="sCopy">复制提交消息（发微信群）</a></div></div>';
+    }
+    sb.innerHTML = html;
+    document.getElementById("sSave").addEventListener("click", function () {
+      var d = document.getElementById("sDesc").value.trim();
+      if (!d) { document.getElementById("sDesc").focus(); return; }
+      var f = document.getElementById("sFile").value.trim();
+      var l = document.getElementById("sLink").value.trim();
+      if (!subs[task]) subs[task] = [];
+      subs[task].push({ t: Date.now(), desc: d, file: f, link: l });
+      saveSubs(subs); renderSubmit();
+    });
+    var copyBtn = document.getElementById("sCopy");
+    if (copyBtn) copyBtn.addEventListener("click", function () {
+      var lines = ["【阶段作业提交】" + task.toUpperCase()];
+      mine.forEach(function (it) {
+        lines.push("- " + it.desc + (it.file ? "（文件：" + it.file + "）" : "") + (it.link ? " 链接：" + it.link : ""));
+      });
+      var text = lines.join("\n");
+      function done() { copyBtn.textContent = "已复制 ✓"; }
+      function fallback() {
+        var ta = document.createElement("textarea");
+        ta.value = text; document.body.appendChild(ta); ta.select();
+        try { document.execCommand("copy"); done(); } catch (e) { window.prompt("复制失败，请手动复制：", text); }
+        document.body.removeChild(ta);
+      }
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(text).then(done, fallback);
+      } else fallback();
+    });
+    document.querySelectorAll(".s-del").forEach(function (el) {
+      el.addEventListener("click", function () {
+        subs[task].splice(Number(el.getAttribute("data-i")), 1);
+        saveSubs(subs); renderSubmit();
+      });
+    });
+  }
+
+  /* ============ 评论区（本机保存） ============ */
+  function cmtKey() { return "rm_cmt_" + document.body.getAttribute("data-task"); }
+  function loadCmts() { try { return JSON.parse(localStorage.getItem(cmtKey())) || []; } catch (e) { return []; } }
+  function saveCmts(c) { localStorage.setItem(cmtKey(), JSON.stringify(c)); }
+
+  var cb = document.getElementById("commentsBox");
+  function renderComments() {
+    if (!cb) return;
+    var u = getUser();
+    var cmts = loadCmts();
+    var html = '<div class="p-head"><b>评论区</b><span class="p-sub">提问 / 交流 / 补充错误。记录保存在本机浏览器；如需全组可见，组长可在 GitHub Discussions 开启后启用站内评论（见交付说明）</span></div>';
+    if (!u) {
+      html += '<div class="p-actions"><a href="javascript:void(0)" class="btn-mini" id="cLogin">登录后留言</a></div>';
+    } else {
+      html += '<div class="c-form"><input id="cText" type="text" maxlength="200" placeholder="写下你的问题或补充…"><div class="p-actions"><a href="javascript:void(0)" class="btn-mini" id="cSend">发表（' + esc(u.name) + "）</a></div></div>";
+    }
+    if (cmts.length) {
+      html += '<div class="c-list">';
+      cmts.slice().reverse().forEach(function (it, idx) {
+        var when = new Date(it.t).toLocaleString("zh-CN", { month: "numeric", day: "numeric", hour: "2-digit", minute: "2-digit" });
+        html += '<div class="c-item"><b>' + esc(it.name) + "</b><span class='s-time'>" + when + '</span><div>' + esc(it.text) + "</div></div>";
+      });
+      html += "</div>";
+    }
+    cb.innerHTML = html;
+    var send = document.getElementById("cSend");
+    if (send) send.addEventListener("click", function () {
+      var v = document.getElementById("cText").value.trim();
+      if (!v) { document.getElementById("cText").focus(); return; }
+      var uu = getUser();
+      cmts.push({ name: uu ? uu.name : "访客", text: v, t: Date.now() });
+      saveCmts(cmts); renderComments();
+    });
+    var cl = document.getElementById("cLogin");
+    if (cl) cl.addEventListener("click", openLogin);
+  }
+
+  function refreshAll() {
+    renderProgress(); renderHomeProgress(); renderSubmit(); renderComments();
+  }
+
+  renderUser();
+  renderProgress();
+  renderHomeProgress();
+  renderSubmit();
+  renderComments();
 })();

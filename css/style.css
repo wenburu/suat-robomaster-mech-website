@@ -237,3 +237,57 @@ details .body { padding: 2px 16px 14px; font-size: 14px; }
 .fig { margin: 18px 0 22px; text-align: center; }
 .fig img { max-width: 100%; border: 1px solid var(--line); border-radius: 10px; box-shadow: var(--shadow); background: #fff; }
 .fig figcaption { font-size: 13px; color: var(--text-sub); margin-top: 8px; }
+
+/* ============ 互动：账号 / 进度 / 提交 / 评论 ============ */
+.userbox { display: flex; align-items: center; gap: 10px; font-size: 13.5px; }
+.userbox .u-login { color: #fff; border: 1px solid rgba(255,255,255,.35); border-radius: 999px; padding: 3px 14px; }
+.userbox .u-login:hover { background: rgba(255,255,255,.12); text-decoration: none; }
+.userbox .u-name { color: #fff; }
+.userbox .u-name i { font-style: normal; color: rgba(255,255,255,.5); margin-left: 5px; font-size: 12px; }
+.userbox .u-out { color: rgba(255,255,255,.55); }
+.userbox .u-out:hover { color: #fff; }
+
+.modal-mask { position: fixed; inset: 0; background: rgba(20,21,26,.5); z-index: 999; display: flex; align-items: center; justify-content: center; }
+.modal { background: #fff; border-radius: 14px; box-shadow: var(--shadow-lg); width: 340px; max-width: 92vw; padding: 22px 24px; }
+.m-title { font-size: 17px; font-weight: 700; margin-bottom: 14px; }
+.m-label { display: block; font-size: 13px; color: var(--text-sub); margin: 10px 0 4px; }
+.modal input { width: 100%; border: 1px solid var(--line); border-radius: 8px; padding: 8px 10px; font-size: 14px; }
+.modal input:focus { outline: none; border-color: var(--blue); }
+.m-tip { font-size: 12px; color: var(--text-sub); margin: 12px 0; line-height: 1.6; }
+.m-btns { display: flex; justify-content: flex-end; gap: 10px; }
+.btn-cancel { border: 1px solid var(--line); background: #fff; color: var(--text-sub); border-radius: 8px; padding: 7px 16px; cursor: pointer; }
+.btn-ok { border: none; background: var(--rm-red); color: #fff; border-radius: 8px; padding: 7px 16px; cursor: pointer; }
+
+.p-head { display: flex; align-items: baseline; gap: 10px; margin-bottom: 10px; flex-wrap: wrap; }
+.p-head b { font-size: 16px; }
+.p-sub { font-size: 12.5px; color: var(--text-sub); }
+.p-bar { height: 8px; background: #e8eaee; border-radius: 999px; overflow: hidden; margin: 8px 0 12px; }
+.p-fill { height: 100%; background: linear-gradient(90deg, var(--rm-red), #ff6a4d); border-radius: 999px; transition: width .3s; }
+.p-actions { margin: 6px 0; }
+.btn-mini { display: inline-block; border: 1px solid var(--rm-red); color: var(--rm-red); border-radius: 999px; padding: 4px 16px; font-size: 13px; cursor: pointer; background: #fff; }
+.btn-mini:hover { background: var(--rm-red); color: #fff; text-decoration: none; }
+.btn-mini.done { background: var(--green); border-color: var(--green); color: #fff; }
+
+.hp-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 22px; }
+@media (max-width: 720px) { .hp-grid { grid-template-columns: 1fr; } }
+.hp-stage { font-weight: 700; margin-bottom: 4px; }
+.hp-sub { font-size: 12.5px; color: var(--text-sub); }
+.hp-task { display: flex; justify-content: space-between; align-items: center; padding: 4px 0; border-bottom: 1px dashed var(--line); font-size: 13.5px; }
+.hp-dot { width: 10px; height: 10px; border-radius: 999px; background: #d6d9de; flex: none; }
+.hp-dot.on { background: var(--green); }
+
+.s-form input { width: 100%; border: 1px solid var(--line); border-radius: 8px; padding: 8px 10px; font-size: 14px; margin: 4px 0; }
+.s-row { display: flex; gap: 10px; }
+@media (max-width: 720px) { .s-row { flex-direction: column; } }
+.s-list { margin-top: 12px; }
+.s-title { font-size: 13px; color: var(--text-sub); margin-bottom: 6px; }
+.s-item { display: flex; justify-content: space-between; align-items: center; border: 1px solid var(--line); border-radius: 10px; padding: 8px 12px; margin: 6px 0; background: #fff; }
+.s-item b { font-size: 14px; }
+.s-meta { font-size: 12.5px; color: var(--text-sub); }
+.s-time { font-size: 12px; color: var(--text-sub); margin-right: 8px; }
+.s-del { color: var(--rm-red); font-size: 12.5px; }
+
+.c-form { display: flex; gap: 10px; align-items: center; margin: 6px 0; flex-wrap: wrap; }
+.c-form input { flex: 1; min-width: 220px; border: 1px solid var(--line); border-radius: 8px; padding: 8px 10px; font-size: 14px; }
+.c-item { border: 1px solid var(--line); border-radius: 10px; padding: 8px 12px; margin: 6px 0; background: #fff; font-size: 14px; }
+.c-item b { margin-right: 8px; }
