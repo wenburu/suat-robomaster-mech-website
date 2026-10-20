@@ -277,7 +277,7 @@
     if (!cb) return;
     var u = getUser();
     var cmts = loadCmts();
-    var html = '<div class="p-head"><b>评论区</b><span class="p-sub">提问 / 交流 / 补充错误。全组评论在下方（GitHub Discussions，不用登录 GitHub 也能留言）；上方本机评论仅自己可见，可作草稿备忘</span></div>';
+    var html = '<div class="p-head"><b>评论区</b><span class="p-sub">提问 / 交流 / 补充错误。全组评论在下方（用 GitHub 账号登录即可留言，没有账号可免费注册）；上方本机评论仅自己可见，可作草稿备忘</span></div>';
     if (!u) {
       html += '<div class="p-actions"><a href="javascript:void(0)" class="btn-mini" id="cLogin">登录后留言</a></div>';
     } else {
