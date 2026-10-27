@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script>window.SITE_PREFIX="../";</script>
+<title>DY1 云台轴系 - SUAT RoboMaster 机械组</title>
+<link rel="stylesheet" href="../css/style.css?v=6">
+</head>
+<body data-stage="D" data-task="dy1">
+
+<header class="topbar">
+  <div class="brand"><span class="logo">RM</span>SUAT 机械组 <small>RoboMaster 学习平台</small></div>
+  <nav>
+    <a href="../index.html">首页</a>
+    <a href="../f/index.html">F 阶段</a>
+    <a href="../e/index.html">E 阶段</a>
+    <a href="index.html">D 阶段</a>
+    <a href="../c/index.html">C 阶段</a>
+    <a href="../b/index.html">B 阶段</a>
+    <a href="../a/index.html">A 阶段</a>
+    <a href="../links.html">外部资源库</a>
+  </nav>
+  <div class="right">2026 · 深理工第一届 RM 战队</div><span id="userBox" class="userbox"></span>
+</header>
+
+<main class="wrap">
+  <div class="crumb"><a href="../index.html">首页</a> / <a href="index.html">D 阶段</a> / DY1</div>
+  <span class="stage-badge"><span class="dot"></span>DY1 · 云台轴系</span>
+  <h1 style="font-size:28px;margin-bottom:8px">DY1：云台轴系</h1>
+
+  <div class="panel" id="taskJump"></div>
+
+  <div class="lecture">
+<h2>这一部分讲什么</h2>
+    <p>云台是步兵的「头」：负责把发射机构对准目标。核心是两个旋转轴——<strong>Yaw（水平旋转）和 Pitch（俯仰）</strong>。这一部分做云台的轴系：轴承座、电机座、限位结构。</p>
+
+    <h2>讲义正文</h2>
+    <h3>1. 云台结构</h3>
+    <p>典型云台：Yaw 轴电机装在底盘上板中央，带动整个云台上半部分水平旋转；Pitch 轴电机装在云台两侧，带动发射机构俯仰。两个轴必须<strong>互不干涉、转动顺畅</strong>。</p>
+    <h3>2. Yaw 轴系</h3>
+    <ul>
+      <li>Yaw 电机轴中心要与底盘对称轴重合（与底盘组对齐接口尺寸）</li>
+      <li>轴承座：Yaw 轴上下各一个轴承，承担径向与轴向力；座体固定在上板，开走线孔（云台电源/信号线要从 Yaw 轴中心穿过）</li>
+      <li>限位：Yaw 一般 ±360° 或限位旋转（按规则），用限位块/挡销防止缠线</li>
+    </ul>
+    <h3>3. Pitch 轴系</h3>
+    <ul>
+      <li>Pitch 轴左右对称布置，两个电机或单电机+同步机构</li>
+      <li>轴承座固定发射机构侧板，Pitch 中心要过发射机构质心附近，否则俯仰力矩大</li>
+      <li>俯仰角度范围（一般 -10° ~ +30° 左右）用限位块限定</li>
+    </ul>
+    <h3>4. 电机座</h3>
+    <p>电机座固定电机定子，开孔与电机法兰一致；电机轴输出端用联轴器/D形孔与轴连接（参考清华《机械结构设计》轮组部分 D 形孔法兰联轴器）。</p>
+
+    <h2>练习项目</h2>
+    <ol>
+      <li><strong>Yaw 轴承座建模（主练习）</strong>：按一个假想 Yaw 电机与轴承（如 6902 轴承）做轴承座：上下轴承位、走线孔、固定孔。</li>
+      <li><strong>Pitch 轴系装配</strong>：把 Pitch 电机、轴承、发射侧板装成一个简化俯仰组件。</li>
+      <li><strong>对照开源</strong>：拆浙大/北理工开源云台的 Yaw 与 Pitch 结构，记下轴承型号与限位方式。</li>
+    </ol>
+
+    <h2>提交要求</h2>
+    <p>Yaw 轴承座 .SLDPRT + 轴系装配截图 + 限位/走线说明。命名：<span class="path">D_DY1_云台轴系_姓名.SLDPRT</span>。</p>
+
+    <h2>常见错误</h2>
+    <ul>
+      <li>Yaw 中心没对齐底盘对称轴</li>
+      <li>轴承座没开走线孔，线从外部绕，转一圈就缠住</li>
+      <li>Pitch 中心偏离质心，电机发热</li>
+      <li>没限位，机械角度超程撞坏</li>
+    </ul>
+
+    <h2>外部链接</h2>
+    <ul>
+      <li><a href="https://bbs-web-static.robomaster.com/238b775f71df4c689cce30e2fa1f6b621788488518182/RM2026-%E6%AD%A5%E5%85%B5%E9%80%9A%E7%94%A8%E9%B9%85%E9%A2%88%E4%BA%91%E5%8F%B0%E5%BC%80%E6%BA%90%E6%8A%80%E6%9C%AF%E6%8A%A5%E5%91%8A-%E6%B5%99%E6%B1%9F%E5%A4%A7%E5%AD%A6Hello%20World%E6%88%98%E9%98%9F.pdf" target="_blank" rel="noopener">浙大 Hello World 2026 步兵通用鹅颈云台技术报告</a>：真实云台轴系、轴承选型与限位结构。</li>
+      <li><a href="http://www.tup.tsinghua.edu.cn/upload/books/yz/088956-01.pdf" target="_blank" rel="noopener">清华《机械结构设计》</a>：D 形孔法兰联轴器等轴系连接方式。</li>
+    </ul>
+  </div>
+</main>
+
+<div class="panel" id="progressBox"></div>
+<div class="panel" id="submitBox"></div>
+<div class="panel comments" id="commentsBox"></div>
+<div class="giscus" style="margin-top:28px"></div>
+<footer class="footer">SUAT RoboMaster 机械组学习平台 · DY1 · 组内专用</footer>
+
+<script src="../js/main.js?v=10"></script>
+
+<script src="https://giscus.app/client.js"
+        data-repo="wenburu/suat-robomaster-mech-website"
+        data-repo-id="R_kgDOVHQvbQ"
+        data-category="Announcements"
+        data-category-id="DIC_kwDOVHQvbc4DJJ74"
+        data-mapping="pathname"
+        data-strict="0"
+        data-reactions-enabled="1"
+        data-emit-metadata="0"
+        data-input-position="bottom"
+        data-theme="light"
+        data-lang="zh-CN"
+        crossorigin="anonymous"
+        async>
+</script>
+
+</body>
+</html>

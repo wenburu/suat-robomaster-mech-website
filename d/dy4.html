@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script>window.SITE_PREFIX="../";</script>
+<title>DY4 云台与发射集成 - SUAT RoboMaster 机械组</title>
+<link rel="stylesheet" href="../css/style.css?v=6">
+</head>
+<body data-stage="D" data-task="dy4">
+
+<header class="topbar">
+  <div class="brand"><span class="logo">RM</span>SUAT 机械组 <small>RoboMaster 学习平台</small></div>
+  <nav>
+    <a href="../index.html">首页</a>
+    <a href="../f/index.html">F 阶段</a>
+    <a href="../e/index.html">E 阶段</a>
+    <a href="index.html">D 阶段</a>
+    <a href="../c/index.html">C 阶段</a>
+    <a href="../b/index.html">B 阶段</a>
+    <a href="../a/index.html">A 阶段</a>
+    <a href="../links.html">外部资源库</a>
+  </nav>
+  <div class="right">2026 · 深理工第一届 RM 战队</div><span id="userBox" class="userbox"></span>
+</header>
+
+<main class="wrap">
+  <div class="crumb"><a href="../index.html">首页</a> / <a href="index.html">D 阶段</a> / DY4</div>
+  <span class="stage-badge"><span class="dot"></span>DY4 · 云台与发射集成</span>
+  <h1 style="font-size:28px;margin-bottom:8px">DY4：云台与发射集成</h1>
+
+  <div class="panel" id="taskJump"></div>
+
+  <div class="lecture">
+<h2>这一部分讲什么</h2>
+    <p>DY4 把 DY1-DY3 的轴系、发射机构、弹仓<strong>集成成一个云台-发射总成</strong>，并加上枪管、瞄具座、走线与限位。这一部分解决「各部件合在一起还能不能装、能不能动」。</p>
+
+    <h2>讲义正文</h2>
+    <h3>1. 集成顺序</h3>
+    <ol>
+      <li>Pitch 轴系装发射机构（摩擦轮组 + 进弹口）</li>
+      <li>弹仓 + 供弹管固定到云台侧板（供弹路径不与 Pitch 转动干涉）</li>
+      <li>枪管装到摩擦轮出口：枪管直径略大于弹径，长度保证弹道稳定</li>
+      <li>Yaw 轴把整个云台装上底盘上板（与底盘组核对接口）</li>
+    </ol>
+    <h3>2. 枪管</h3>
+    <p>枪管是旋转体：拉伸/旋转一个内孔 = 弹径 + 0.5~1mm 的管件。管口倒角（防刮弹），枪管与摩擦轮出弹口同心。</p>
+    <h3>3. 瞄具与视觉</h3>
+    <p>相机/瞄具座要保证光轴与枪管轴线平行（或按弹道补偿角度偏置）。瞄具座开孔按相机型号接口（M2 螺丝孔等），由电控提供相机尺寸。</p>
+    <h3>4. 走线与限位</h3>
+    <p>云台线束走 Yaw 轴中心孔（DY1 已留），俯仰段线束留余量并用线夹固定，避免随动缠绕。Pitch/Yaw 机械限位在集成后重新验证。</p>
+    <h3>5. 重心</h3>
+    <p>云台重心应在 Pitch 轴线上（前后平衡），否则俯仰电机持续出力。用「调整弹仓/电池/配重块位置」来配平。</p>
+
+    <h2>练习项目</h2>
+    <ol>
+      <li><strong>枪管建模</strong>：做一根内孔 Φ17.5、长度 80-120mm 的枪管（旋转特征）。</li>
+      <li><strong>云台-发射集成装配（主练习）</strong>：把 DY1-DY3 部件 + 枪管装成云台总成，检查各运动轴自由度。</li>
+      <li><strong>走线模拟</strong>：在装配里加简化线缆，检查 Yaw 转一圈线是否够长、不缠绕。</li>
+    </ol>
+
+    <h2>提交要求</h2>
+    <p>云台集成装配 .SLDASM + 枪管零件 + 重心与走线说明。命名：<span class="path">D_DY4_云台集成_姓名.SLDASM</span>。</p>
+
+    <h2>常见错误</h2>
+    <ul>
+      <li>弹仓/供弹管与 Pitch 转动干涉</li>
+      <li>枪管与摩擦轮不同心，弹道偏</li>
+      <li>云台重心不在 Pitch 轴线上，电机过热</li>
+      <li>线束不够长/无固定，旋转缠绕</li>
+    </ul>
+
+    <h2>外部链接</h2>
+    <ul>
+      <li><a href="https://bbs-web-static.robomaster.com/bbs-prod/844203f80d4f40b7bf2699cd847475a5.pdf" target="_blank" rel="noopener">英雄机器人机械结构说明文档</a>：云台板材结构、弹道与防卡弹处理，可迁移到步兵云台。</li>
+      <li><a href="https://bbs.robomaster.com/article/555578" target="_blank" rel="noopener">北理工麦轮步兵开源</a>：完整云台-发射装配体结构。</li>
+    </ul>
+  </div>
+</main>
+
+<div class="panel" id="progressBox"></div>
+<div class="panel" id="submitBox"></div>
+<div class="panel comments" id="commentsBox"></div>
+<div class="giscus" style="margin-top:28px"></div>
+<footer class="footer">SUAT RoboMaster 机械组学习平台 · DY4 · 组内专用</footer>
+
+<script src="../js/main.js?v=10"></script>
+
+<script src="https://giscus.app/client.js"
+        data-repo="wenburu/suat-robomaster-mech-website"
+        data-repo-id="R_kgDOVHQvbQ"
+        data-category="Announcements"
+        data-category-id="DIC_kwDOVHQvbc4DJJ74"
+        data-mapping="pathname"
+        data-strict="0"
+        data-reactions-enabled="1"
+        data-emit-metadata="0"
+        data-input-position="bottom"
+        data-theme="light"
+        data-lang="zh-CN"
+        crossorigin="anonymous"
+        async>
+</script>
+
+</body>
+</html>

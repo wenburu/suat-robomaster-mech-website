@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script>window.SITE_PREFIX="../";</script>
+<title>DC4 电池仓与内部布局 - SUAT RoboMaster 机械组</title>
+<link rel="stylesheet" href="../css/style.css?v=6">
+</head>
+<body data-stage="D" data-task="dc4">
+
+<header class="topbar">
+  <div class="brand"><span class="logo">RM</span>SUAT 机械组 <small>RoboMaster 学习平台</small></div>
+  <nav>
+    <a href="../index.html">首页</a>
+    <a href="../f/index.html">F 阶段</a>
+    <a href="../e/index.html">E 阶段</a>
+    <a href="index.html">D 阶段</a>
+    <a href="../c/index.html">C 阶段</a>
+    <a href="../b/index.html">B 阶段</a>
+    <a href="../a/index.html">A 阶段</a>
+    <a href="../links.html">外部资源库</a>
+  </nav>
+  <div class="right">2026 · 深理工第一届 RM 战队</div><span id="userBox" class="userbox"></span>
+</header>
+
+<main class="wrap">
+  <div class="crumb"><a href="../index.html">首页</a> / <a href="index.html">D 阶段</a> / DC4</div>
+  <span class="stage-badge"><span class="dot"></span>DC4 · 电池仓与内部布局</span>
+  <h1 style="font-size:28px;margin-bottom:8px">DC4：电池仓与内部布局</h1>
+
+  <div class="panel" id="taskJump"></div>
+
+  <div class="lecture">
+<h2>这一部分讲什么</h2>
+    <p>电池是整车最重的模块，也是能量来源。这一部分做<strong>电池仓</strong>：怎么固定、怎么快拆、怎么走线，以及内部布局怎么保证重心。</p>
+
+    <h2>讲义正文</h2>
+    <h3>1. 电池选型与位置</h3>
+    <p>电池位置在<strong>底盘底部中央</strong>（重心最低、最居中）。选型（容量、放电倍率、尺寸）由电控/运营对接，机械组拿到电池实物尺寸后做仓体。</p>
+    <h3>2. 电池仓设计</h3>
+    <ul>
+      <li>仓体尺寸 = 电池尺寸 + 每侧 1-2mm 间隙 + 缓冲垫厚度</li>
+      <li>固定方式：两侧限位 + 顶部压板/绑带，保证剧烈转向时不窜动</li>
+      <li>快拆：比赛换电要快，压板用快拆螺栓或卡扣，别用需要工具的深埋螺丝</li>
+      <li>电池输出线出口留孔，线束固定（线夹/扎带孔），防止拉扯端子</li>
+    </ul>
+    <h3>3. 走线与重心</h3>
+    <ul>
+      <li>整车走线沿车架内侧预留线槽，线与运动部件（轮子、悬挂）保持距离</li>
+      <li>重心验证：装配后把整车重心投影标在底板上，偏差超过要求就调整电池位置或配重</li>
+    </ul>
+    <h3>4. 安全</h3>
+    <p>电池仓必须有防穿刺、防短路的隔离（仓体不接触尖锐结构）；电调/线束远离电池发热区。这些在结构评审时由标准与审核负责人检查。</p>
+
+    <h2>练习项目</h2>
+    <ol>
+      <li><strong>电池仓建模（主练习）</strong>：按一个假想电池（如 150×50×40mm）做仓体：底托 + 两侧限位 + 顶部压板 + 出线孔。</li>
+      <li><strong>装进底盘</strong>：把电池仓装进 DC2 底板，验证重心位置与快拆操作。</li>
+      <li><strong>走线规划</strong>：在底盘装配里画出线束走向（用 3D 草图或简化线缆），标出固定点。</li>
+    </ol>
+
+    <h2>提交要求</h2>
+    <p>电池仓 .SLDPRT + 装配位置截图 + 重心说明。命名：<span class="path">D_DC4_电池仓_姓名.SLDPRT</span>。</p>
+
+    <h2>常见错误</h2>
+    <ul>
+      <li>仓体尺寸卡死（电池放不进去或晃）</li>
+      <li>压板需要工具才能拆，换电太慢</li>
+      <li>出线口太小压线，或没有固定线束</li>
+      <li>电池放在一侧，重心偏</li>
+    </ul>
+
+    <h2>外部链接</h2>
+    <ul>
+      <li><a href="https://bbs-web-static.robomaster.com/bbs-prod/0e590a49157e40258e9f6f1e45e8139a/%E3%80%90RM2024-%E9%BA%A6%E8%BD%AE%E6%AD%A5%E5%85%B5%E5%BC%80%E6%BA%90%E3%80%91%E5%8C%97%E4%BA%AC%E7%90%86%E5%B7%A5%E5%A4%A7%E5%AD%A6-%E8%BF%BD%E6%A2%A6%E6%88%98%E9%98%9F.pdf" target="_blank" rel="noopener">北理工麦轮步兵技术方案</a>：看真实底盘的电池仓位置与固定方式。</li>
+      <li><a href="https://bbs.robomaster.com/article/555578" target="_blank" rel="noopener">北理工麦轮步兵开源</a>：拆解模型里的电池仓与走线件。</li>
+    </ul>
+  </div>
+</main>
+
+<div class="panel" id="progressBox"></div>
+<div class="panel" id="submitBox"></div>
+<div class="panel comments" id="commentsBox"></div>
+<div class="giscus" style="margin-top:28px"></div>
+<footer class="footer">SUAT RoboMaster 机械组学习平台 · DC4 · 组内专用</footer>
+
+<script src="../js/main.js?v=10"></script>
+
+<script src="https://giscus.app/client.js"
+        data-repo="wenburu/suat-robomaster-mech-website"
+        data-repo-id="R_kgDOVHQvbQ"
+        data-category="Announcements"
+        data-category-id="DIC_kwDOVHQvbc4DJJ74"
+        data-mapping="pathname"
+        data-strict="0"
+        data-reactions-enabled="1"
+        data-emit-metadata="0"
+        data-input-position="bottom"
+        data-theme="light"
+        data-lang="zh-CN"
+        crossorigin="anonymous"
+        async>
+</script>
+
+</body>
+</html>

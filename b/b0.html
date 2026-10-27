@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script>window.SITE_PREFIX="../";</script>
+<title>B0 阶段说明 - SUAT RoboMaster 机械组</title>
+<link rel="stylesheet" href="../css/style.css?v=6">
+</head>
+<body data-stage="B" data-task="b0">
+
+<header class="topbar">
+  <div class="brand"><span class="logo">RM</span>SUAT 机械组 <small>RoboMaster 学习平台</small></div>
+  <nav>
+    <a href="../index.html">首页</a>
+    <a href="../f/index.html">F 阶段</a>
+    <a href="../e/index.html">E 阶段</a>
+    <a href="../d/index.html">D 阶段</a>
+    <a href="../c/index.html">C 阶段</a>
+    <a href="../b/index.html" class="active">B 阶段</a>
+    <a href="../a/index.html">A 阶段</a>
+    <a href="../links.html">外部资源库</a>
+  </nav>
+  <div class="right">2026 · 深理工第一届 RM 战队</div><span id="userBox" class="userbox"></span>
+</header>
+
+<main class="wrap">
+  <div class="crumb"><a href="../index.html">首页</a> / <a href="index.html">B 阶段</a> / B0</div>
+  <span class="stage-badge"><span class="dot"></span>B0 · 阶段说明</span>
+  <h1 style="font-size:28px;margin-bottom:8px">B 阶段：仿真与设计验证</h1>
+
+  <div class="panel" id="taskJump"></div>
+
+  <div class="lecture">
+<h2>这一部分讲什么</h2>
+    <p>B 阶段解决「设计出来之后，怎么验证它扛得住」：<strong>干涉检查进阶、运动模拟、有限元受力分析（Simulation）、材料选择</strong>。C 阶段出了图，B 阶段验证结构对不对，再回到设计迭代。</p>
+    <p>前置条件：D 阶段完成（有装配体和受力场景）。这一页先给框架，任务明细随 D 阶段推进补充。</p>
+
+    <h2>核心内容（框架）</h2>
+    <table>
+      <tr><th>模块</th><th>内容</th><th>预计时间</th></tr>
+      <tr><td>B1</td><td>干涉检查进阶：运动干涉（Motion 算例）、间隙检查</td><td>3-4h</td></tr>
+      <tr><td>B2</td><td>材料基础：碳板/玻纤/铝/PLA 性能对比、选材逻辑</td><td>3-4h</td></tr>
+      <tr><td>B3</td><td>Simulation 入门：固定、载荷、应力与变形查看</td><td>4-6h</td></tr>
+      <tr><td>B4</td><td>迭代验证：对 D 阶段设计跑一轮分析，改薄弱处</td><td>4-6h</td></tr>
+      <tr><td>B5</td><td>阶段作业：给 D 阶段关键件出分析报告</td><td>4-6h</td></tr>
+    </table>
+
+    <h2>讲义正文（要点预览）</h2>
+    <h3>1. 为什么做验证</h3>
+    <p>RM 里的失效不是「断没断」的问题，是「冲击下会不会弯、振动下会不会松」。仿真的意义是<strong>在加工之前发现问题</strong>——改模型比改实物便宜得多。</p>
+    <h3>2. 干涉是仿真的前提</h3>
+    <p>Simulation 网格划分要求模型<strong>无干涉</strong>。所以 DC5/DY5 的干涉清零是 B 阶段的前置条件。</p>
+    <h3>3. 应力与变形</h3>
+    <p>看三个量：<strong>应力（会不会断）、变形（会不会偏）、安全系数</strong>。不是「越大越安全」，而是「满足要求、重量最小」。</p>
+
+    <h2>练习项目（框架）</h2>
+    <ol>
+      <li>对底盘底板做固定 + 载荷分析（模拟满载冲击），看应力分布</li>
+      <li>对摩擦轮座做压紧力分析</li>
+      <li>对云台轴承座做轴向力分析</li>
+    </ol>
+
+    <h2>提交要求（框架）</h2>
+    <p>分析报告（截图 + 结论），命名：<span class="path">B_零件名_分析_姓名.pdf</span>。</p>
+
+    <h2>常见错误（预览）</h2>
+    <ul>
+      <li>模型带干涉直接跑仿真，结果无效</li>
+      <li>载荷/固定乱给，结果失真</li>
+      <li>只看应力不看变形（云台精度靠变形控制）</li>
+    </ul>
+
+    <h2>外部链接</h2>
+    <ul>
+      <li><a href="https://help.solidworks.com/2022/chinese-simplified/SolidWorks/cworks/c_Working_with_Assemblies.htm" target="_blank" rel="noopener">SolidWorks 帮助：使用装配体</a>：干涉检查规范（仿真前置）。</li>
+      <li><a href="https://help.solidworks.com/2024/chinese-simplified/SolidWorks/motionstudies/t_detecting_interference_motion.htm" target="_blank" rel="noopener">SolidWorks 帮助：检测干涉（Motion 算例）</a>：运动过程中的干涉检查。</li>
+    </ul>
+  </div>
+</main>
+
+<div class="panel" id="progressBox"></div>
+<div class="panel" id="submitBox"></div>
+<div class="panel comments" id="commentsBox"></div>
+<div class="giscus" style="margin-top:28px"></div>
+<footer class="footer">SUAT RoboMaster 机械组学习平台 · B0 · 组内专用</footer>
+
+<script src="../js/main.js?v=10"></script>
+
+<script src="https://giscus.app/client.js"
+        data-repo="wenburu/suat-robomaster-mech-website"
+        data-repo-id="R_kgDOVHQvbQ"
+        data-category="Announcements"
+        data-category-id="DIC_kwDOVHQvbc4DJJ74"
+        data-mapping="pathname"
+        data-strict="0"
+        data-reactions-enabled="1"
+        data-emit-metadata="0"
+        data-input-position="bottom"
+        data-theme="light"
+        data-lang="zh-CN"
+        crossorigin="anonymous"
+        async>
+</script>
+
+</body>
+</html>

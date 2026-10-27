@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script>window.SITE_PREFIX="../";</script>
+<title>C0 阶段说明 - SUAT RoboMaster 机械组</title>
+<link rel="stylesheet" href="../css/style.css?v=6">
+</head>
+<body data-stage="C" data-task="c0">
+
+<header class="topbar">
+  <div class="brand"><span class="logo">RM</span>SUAT 机械组 <small>RoboMaster 学习平台</small></div>
+  <nav>
+    <a href="../index.html">首页</a>
+    <a href="../f/index.html">F 阶段</a>
+    <a href="../e/index.html">E 阶段</a>
+    <a href="../d/index.html">D 阶段</a>
+    <a href="../c/index.html" class="active">C 阶段</a>
+    <a href="../b/index.html">B 阶段</a>
+    <a href="../a/index.html">A 阶段</a>
+    <a href="../links.html">外部资源库</a>
+  </nav>
+  <div class="right">2026 · 深理工第一届 RM 战队</div><span id="userBox" class="userbox"></span>
+</header>
+
+<main class="wrap">
+  <div class="crumb"><a href="../index.html">首页</a> / <a href="index.html">C 阶段</a> / C0</div>
+  <span class="stage-badge"><span class="dot"></span>C0 · 阶段说明</span>
+  <h1 style="font-size:28px;margin-bottom:8px">C 阶段：工程图与标注</h1>
+
+  <div class="panel" id="taskJump"></div>
+
+  <div class="lecture">
+<h2>这一部分讲什么</h2>
+    <p>C 阶段解决「把 3D 模型变成可加工、可检验的 2D 工程图」：<strong>视图怎么摆、尺寸怎么标、公差怎么给、BOM 怎么写</strong>。D 阶段做出来的每个零件，都要出工程图交给加工和审核。</p>
+    <p>前置条件：D 阶段完成（有真实的零件和装配体可出图）。这一页先给出整体框架与学习路径，任务明细在 D 阶段推进过程中补充细化。</p>
+
+    <h2>核心内容（框架）</h2>
+    <table>
+      <tr><th>模块</th><th>内容</th><th>预计时间</th></tr>
+      <tr><td>C1</td><td>视图基础：标准三视图、等轴测、局部放大、剖面视图</td><td>3-4h</td></tr>
+      <tr><td>C2</td><td>尺寸标注：智能尺寸、基准、尺寸规范（按国标习惯）</td><td>3-4h</td></tr>
+      <tr><td>C3</td><td>公差与配合：尺寸公差、形位公差概念、配合选择（E4 配合的图纸化）</td><td>3-4h</td></tr>
+      <tr><td>C4</td><td>装配图与 BOM：装配体工程图、材料明细表、图框标题栏</td><td>3-4h</td></tr>
+      <tr><td>C5</td><td>阶段作业：给 D 阶段自己的零件出完整图纸一套</td><td>4-6h</td></tr>
+    </table>
+
+    <h2>讲义正文（要点预览）</h2>
+    <h3>1. 为什么需要工程图</h3>
+    <p>3D 模型用于设计，工程图用于<strong>加工和检验</strong>：加工厂不看模型，只看图纸上的尺寸和公差。工程图必须自洽：图里标了尺寸，就按图加工；没标，加工方按默认习惯处理。</p>
+    <h3>2. 视图</h3>
+    <p>标准三视图（主视/俯视/左视）是基础，加上等轴测帮助理解，内部结构用剖面视图表达。视图之间保持<strong>投影关系</strong>（长对正、高平齐、宽相等）。</p>
+    <h3>3. 尺寸与公差</h3>
+    <p>尺寸要标<strong>加工需要的</strong>，不是标模型里的全部尺寸；公差表达允许的偏差范围（如 Φ10 ± 0.05），配合处公差从严。</p>
+
+    <h2>练习项目（框架）</h2>
+    <ol>
+      <li>用 F4 连接板出第一张三视图工程图，练习视图与标注</li>
+      <li>用 E2 阶梯轴做剖面视图，标注尺寸与公差</li>
+      <li>用 D 阶段自己的装配体出装配图 + BOM</li>
+    </ol>
+
+    <h2>提交要求（框架）</h2>
+    <p>工程图 .SLDDRW 或 PDF，命名：<span class="path">C_零件名_姓名.SLDDRW</span>；阶段作业整套图纸 + 审核意见。</p>
+
+    <h2>常见错误（预览）</h2>
+    <ul>
+      <li>视图投影关系错位</li>
+      <li>重复尺寸 / 漏关键尺寸（加工无法做）</li>
+      <li>公差乱给（能加工但不必要地严）</li>
+      <li>图框标题栏不填（材料、比例、零件名缺失）</li>
+    </ul>
+
+    <h2>外部链接</h2>
+    <ul>
+      <li><a href="https://help.solidworks.com/2024/english/swconntutorial/Advanced_Drawings_Overview.htm" target="_blank" rel="noopener">SolidWorks 官方教程：Advanced Drawings（含剖面视图）</a>：剖面视图创建与标注。</li>
+      <li><a href="https://help.solidworks.com/2025/chinese-simplified/SolidWorks/sldworks/c_Dimensions_in_Drawings.htm" target="_blank" rel="noopener">SolidWorks 帮助：工程图中的尺寸</a>：尺寸与模型关联、插入规则。</li>
+    </ul>
+  </div>
+</main>
+
+<div class="panel" id="progressBox"></div>
+<div class="panel" id="submitBox"></div>
+<div class="panel comments" id="commentsBox"></div>
+<div class="giscus" style="margin-top:28px"></div>
+<footer class="footer">SUAT RoboMaster 机械组学习平台 · C0 · 组内专用</footer>
+
+<script src="../js/main.js?v=10"></script>
+
+<script src="https://giscus.app/client.js"
+        data-repo="wenburu/suat-robomaster-mech-website"
+        data-repo-id="R_kgDOVHQvbQ"
+        data-category="Announcements"
+        data-category-id="DIC_kwDOVHQvbc4DJJ74"
+        data-mapping="pathname"
+        data-strict="0"
+        data-reactions-enabled="1"
+        data-emit-metadata="0"
+        data-input-position="bottom"
+        data-theme="light"
+        data-lang="zh-CN"
+        crossorigin="anonymous"
+        async>
+</script>
+
+</body>
+</html>

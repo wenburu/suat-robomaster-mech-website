@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script>window.SITE_PREFIX="../";</script>
+<title>DC1 底盘布局规划 - SUAT RoboMaster 机械组</title>
+<link rel="stylesheet" href="../css/style.css?v=6">
+</head>
+<body data-stage="D" data-task="dc1">
+
+<header class="topbar">
+  <div class="brand"><span class="logo">RM</span>SUAT 机械组 <small>RoboMaster 学习平台</small></div>
+  <nav>
+    <a href="../index.html">首页</a>
+    <a href="../f/index.html">F 阶段</a>
+    <a href="../e/index.html">E 阶段</a>
+    <a href="index.html">D 阶段</a>
+    <a href="../c/index.html">C 阶段</a>
+    <a href="../b/index.html">B 阶段</a>
+    <a href="../a/index.html">A 阶段</a>
+    <a href="../links.html">外部资源库</a>
+  </nav>
+  <div class="right">2026 · 深理工第一届 RM 战队</div><span id="userBox" class="userbox"></span>
+</header>
+
+<main class="wrap">
+  <div class="crumb"><a href="../index.html">首页</a> / <a href="index.html">D 阶段</a> / DC1</div>
+  <span class="stage-badge"><span class="dot"></span>DC1 · 底盘布局规划</span>
+  <h1 style="font-size:28px;margin-bottom:8px">DC1：底盘布局规划</h1>
+
+  <div class="panel" id="taskJump"></div>
+
+  <div class="lecture">
+<h2>这一部分讲什么</h2>
+    <p>布局规划是底盘设计的第一步：在动手建模之前，先确定<strong>整车的尺寸边界、轮子怎么排、重心放在哪、哪些空间要预留</strong>。这一步错了，后面所有零件都要推倒重来。</p>
+    <p>学完这一部分，能做到：</p>
+    <ul>
+      <li>读懂当年 RM 规则书对 1v1 步兵的尺寸、重量限制</li>
+      <li>画出底盘俯视布局草图，标出轮距、轴距、主要模块位置</li>
+      <li>说明重心位置对运动与抗冲击的意义</li>
+    </ul>
+
+    <h2>讲义正文</h2>
+    <h3>1. 尺寸边界</h3>
+    <p>1v1 步兵的外形尺寸、重量限制以<strong>当年 RM 规则书</strong>为准（不同年份可能微调）。布局规划第一步，是把限制数字抄到设计笔记第一行，所有后续设计都在这个框内做。</p>
+    <h3>2. 轮系布置</h3>
+    <p>步兵底盘常见四轮布置：四个<strong>麦克纳姆轮</strong>（或全向轮），通过不同轮速组合实现前后、横移、原地旋转。画俯视图时注意：</p>
+    <ul>
+      <li>轮距（左右轮中心距）与轴距（前后轮中心距）决定转弯半径与横向稳定性，一般轮距略大于轴距</li>
+      <li>四个轮的辊子方向要配对（左前/右后同向、右前/左后同向），否则整车横移时会自转</li>
+      <li>轮子外缘不能超出规则书尺寸线</li>
+    </ul>
+    <h3>3. 重心</h3>
+    <p>重心<strong>低而居中</strong>：越低，高速急转越不容易侧翻；越居中，四轮负载越均匀。底盘内部从上到下一般为：装甲与上板 → 云台 → 电控板 → 电池（最重，放底部中央）。</p>
+    <h3>4. 预留空间</h3>
+    <ul>
+      <li>云台安装区域：上板中央，Yaw 轴中心位置与底盘对称轴重合</li>
+      <li>电池仓：底部中央，可快拆</li>
+      <li>电控与走线：电控板层与两侧线槽</li>
+      <li>装甲安装座：前后左右四块装甲板的连接点</li>
+    </ul>
+
+    <h2>练习项目</h2>
+    <ol>
+      <li><strong>纸上布局（必做）</strong>：在方格纸上画底盘俯视图：四个轮、底板轮廓、电池、云台安装区，标出轮距、轴距、各模块占位尺寸。没有电脑也做这个。</li>
+      <li><strong>SW 布局草图</strong>：把纸上布局画成 SW 草图（中心线 + 矩形 + 圆），标注关键尺寸，练习从「想法」到「尺寸明确的图」。</li>
+      <li><strong>查开源对照</strong>：打开北理工/上交的开源步兵总装图，数一遍它的轮距轴距、电池位置，和你自己的布局对比。</li>
+    </ol>
+
+    <h2>提交要求</h2>
+    <p>布局草图（拍照或截图）+ 一句话说明（轮距、轴距、重心位置取值和理由）。命名：<span class="path">D_DC1_布局_姓名.png</span>，发微信群。</p>
+
+    <h2>常见错误</h2>
+    <ul>
+      <li>轮子超出尺寸线</li>
+      <li>重心没标或标完不检查（电池位置随意）</li>
+      <li>没有预留装甲、走线、云台安装空间，建模时才发现打架</li>
+      <li>把规则书数字记成「大概」，直接用错版本</li>
+    </ul>
+
+    <h2>外部链接</h2>
+    <ul>
+      <li><a href="https://bbs.robomaster.com/article/555578" target="_blank" rel="noopener">北理工追梦战队麦轮步兵开源（RM 社区）</a>：含三版麦轮底盘模型与说明文档，直接对照真实底盘参数。</li>
+      <li><a href="https://bbs-web-static.robomaster.com/bbs-prod/0e590a49157e40258e9f6f1e45e8139a/%E3%80%90RM2024-%E9%BA%A6%E8%BD%AE%E6%AD%A5%E5%85%B5%E5%BC%80%E6%BA%90%E3%80%91%E5%8C%97%E4%BA%AC%E7%90%86%E5%B7%A5%E5%A4%A7%E5%AD%A6-%E8%BF%BD%E6%A2%A6%E6%88%98%E9%98%9F.pdf" target="_blank" rel="noopener">北理工麦轮步兵技术方案 PDF</a>：底盘关键参数表（尺寸、轴距、重量），布局设计对照用。</li>
+      <li><a href="http://www.tup.tsinghua.edu.cn/upload/books/yz/088956-01.pdf" target="_blank" rel="noopener">清华《机械结构设计》PDF</a>：第 1 章轮组设计部分，讲轮系布局与传动的选择逻辑。</li>
+    </ul>
+  </div>
+</main>
+
+<div class="panel" id="progressBox"></div>
+<div class="panel" id="submitBox"></div>
+<div class="panel comments" id="commentsBox"></div>
+<div class="giscus" style="margin-top:28px"></div>
+<footer class="footer">SUAT RoboMaster 机械组学习平台 · DC1 · 组内专用</footer>
+
+<script src="../js/main.js?v=10"></script>
+
+<script src="https://giscus.app/client.js"
+        data-repo="wenburu/suat-robomaster-mech-website"
+        data-repo-id="R_kgDOVHQvbQ"
+        data-category="Announcements"
+        data-category-id="DIC_kwDOVHQvbc4DJJ74"
+        data-mapping="pathname"
+        data-strict="0"
+        data-reactions-enabled="1"
+        data-emit-metadata="0"
+        data-input-position="bottom"
+        data-theme="light"
+        data-lang="zh-CN"
+        crossorigin="anonymous"
+        async>
+</script>
+
+</body>
+</html>

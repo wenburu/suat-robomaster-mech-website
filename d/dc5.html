@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script>window.SITE_PREFIX="../";</script>
+<title>DC5 底盘总装与干涉检查 - SUAT RoboMaster 机械组</title>
+<link rel="stylesheet" href="../css/style.css?v=6">
+</head>
+<body data-stage="D" data-task="dc5">
+
+<header class="topbar">
+  <div class="brand"><span class="logo">RM</span>SUAT 机械组 <small>RoboMaster 学习平台</small></div>
+  <nav>
+    <a href="../index.html">首页</a>
+    <a href="../f/index.html">F 阶段</a>
+    <a href="../e/index.html">E 阶段</a>
+    <a href="index.html">D 阶段</a>
+    <a href="../c/index.html">C 阶段</a>
+    <a href="../b/index.html">B 阶段</a>
+    <a href="../a/index.html">A 阶段</a>
+    <a href="../links.html">外部资源库</a>
+  </nav>
+  <div class="right">2026 · 深理工第一届 RM 战队</div><span id="userBox" class="userbox"></span>
+</header>
+
+<main class="wrap">
+  <div class="crumb"><a href="../index.html">首页</a> / <a href="index.html">D 阶段</a> / DC5</div>
+  <span class="stage-badge"><span class="dot"></span>DC5 · 底盘总装与干涉检查</span>
+  <h1 style="font-size:28px;margin-bottom:8px">DC5：底盘总装与干涉检查</h1>
+
+  <div class="panel" id="taskJump"></div>
+
+  <div class="lecture">
+<h2>这一部分讲什么</h2>
+    <p>DC5 是底盘组的<strong>阶段作业</strong>：把 DC1-DC4 的底板、轮系、电池仓装成底盘总成，做干涉检查，导出 BOM。这一部分验证的是「能不能把一个子系统完整地装配、检查、交付」。</p>
+
+    <h2>讲义正文</h2>
+    <h3>1. 装配流程</h3>
+    <ol>
+      <li>新建装配体，按顺序插入：底板（第一个零件固定）→ 轮系子装配 → 电池仓 → 电控板/走线件</li>
+      <li>配合选择：底板与轮座用<strong>重合 + 同轴心</strong>；运动件（轮轴）只保留旋转自由度</li>
+      <li>插入顺序影响特征树整洁度，从下往上、从大到小</li>
+    </ol>
+    <h3>2. 干涉检查</h3>
+    <p>工具 &gt; 评估 &gt; 干涉检查。把「视重合为干涉」选项考虑清楚：配合面重合不算干涉，实体穿插算干涉，<strong>必须清零</strong>（B 阶段仿真要求模型无干涉）。</p>
+    <h3>3. BOM 与打包</h3>
+    <ul>
+      <li>在装配体插入 BOM 表（表格 &gt; 材料明细表），核对每个零件数量、名称、材料</li>
+      <li>交付用「打包（Pack and Go）」：把装配体 + 全部零件 + 标准件打包成一个文件夹/压缩包，别人打开不缺件</li>
+    </ul>
+    <h3>4. 自检</h3>
+    <ul>
+      <li>所有配合无过定义/欠定义</li>
+      <li>干涉检查 0 干涉</li>
+      <li>BOM 数量与实物一致</li>
+      <li>命名、单位、材料齐全</li>
+    </ul>
+
+    <h2>练习项目</h2>
+    <ol>
+      <li><strong>底盘总装（主练习）</strong>：完成装配 + 干涉检查 + BOM + 打包。</li>
+      <li><strong>导出渲染图</strong>：用 PhotoView 或外观给底盘一张等轴测渲染图，检查整体比例是否协调。</li>
+      <li><strong>评审自述</strong>：准备 3 分钟向组内讲：布局依据、每个零件的用途、干涉处理过程。</li>
+    </ol>
+
+    <h2>提交要求</h2>
+    <p><strong>打包文件（.zip）</strong> + 干涉检查截图（0 干涉）+ BOM 截图 + 渲染图 + 评审自述。命名：<span class="path">D_DC5_底盘总装_姓名.zip</span>，发微信群，组长与标准审核负责人复核。</p>
+
+    <h2>常见错误</h2>
+    <ul>
+      <li>干涉没清零就交付（仿真和加工都会出问题）</li>
+      <li>打包漏零件，别人打开缺件报错</li>
+      <li>配合过定义导致特征树红叉</li>
+      <li>BOM 数量与模型不一致</li>
+    </ul>
+
+    <h2>外部链接</h2>
+    <ul>
+      <li><a href="https://help.solidworks.com/2026/English/SolidWorks/cworks/c_Working_with_Assemblies.htm" target="_blank" rel="noopener">SolidWorks 官方帮助：使用装配体</a>：干涉检查的正确用法（视重合为干涉选项的取舍）。</li>
+      <li><a href="https://bbs.robomaster.com/article/7501" target="_blank" rel="noopener">上交步兵开源</a>：整车装配体结构可对照检查自己的装配逻辑。</li>
+    </ul>
+  </div>
+</main>
+
+<div class="panel" id="progressBox"></div>
+<div class="panel" id="submitBox"></div>
+<div class="panel comments" id="commentsBox"></div>
+<div class="giscus" style="margin-top:28px"></div>
+<footer class="footer">SUAT RoboMaster 机械组学习平台 · DC5 · 组内专用</footer>
+
+<script src="../js/main.js?v=10"></script>
+
+<script src="https://giscus.app/client.js"
+        data-repo="wenburu/suat-robomaster-mech-website"
+        data-repo-id="R_kgDOVHQvbQ"
+        data-category="Announcements"
+        data-category-id="DIC_kwDOVHQvbc4DJJ74"
+        data-mapping="pathname"
+        data-strict="0"
+        data-reactions-enabled="1"
+        data-emit-metadata="0"
+        data-input-position="bottom"
+        data-theme="light"
+        data-lang="zh-CN"
+        crossorigin="anonymous"
+        async>
+</script>
+
+</body>
+</html>

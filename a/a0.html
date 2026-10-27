@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script>window.SITE_PREFIX="../";</script>
+<title>A0 阶段说明 - SUAT RoboMaster 机械组</title>
+<link rel="stylesheet" href="../css/style.css?v=6">
+</head>
+<body data-stage="A" data-task="a0">
+
+<header class="topbar">
+  <div class="brand"><span class="logo">RM</span>SUAT 机械组 <small>RoboMaster 学习平台</small></div>
+  <nav>
+    <a href="../index.html">首页</a>
+    <a href="../f/index.html">F 阶段</a>
+    <a href="../e/index.html">E 阶段</a>
+    <a href="../d/index.html">D 阶段</a>
+    <a href="../c/index.html">C 阶段</a>
+    <a href="../b/index.html">B 阶段</a>
+    <a href="../a/index.html" class="active">A 阶段</a>
+    <a href="../links.html">外部资源库</a>
+  </nav>
+  <div class="right">2026 · 深理工第一届 RM 战队</div><span id="userBox" class="userbox"></span>
+</header>
+
+<main class="wrap">
+  <div class="crumb"><a href="../index.html">首页</a> / <a href="index.html">A 阶段</a> / A0</div>
+  <span class="stage-badge"><span class="dot"></span>A0 · 阶段说明</span>
+  <h1 style="font-size:28px;margin-bottom:8px">A 阶段：整车集成</h1>
+
+  <div class="panel" id="taskJump"></div>
+
+  <div class="lecture">
+<h2>这一部分讲什么</h2>
+    <p>A 阶段解决「把子系统合成一辆能跑的 1v1 步兵」：<strong>整车集成、接口对齐、全流程跑通（设计 → 出图 → 加工 → 装配 → 测试）</strong>。这一页给框架，任务明细在 D/C/B 完成后补充。</p>
+
+    <h2>核心内容（框架）</h2>
+    <table>
+      <tr><th>模块</th><th>内容</th><th>预计时间</th></tr>
+      <tr><td>A1</td><td>整车总装：底盘 + 云台 + 装甲 + 电控接口合成</td><td>4-6h</td></tr>
+      <tr><td>A2</td><td>接口与走线闭环：全车线束路径、快拆检查</td><td>3-4h</td></tr>
+      <tr><td>A3</td><td>整车干涉与运动验证：全行程无干涉</td><td>3-4h</td></tr>
+      <tr><td>A4</td><td>加工与装配闭环：图纸 → 加工件 → 实物装配</td><td>视加工周期</td></tr>
+      <tr><td>A5</td><td>测试与迭代：场地实测 → 问题清单 → 改版</td><td>持续</td></tr>
+    </table>
+
+    <h2>讲义正文（要点预览）</h2>
+    <h3>1. 整车集成的顺序</h3>
+    <p>底盘总装 → 云台总装 → 装甲 → 电控/线束。每加一层做一次干涉与重心检查，不攒到最后。</p>
+    <h3>2. 接口是核心</h3>
+    <p>所有跨组接口（云台-底盘、装甲-车架）用<strong>同一张接口尺寸表</strong>管理，改一处必须通知对方。</p>
+    <h3>3. 全流程的意义</h3>
+    <p>A 阶段的产出不是「一辆车」，是<strong>一条能复用的流程</strong>：1v1 跑通后，3v3 的其他车型（英雄/哨兵）按同一流程扩展。</p>
+
+    <h2>练习项目（框架）</h2>
+    <ol>
+      <li>整车总装 + 干涉清零 + 重心标注</li>
+      <li>全车线束路径图</li>
+      <li>一次完整加工装配闭环（含问题记录表）</li>
+    </ol>
+
+    <h2>提交要求（框架）</h2>
+    <p>整车打包 + 干涉报告 + 问题清单。命名：<span class="path">A_整车总装_v版本.zip</span>。</p>
+
+    <h2>常见错误（预览）</h2>
+    <ul>
+      <li>跨组接口各改各的，到总装对不上</li>
+      <li>线束无规划，运动部件压线</li>
+      <li>加工件与图纸不一致（图纸没更新就加工）</li>
+    </ul>
+
+    <h2>外部链接</h2>
+    <ul>
+      <li><a href="https://bbs.robomaster.com/article/7501" target="_blank" rel="noopener">上交交龙步兵机械开源</a>：整车装配体结构，集成阶段的主要对照物。</li>
+      <li><a href="https://bbs.robomaster.com/article/555578" target="_blank" rel="noopener">北理工麦轮步兵开源</a>：完整步兵总装 + 说明文档。</li>
+    </ul>
+  </div>
+</main>
+
+<div class="panel" id="progressBox"></div>
+<div class="panel" id="submitBox"></div>
+<div class="panel comments" id="commentsBox"></div>
+<div class="giscus" style="margin-top:28px"></div>
+<footer class="footer">SUAT RoboMaster 机械组学习平台 · A0 · 组内专用</footer>
+
+<script src="../js/main.js?v=10"></script>
+
+<script src="https://giscus.app/client.js"
+        data-repo="wenburu/suat-robomaster-mech-website"
+        data-repo-id="R_kgDOVHQvbQ"
+        data-category="Announcements"
+        data-category-id="DIC_kwDOVHQvbc4DJJ74"
+        data-mapping="pathname"
+        data-strict="0"
+        data-reactions-enabled="1"
+        data-emit-metadata="0"
+        data-input-position="bottom"
+        data-theme="light"
+        data-lang="zh-CN"
+        crossorigin="anonymous"
+        async>
+</script>
+
+</body>
+</html>

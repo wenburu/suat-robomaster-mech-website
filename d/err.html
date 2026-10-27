@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script>window.SITE_PREFIX="../";</script>
+<title>D! 常见错误合集 - SUAT RoboMaster 机械组</title>
+<link rel="stylesheet" href="../css/style.css?v=6">
+</head>
+<body data-stage="D" data-task="derr">
+
+<header class="topbar">
+  <div class="brand"><span class="logo">RM</span>SUAT 机械组 <small>RoboMaster 学习平台</small></div>
+  <nav>
+    <a href="../index.html">首页</a>
+    <a href="../f/index.html">F 阶段</a>
+    <a href="../e/index.html">E 阶段</a>
+    <a href="index.html">D 阶段</a>
+    <a href="../c/index.html">C 阶段</a>
+    <a href="../b/index.html">B 阶段</a>
+    <a href="../a/index.html">A 阶段</a>
+    <a href="../links.html">外部资源库</a>
+  </nav>
+  <div class="right">2026 · 深理工第一届 RM 战队</div><span id="userBox" class="userbox"></span>
+</header>
+
+<main class="wrap">
+  <div class="crumb"><a href="../index.html">首页</a> / <a href="index.html">D 阶段</a> / D!</div>
+  <span class="stage-badge"><span class="dot"></span>D! · 常见错误合集</span>
+  <h1 style="font-size:28px;margin-bottom:8px">D 阶段：常见错误合集</h1>
+
+  <div class="panel" id="taskJump"></div>
+
+  <div class="lecture">
+<h2>这一部分讲什么</h2>
+    <p>D 阶段常见错误的合集。按「底盘 / 云台 / 装配通用」三类整理，随实际踩坑持续补充。遇到报错先翻这里，再在评论区提问。</p>
+
+    <h2>底盘类</h2>
+    <ul>
+      <li><strong>轮子超出尺寸线</strong>：布局草图先量一遍，轮外径+悬挂行程都要算进总尺寸。</li>
+      <li><strong>辊子方向配对错</strong>：麦轮横移失效；装配前先画辊子方向简图。</li>
+      <li><strong>孔距与云台接口对不上</strong>：两组各自建模前先确认同一张接口尺寸表。</li>
+      <li><strong>重心偏高/偏侧</strong>：电池等重件没放底部中央。</li>
+    </ul>
+
+    <h2>云台类</h2>
+    <ul>
+      <li><strong>Yaw 中心没对齐</strong>：装好后整车不对称，转动时晃动。</li>
+      <li><strong>卡弹</strong>：先查供弹管转弯半径与内径，再查拨盘齿距，最后查进弹口对位。</li>
+      <li><strong>云台重心不在 Pitch 轴</strong>：俯仰电机持续出力，发烫。</li>
+      <li><strong>线束缠绕</strong>：Yaw 轴没走中心孔或线束无固定。</li>
+    </ul>
+
+    <h2>装配通用</h2>
+    <ul>
+      <li><strong>干涉不清零就交付</strong>：仿真、加工、装配全链路出错。</li>
+      <li><strong>配合过定义</strong>：特征树红叉；删掉重复约束，只留必要自由度。</li>
+      <li><strong>打包缺件</strong>：交付前用「打包」而不是手动复制。</li>
+      <li><strong>命名乱</strong>：全组统一命名规范，标准与审核负责人把关。</li>
+      <li><strong>文件互相打不开</strong>：版本统一 2026，传文件用打包。</li>
+    </ul>
+
+    <h2>外部链接</h2>
+    <ul>
+      <li><a href="https://bbs.robomaster.com/article/555578" target="_blank" rel="noopener">北理工麦轮步兵开源</a>：真实底盘+云台结构，遇到设计疑问直接对照。</li>
+      <li><a href="https://help.solidworks.com/2026/English/SolidWorks/cworks/c_Working_with_Assemblies.htm" target="_blank" rel="noopener">SolidWorks 帮助：使用装配体</a>：干涉检查与装配规范。</li>
+    </ul>
+  </div>
+</main>
+
+<div class="panel" id="progressBox"></div>
+<div class="panel" id="submitBox"></div>
+<div class="panel comments" id="commentsBox"></div>
+<div class="giscus" style="margin-top:28px"></div>
+<footer class="footer">SUAT RoboMaster 机械组学习平台 · D! · 组内专用</footer>
+
+<script src="../js/main.js?v=10"></script>
+
+<script src="https://giscus.app/client.js"
+        data-repo="wenburu/suat-robomaster-mech-website"
+        data-repo-id="R_kgDOVHQvbQ"
+        data-category="Announcements"
+        data-category-id="DIC_kwDOVHQvbc4DJJ74"
+        data-mapping="pathname"
+        data-strict="0"
+        data-reactions-enabled="1"
+        data-emit-metadata="0"
+        data-input-position="bottom"
+        data-theme="light"
+        data-lang="zh-CN"
+        crossorigin="anonymous"
+        async>
+</script>
+
+</body>
+</html>

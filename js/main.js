@@ -1,4 +1,4 @@
-/* SUAT RoboMaster 机械组 · 站点交互 v7
+/* SUAT RoboMaster 机械组 · 站点交互 v10
    新增：本地账号 / 学习进度 / 作业提交 / 评论区（数据保存在本机浏览器 localStorage） */
 (function () {
   "use strict";
@@ -19,10 +19,25 @@
     { id: "e4", stage: "E", num: "E4", title: "简单装配体", file: "e/e4.html" },
     { id: "e5", stage: "E", num: "E5", title: "爆炸视图与 BOM", file: "e/e5.html" },
     { id: "e6", stage: "E", num: "E6", title: "E 阶段考核任务", file: "e/e6.html" },
-    { id: "eerr", stage: "E", num: "E!", title: "E 阶段常见错误合集", file: "e/err.html" }
+    { id: "eerr", stage: "E", num: "E!", title: "E 阶段常见错误合集", file: "e/err.html" },
+    { id: "d0", stage: "D", num: "D0", title: "阶段说明与分轨", file: "d/d0.html" },
+    { id: "dc1", stage: "D", num: "DC1", title: "底盘布局规划", file: "d/dc1.html" },
+    { id: "dc2", stage: "D", num: "DC2", title: "底板与车架", file: "d/dc2.html" },
+    { id: "dc3", stage: "D", num: "DC3", title: "轮系与悬挂", file: "d/dc3.html" },
+    { id: "dc4", stage: "D", num: "DC4", title: "电池仓与内部布局", file: "d/dc4.html" },
+    { id: "dc5", stage: "D", num: "DC5", title: "底盘总装与干涉检查", file: "d/dc5.html" },
+    { id: "dy1", stage: "D", num: "DY1", title: "云台轴系", file: "d/dy1.html" },
+    { id: "dy2", stage: "D", num: "DY2", title: "发射机构", file: "d/dy2.html" },
+    { id: "dy3", stage: "D", num: "DY3", title: "弹仓与供弹", file: "d/dy3.html" },
+    { id: "dy4", stage: "D", num: "DY4", title: "云台与发射集成", file: "d/dy4.html" },
+    { id: "dy5", stage: "D", num: "DY5", title: "云台总装与干涉检查", file: "d/dy5.html" },
+    { id: "derr", stage: "D", num: "D!", title: "D 阶段常见错误合集", file: "d/err.html" },
+    { id: "c0", stage: "C", num: "C0", title: "阶段说明", file: "c/c0.html" },
+    { id: "b0", stage: "B", num: "B0", title: "阶段说明", file: "b/b0.html" },
+    { id: "a0", stage: "A", num: "A0", title: "阶段说明", file: "a/a0.html" }
   ];
   /* 有成品作业的任务（其余任务只自检、不提交） */
-  var SUBMIT_TASKS = { f4: 1, f5: 1, e2: 1, e3: 1, e4: 1, e5: 1, e6: 1 };
+  var SUBMIT_TASKS = { f4: 1, f5: 1, e2: 1, e3: 1, e4: 1, e5: 1, e6: 1, dc5: 1, dy5: 1 };
 
   function esc(s) {
     return String(s == null ? "" : s)
@@ -37,6 +52,10 @@
     if (href === path) a.classList.add("active");
     else if (path.indexOf("f") === 0 && href === "f/") a.classList.add("active");
     else if (path.indexOf("e") === 0 && href === "e/") a.classList.add("active");
+    else if (path.indexOf("d") === 0 && href === "d/") a.classList.add("active");
+    else if (path.indexOf("c") === 0 && href === "c/") a.classList.add("active");
+    else if (path.indexOf("b") === 0 && href === "b/") a.classList.add("active");
+    else if (path.indexOf("a") === 0 && href === "a/") a.classList.add("active");
   });
 
   var scriptSrc = document.currentScript ? document.currentScript.getAttribute("src") : "";
@@ -77,7 +96,22 @@
       e4: "装配 配合 重合 同轴心 干涉 打包",
       e5: "爆炸视图 BOM 材料明细表 工程图",
       e6: "考核 评分 自检 摇臂组件",
-      eerr: "错误 特征 装配 文件 打包"
+      eerr: "错误 特征 装配 文件 打包",
+      d0: "阶段 分轨 底盘 云台 目标 路线",
+      dc1: "底盘 布局 轮距 轴距 重心 坐标系",
+      dc2: "底板 车架 板材 加强筋 减重孔",
+      dc3: "轮系 悬挂 麦克纳姆轮 轴承座 全向轮",
+      dc4: "电池仓 走线 重心 内部布局",
+      dc5: "总装 装配 干涉检查 BOM 打包",
+      dy1: "云台 轴系 Yaw Pitch 轴承座 电机座",
+      dy2: "发射 摩擦轮 压紧 拨盘 供弹轮",
+      dy3: "弹仓 供弹 弹道 进弹口",
+      dy4: "云台 发射 集成 枪管 瞄具 限位",
+      dy5: "云台总装 干涉 装配 BOM",
+      derr: "错误 底盘 云台 装配 文件",
+      c0: "工程图 视图 尺寸 公差 BOM 阶段",
+      b0: "仿真 干涉 有限元 材料 阶段",
+      a0: "整车 集成 步兵 全流程 阶段"
     };
     q.addEventListener("input", function () {
       var v = q.value.trim().toLowerCase();
@@ -187,7 +221,7 @@
     }
     var prog = loadProg();
     var html = '<div class="p-head"><b>' + esc(u.name) + ' 的学习进度</b><span class="p-sub">本机保存 · 完成状态一览</span></div><div class="hp-grid">';
-    ["F", "E"].forEach(function (st) {
+    ["F", "E", "D"].forEach(function (st) {
       var arr = TASKS.filter(function (t) { return t.stage === st && !/0$/.test(t.id) && t.id.indexOf("err") < 0; });
       var n = arr.length, c = 0; arr.forEach(function (t) { if (prog[t.id]) c++; });
       html += '<div class="hp-col"><div class="hp-stage">' + st + " 阶段</div><div class='p-bar'><div class='p-fill' style='width:" + Math.round(c / n * 100) + "%'></div></div><div class='hp-sub'>" + c + " / " + n + " 个任务完成</div>";
