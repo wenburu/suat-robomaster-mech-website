@@ -4,8 +4,8 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <script>window.SITE_PREFIX="../";</script>
-<title>E6 阶段考核：3D 打印大赛 · 机械爪承重挑战 - SUAT RoboMaster</title>
-<link rel="stylesheet" href="../css/style.css?v=6">
+<title>E6 阶段考核：装配体综合练习 - SUAT RoboMaster 机械组</title>
+<link rel="stylesheet" href="../css/style.css?v=7">
 </head>
 <body data-stage="E" data-task="e6">
 
@@ -16,6 +16,7 @@
     <a href="../f/index.html">F 阶段</a>
     <a href="index.html" class="active">E 阶段</a>
     <a href="../links.html">外部资源库</a>
+    <a href="../log.html">组内日志</a>
   </nav>
   <div class="right">2026 · 深理工第一届 RM 战队</div><span id="userBox" class="userbox"></span>
 </header>
@@ -23,87 +24,102 @@
 <main class="wrap">
   <div class="crumb"><a href="../index.html">首页</a> / <a href="index.html">E 阶段</a> / E6</div>
   <span class="stage-badge"><span class="dot"></span>E6 · 阶段考核</span>
-  <h1 style="font-size:28px;margin-bottom:8px">E6 阶段考核：3D 打印大赛 · 机械爪承重挑战</h1>
+  <h1 style="font-size:28px;margin-bottom:8px">E6 阶段考核：装配体综合练习</h1>
 
   <div class="panel" id="taskJump"></div>
 
   <div class="lecture">
 
     <h2>这一部分讲什么</h2>
-    <p>E1–E5 学完之后，阶段考核从闭门限时建模，改为直接参赛：完成深圳理工大学第二届 3D 打印大赛「材思造物 · AI+3D 打印 机械爪承重挑战赛」全流程。主办方提供机械爪主要构件，队伍负责结构设计与优化，现场承重测试评比。把前面学的建模、装配、检查用在一件真实作品上。</p>
-  <figure class="fig">
-    <img src="../images/e6.png?v=3" alt="完成图例：机械爪（3D 打印模块化夹爪，承重挑战参考）">
-    <figcaption>完成图例：机械爪（3D 打印模块化夹爪，承重挑战参考）</figcaption>
-  </figure>
+    <p>E 阶段考核改为<strong>限时装配综合练习</strong>：一道零件建模题（圆周阵列）+ 一道装配体题（简单配合），共 120 分钟。考题选自网络公开的 SolidWorks 练习题与官方样题，不另出题。3D 打印大赛不再作为 E 阶段考核，改记为组内独立项目（见「组内日志」）。</p>
+    <p>考核内容覆盖：圆周阵列、旋转特征、装配配合（重合 / 同轴心 / 距离 / 宽度）、干涉检查。</p>
 
-    <h2>大赛是什么</h2>
+    <h2>考核方式</h2>
     <ul>
-      <li><strong>主题</strong>：「材思造物 · AI+3D 打印 机械爪承重挑战赛」</li>
-      <li><strong>主办</strong>：材料科学与能源工程学院、3D 打印社（筹）</li>
-      <li><strong>对象</strong>：全校本科生，每队 1–4 人，大一比例不低于 50%，零基础可参赛</li>
-      <li><strong>赛制</strong>：主办方提供机械爪主要构件 → 队伍设计并优化机械爪结构 → 3D 打印、组装 → 现场承重测试，承重最大者胜</li>
-      <li>允许使用 AI 工具辅助建模，但结构必须合理、不得侵犯他人权益</li>
+      <li>限时 120 分钟，规定时间开始、规定时间截止，时间到即在微信群发作品</li>
+      <li>完成有效作品提交即通过（不设评分排名）</li>
+      <li>可以翻讲义、看本页链接的教程，但不能互相代做</li>
     </ul>
 
-    <h3>时间线</h3>
-    <ol>
-      <li><strong>报名</strong>（即日起至 10/31）：扫码填报名表，自动进大赛微信群</li>
-      <li><strong>培训</strong>（11 月上旬）：主办方培训 + 公布比赛细则</li>
-      <li><strong>比赛评审</strong>（11 月末）：现场承重测试 + 颁奖</li>
-      <li>完成组队并参加培训，可获得 3D 打印创意小摆件</li>
-    </ol>
-    <div class="callout warn"><span class="ct">截止</span>报名截止 10/31。错过报名，本阶段考核记未完成。</div>
+    <h2>考核一：零件建模 · 圆周阵列（60 分钟）</h2>
+    <p>参考<strong>「用 SolidWorks 画一个带法兰的圆管」</strong>公开练习题：法兰类零件，中心孔 + 圆周均布螺栓孔，用<strong>圆周阵列</strong>完成孔位（360°、8 个实例）。尺寸与参数以原题为准。</p>
+    <figure class="fig">
+      <img src="../images/e6b.png?v=1" alt="考题参考：圆周阵列特征面板与均布孔法兰">
+      <figcaption>考题参考：圆周阵列（PropertyManager 与 8 孔均布预览，源自网络公开教程）</figcaption>
+    </figure>
+    <p>要求：特征树里能看到明确的「圆周阵列」特征；所有孔尺寸完整；文件命名 <span class="path">E6_法兰盘_姓名.SLDPRT</span>。</p>
 
-    <h2>考核内容（完成这些）</h2>
-    <ol>
-      <li><strong>组队报名</strong>：10/31 前组队（1–4 人）并扫码报名。机械组全员默认参与，可跨学院组队</li>
-      <li><strong>设计</strong>：用 SolidWorks 建模机械爪结构件（可用 AI 辅助）。想清楚连接方式、受力路径、材料厚度</li>
-      <li><strong>打印组装</strong>：结构件 3D 打印 + 组装（打印由学校/主办方提供）</li>
-      <li><strong>参赛</strong>：参加 11 月上旬培训 + 11 月末现场承重测试</li>
-      <li><strong>记录提交</strong>：报名截图、设计文件（打包 zip）、打印件照片、现场测试结果 → 发机械组微信群</li>
-    </ol>
+    <h2>考核二：装配体 · 简单配合（60 分钟）</h2>
+    <p>参考<strong>广东理工学院《SOLIDWORKS 机械产品设计》实验：平口钳装配</strong>公开实验题：用提供的零件完成平口钳装配，用到<strong>宽度配合、重合配合、同轴配合</strong>（实验原题含螺旋配合，可做加分项）。零件与配合要求以原实验题为准。</p>
+    <figure class="fig">
+      <img src="../images/e6a.png?v=1" alt="考题参考：平口钳装配体（SolidWorks）">
+      <figcaption>考题参考：平口钳装配体（源自网络公开模型图）</figcaption>
+    </figure>
+    <p>要求：装配体无干涉；配合不过定义；文件打包 <span class="path">E6_平口钳_姓名.zip</span>（含全部零件）。</p>
+
+    <h2>提交要求</h2>
+    <ul>
+      <li>两题分别打包，微信群里发：文件 + 装配体干涉检查截图 + 一句话说明</li>
+      <li>截止时间以考核当天通知为准，超时记未完成</li>
+    </ul>
 
     <h2>通过标准</h2>
-    <p>本阶段考核不设评分排名。完成以下三项即通过：</p>
-    <ul>
-      <li><strong>完成报名</strong>：10/31 前组队并扫码报名</li>
-      <li><strong>提交有效作品</strong>：SW 设计文件（打包 zip）+ 打印件照片或现场测试记录，发机械组微信群</li>
-      <li><strong>完成参赛</strong>：参加 11 月上旬培训或 11 月末现场测试，任选其一到场</li>
-    </ul>
-    <p>三项都完成即通过。比赛结束一周内把结果录入多维表格「阶段考核表」；全员通过后进入 D 阶段分方向。</p>
-
-    <h2>为什么这么考</h2>
-    <p>机械爪的"结构设计、受力分析、连接方式"，就是机械组 D 阶段正式分方向后要做的核心技能。用一场真实比赛练一遍，比闭卷做题更接近机器人开发：承重测试就是结构强度验证，和 RM 里底盘抗冲击、云台支撑结构是同一类问题。</p>
+    <p>两道题都提交<strong>有效作品</strong>即通过（建模题能看到圆周阵列特征、装配题无干涉且配合正确）。结果录入多维表格「阶段考核表」；全员通过后进入 D 阶段分方向。</p>
 
     <h2>检验前自己过一遍</h2>
     <ol>
-      <li>能独立完成"草图 → 拉伸/旋转 → 打孔"一条链路吗？（F4 / E2）</li>
-      <li>知道配合三件套（重合 / 同轴心 / 距离）怎么用吗？（E4）</li>
+      <li>会做圆周阵列吗？（F4 打孔 + 阵列复习）</li>
+      <li>配合三件套（重合 / 同轴心 / 距离）怎么用？（E4）</li>
+      <li>宽度配合是什么？适合钳口这种对称结构吗？（E4 进阶）</li>
       <li>会做干涉检查吗？（E4）</li>
       <li>会用「打包」导出整个装配吗？（E4）</li>
-      <li>能给自己的设计做简单加固吗？（加筋、圆角、增加接触面）</li>
     </ol>
-    <div class="callout tip"><span class="ct">怎么准备</span>先组好队；用 E4 底板组件的流程熟悉一遍装配与打包导出。设计时先画简图定"夹爪怎么夹、力怎么传"，再进 SW。</div>
+    <div class="callout tip"><span class="ct">怎么准备</span>考前用本页「外部链接」里的练习题各做一遍：法兰题练圆周阵列，平口钳题练配合。E4 底板组件装配再走一遍打包流程。</div>
 
-    <h2>参考资料</h2>
+    <h2>没有电脑的同学</h2>
+    <p>考核当天先完成纸上部分：画出法兰草图（标注分度圆与孔径）、写出平口钳配合清单（哪个面配哪个面、什么配合类型）。电脑到位后补建模，补交同样计通过。</p>
+
+    <h2>外部链接</h2>
+    <div class="link-card">
+      <div class="ic doc">题</div>
+      <div class="body">
+        <div class="t"><span class="tag doc">考题</span>广东理工学院《SOLIDWORKS 机械产品设计》实验：平口钳装配（PDF）</div>
+        <div class="d">考核二原题：宽度 / 重合 / 同轴 / 螺旋配合，含装配步骤图。</div>
+        <a class="u" href="https://znzzxy.gdlgxy.edu.cn/__local/1/F6/50/19BD5D00147F8F70A8E69537061_30DCB0B6_6F3569.pdf" target="_blank" rel="noopener">打开原题 PDF</a>
+      </div>
+    </div>
+    <div class="link-card">
+      <div class="ic doc">题</div>
+      <div class="body">
+        <div class="t"><span class="tag doc">考题</span>「用 SolidWorks 画一个带法兰的圆管」（今日头条教程）</div>
+        <div class="d">考核一参考：圆周阵列 8 孔，尺寸与步骤以原题为准。</div>
+        <a class="u" href="http://m.toutiao.com/group/6937835160385634855/" target="_blank" rel="noopener">打开原题</a>
+      </div>
+    </div>
     <div class="link-card">
       <div class="ic doc">官</div>
       <div class="body">
-        <div class="t"><span class="tag doc">通知</span>大赛通知原文（深理工材料学院公众号）</div>
-        <div class="d">报名方式、时间安排、比赛细则以大赛微信群通知为准。</div>
-        <a class="u" href="https://mp.weixin.qq.com/s/VnaMIqoMcdkBcDS-X70e9Q" target="_blank" rel="noopener">https://mp.weixin.qq.com/s/VnaMIqoMcdkBcDS-X70e9Q</a>
+        <div class="t"><span class="tag doc">官方</span>CSWA 官方样题（SolidWorks 认证样题，含零件建模与装配题）</div>
+        <div class="d">更高要求的完整样卷，考后自测用。</div>
+        <a class="u" href="https://www.solidworks.co.jp/sw/docs/CSWASampleExam2009-Japanese.pdf" target="_blank" rel="noopener">打开样题 PDF</a>
       </div>
     </div>
     <div class="link-card">
       <div class="ic video">视</div>
       <div class="body">
-        <div class="t"><span class="tag video">视频</span>阿奇《40 道 SOLIDWORKS 练习题教程》</div>
-        <div class="d">考前挑 2–3 道建模/装配题限时练手，复习 F–E 内容。</div>
-        <a class="u" href="https://www.bilibili.com/video/BV1yc411A7cJ" target="_blank" rel="noopener">https://www.bilibili.com/video/BV1yc411A7cJ</a>
+        <div class="t"><span class="tag video">视频</span>SW 装配练习：平口钳（B 站）</div>
+        <div class="d">平口钳装配全过程视频，考前跟着做一遍。</div>
+        <a class="u" href="https://m.bilibili.com/video/BV15S411K7N2" target="_blank" rel="noopener">打开视频</a>
       </div>
     </div>
-
-    <p><strong>没有电脑的同学</strong>：参加组队、培训与现场测试；建模部分由队友分担，报名和培训必须参加。</p>
+    <div class="link-card">
+      <div class="ic doc">书</div>
+      <div class="body">
+        <div class="t"><span class="tag doc">教材</span>清华《第 5 章 零件装配设计》（活动钳座装配，含零部件阵列）</div>
+        <div class="d">装配流程 + 零部件阵列的完整教材章节。</div>
+        <a class="u" href="http://www.tup.tsinghua.edu.cn/upload/books/yz/091654-01.pdf" target="_blank" rel="noopener">打开教材 PDF</a>
+      </div>
+    </div>
 
   </div></main>
 
