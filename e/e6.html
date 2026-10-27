@@ -36,7 +36,7 @@
   <div class="lecture">
 
     <h2>这一部分讲什么</h2>
-    <p>E 阶段考核改为<strong>限时装配综合练习</strong>：一道零件建模题（圆周阵列）+ 一道装配体题（简单配合），共 120 分钟。考题选自网络公开的 SolidWorks 练习题与官方样题，不另出题。3D 打印大赛不再作为 E 阶段考核，改记为组内独立项目（见「组内日志」）。</p>
+    <p>E 阶段考核改为<strong>限时综合练习</strong>：一道零件建模题（圆周阵列）+ 一道零件建模与装配题（旋转 / 阵列 / 简单配合），共 120 分钟。考题选自网络公开的 SolidWorks 练习题与实验题，不另出题。3D 打印大赛不再作为 E 阶段考核，改记为组内独立项目（见「组内日志」）。</p>
     <p>考核内容覆盖：圆周阵列、旋转特征、装配配合（重合 / 同轴心 / 距离 / 宽度）、干涉检查。</p>
 
     <h2>考核方式</h2>
@@ -54,8 +54,17 @@
     </figure>
     <p>要求：特征树里能看到明确的「圆周阵列」特征；所有孔尺寸完整；文件命名 <span class="path">E6_法兰盘_姓名.SLDPRT</span>。</p>
 
-    <h2>考核二：装配体 · 简单配合（60 分钟）</h2>
-    <p>参考<strong>广东理工学院《SOLIDWORKS 机械产品设计》实验</strong>（PDF 为整本实验指导书）：平口钳装配在文档<strong>「实验九 零件装配」</strong>，打开 PDF 后搜索「钳座」即可定位（文档未用"平口钳"字样）。按实验要求自行建模钳座、活动钳口、丝杆、手柄等零件，再做<strong>宽度配合、重合配合、同轴配合</strong>（实验原题含螺旋配合，可做加分项）。配合步骤与截图都在实验九里。</p>
+    <h2>考核二：平口钳 · 零件建模 + 装配（60 分钟）</h2>
+    <p>参考<strong>广东理工学院《SOLIDWORKS 机械产品设计》实验</strong>（PDF 为整本实验指导书）：平口钳装配在文档<strong>「实验九 零件装配」</strong>，打开 PDF 后搜索「钳座」即可定位（文档未用"平口钳"字样）。<strong>原实验题附有零件文件（实验课随堂使用），本考核不提供零件文件</strong>——零件须自行建模，建模本身就是考核内容之一。题目分两段：</p>
+    <p><strong>第一段 · 零件建模（约 30 分钟）</strong>：用旋转、拉伸、<strong>圆周阵列</strong>建出 4 个零件：</p>
+    <ul>
+      <li><span class="path">钳座</span>：底座长方体 + 中部圆柱，圆柱上开 V 形槽（先建一个槽特征，再用<strong>圆周阵列</strong>复制，360° 均布）</li>
+      <li><span class="path">活动钳口</span>：与钳座槽相配的滑块 + 夹持板</li>
+      <li><span class="path">丝杆</span>：<strong>旋转特征</strong>做阶梯杆（杆身 + 头部），不要求螺纹牙型</li>
+      <li><span class="path">手柄</span>：旋转或拉伸，装在丝杆头部</li>
+    </ul>
+    <p>尺寸自定，比例合理即可（钳座总长约 100–150 mm）；特征树须能看到<strong>圆周阵列</strong>与<strong>旋转</strong>特征。</p>
+    <p><strong>第二段 · 装配（约 30 分钟）</strong>：新建装配体，插入 4 个零件，按实验九做<strong>宽度配合（钳口对中）、重合配合、同轴配合（丝杆与钳座）</strong>；实验原题含螺旋配合，可做加分项。配合步骤与截图都在实验九里。</p>
     <figure class="fig">
       <img src="../images/e6a.png?v=1" alt="考题参考：平口钳装配体（SolidWorks）">
       <figcaption>考题参考：平口钳装配体（源自网络公开模型图）</figcaption>
@@ -89,7 +98,7 @@
       <div class="ic doc">题</div>
       <div class="body">
         <div class="t"><span class="tag doc">考题</span>广东理工学院《SOLIDWORKS 机械产品设计》实验：平口钳装配（PDF）</div>
-        <div class="d">考核二原题：宽度 / 重合 / 同轴 / 螺旋配合，含装配步骤图。</div>
+        <div class="d">考核二原题：宽度 / 重合 / 同轴 / 螺旋配合，含装配步骤图。原题附零件文件，本考核不提供，零件须自行建模。</div>
         <a class="u" href="https://znzzxy.gdlgxy.edu.cn/__local/1/F6/50/19BD5D00147F8F70A8E69537061_30DCB0B6_6F3569.pdf" target="_blank" rel="noopener">打开原题 PDF</a>
       </div>
     </div>
