@@ -25,19 +25,22 @@
     { id: "dc2", stage: "D", num: "DC2", title: "底板与车架", file: "d/dc2.html" },
     { id: "dc3", stage: "D", num: "DC3", title: "轮系与悬挂", file: "d/dc3.html" },
     { id: "dc4", stage: "D", num: "DC4", title: "电池仓与内部布局", file: "d/dc4.html" },
-    { id: "dc5", stage: "D", num: "DC5", title: "底盘总装与干涉检查", file: "d/dc5.html" },
+    { id: "dc5", stage: "D", num: "DC5", title: "传动设计", file: "d/dc5.html" },
+    { id: "dc6", stage: "D", num: "DC6", title: "底盘与传动总装", file: "d/dc6.html" },
     { id: "dy1", stage: "D", num: "DY1", title: "云台轴系", file: "d/dy1.html" },
     { id: "dy2", stage: "D", num: "DY2", title: "发射机构", file: "d/dy2.html" },
     { id: "dy3", stage: "D", num: "DY3", title: "弹仓与供弹", file: "d/dy3.html" },
     { id: "dy4", stage: "D", num: "DY4", title: "云台与发射集成", file: "d/dy4.html" },
     { id: "dy5", stage: "D", num: "DY5", title: "云台总装与干涉检查", file: "d/dy5.html" },
+    { id: "da1", stage: "D", num: "DA1", title: "干涉仿真（全组必学）", file: "d/da1.html" },
+    { id: "da2", stage: "D", num: "DA2", title: "BOM 与工程图（全组必学）", file: "d/da2.html" },
     { id: "derr", stage: "D", num: "D!", title: "D 阶段常见错误合集", file: "d/err.html" },
     { id: "c0", stage: "C", num: "C0", title: "阶段说明", file: "c/c0.html" },
     { id: "b0", stage: "B", num: "B0", title: "阶段说明", file: "b/b0.html" },
     { id: "a0", stage: "A", num: "A0", title: "阶段说明", file: "a/a0.html" }
   ];
   /* 有成品作业的任务（其余任务只自检、不提交） */
-  var SUBMIT_TASKS = { f4: 1, f5: 1, e2: 1, e3: 1, e4: 1, e5: 1, e6: 1, dc5: 1, dy5: 1 };
+  var SUBMIT_TASKS = { f4: 1, f5: 1, e2: 1, e3: 1, e4: 1, e5: 1, e6: 1, dc5: 1, dc6: 1, dy5: 1, da1: 1, da2: 1 };
 
   function esc(s) {
     return String(s == null ? "" : s)

@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script>window.SITE_PREFIX="../";</script>
+<title>DA1 干涉仿真（全组必学） - SUAT RoboMaster 机械组</title>
+<link rel="stylesheet" href="../css/style.css?v=7">
+</head>
+<body data-stage="D" data-task="da1">
+
+<header class="topbar">
+  <div class="brand"><span class="logo">RM</span>SUAT 机械组 <small>RoboMaster 学习平台</small></div>
+  <nav>
+    <a href="../index.html">首页</a>
+    <a href="../f/index.html">F 阶段</a>
+    <a href="../e/index.html">E 阶段</a>
+    <a href="index.html">D 阶段</a>
+    <a href="../c/index.html">C 阶段</a>
+    <a href="../b/index.html">B 阶段</a>
+    <a href="../a/index.html">A 阶段</a>
+    <a href="../links.html">外部资源库</a>
+    <a href="../log.html">组内日志</a>
+  </nav>
+  <div class="right">2026 · 深理工第一届 RM 战队</div><span id="userBox" class="userbox"></span>
+</header>
+
+<main class="wrap">
+  <div class="crumb"><a href="../index.html">首页</a> / <a href="index.html">D 阶段</a> / DA1</div>
+  <span class="stage-badge"><span class="dot"></span>DA1 · 全组必学</span>
+  <h1 style="font-size:28px;margin-bottom:8px">DA1：干涉仿真（全组必学）</h1>
+
+  <div class="panel" id="taskJump"></div>
+
+  <div class="lecture">
+<h2>这一部分讲什么</h2>
+    <p>干涉仿真与 BOM/工程图一样，是<strong>全组必学</strong>内容，不随方向。无论是底盘与传动组还是云台与发射组，装配完成后都要做两件事：查干涉、验证运动。这一节是方法课，DC6 / DY5 的阶段作业直接使用这里的方法。</p>
+    <p>学完这一部分，能做到：</p>
+    <ul>
+      <li>用干涉检查找出实体穿插，并判断哪些是真实干涉、哪些是配合面重合</li>
+      <li>用间隙验证检查运动件与固定件之间的最小距离</li>
+      <li>把运动件拖到极限位置，检查运动包络是否碰撞</li>
+      <li>建一个基础 Motion 算例，做「随时间查找干涉」</li>
+    </ul>
+
+    <h2>讲义正文</h2>
+    <h3>1. 干涉检查</h3>
+    <ul>
+      <li>入口：<strong>工具 &gt; 评估 &gt; 干涉检查</strong>（装配体工具栏同图标）</li>
+      <li>选项：「视重合为干涉」默认关闭——配合面重合不算干涉；打开后会把所有贴合面都报出来，一般只在排查异常时开</li>
+      <li>结果：每处干涉显示<strong>干涉体积</strong>，选中列表项会在图形区高亮对应实体，可放大判读</li>
+      <li>「包括多体零件」用于多实体零件内部检查；普通零件设计不用开</li>
+    </ul>
+
+    <h3>2. 间隙验证</h3>
+    <ul>
+      <li>入口：<strong>工具 &gt; 评估 &gt; 间隙验证</strong></li>
+      <li>选择要检查的零部件组，设定<strong>最小可接受间隙</strong>（结构件之间建议 ≥1 mm，运动件 ≥2 mm）</li>
+      <li>软件报告小于设定值的间隙；结果为 0 的地方要确认是配合面还是实际过近</li>
+    </ul>
+
+    <h3>3. 静态运动包络检查（不用 Motion 也能做）</h3>
+    <ul>
+      <li>把有自由度的零件（云台、摆臂、轮轴）拖到<strong>两个极限位置</strong>，每个位置做一次干涉检查</li>
+      <li>给转动件加<strong>角度上限配合</strong>、给平移件加<strong>距离上限配合</strong>，让模型只能在实际工作范围内运动</li>
+      <li>检查运动件扫过的空间：云台俯仰是否碰装甲/底盘，轮子转动是否碰车架，弹仓拨盘是否碰供弹口</li>
+    </ul>
+
+    <h3>4. Motion 算例基础</h3>
+    <ol>
+      <li>装配体底部切换到 <strong>Motion 研究</strong> 标签，新建算例（默认「动画」或「基本运动」）</li>
+      <li>加<strong>旋转马达</strong>：选转动轴，设转速（如 30 rpm），确定方向</li>
+      <li>点「计算」，拖动时间轴看运动过程</li>
+      <li>在 MotionManager 树上右键装配体 &gt; <strong>检查干涉</strong>，设定起始/结束帧，勾选「随时间查找干涉」——整段运动里任何一帧的碰撞都会报出</li>
+      <li>「基本运动」算例可加<strong>接触</strong>与<strong>重力</strong>，看零件是否真的按物理方式运动</li>
+    </ol>
+
+    <h3>5. 常见干涉及原因</h3>
+    <table>
+      <tr><th>部位</th><th>常见原因</th><th>处理</th></tr>
+      <tr><td>螺栓与螺纹孔</td><td>螺栓按大径建模、孔按小径建模，必然重叠</td><td>孔按大径建，或干涉列表里单独排除螺纹副</td></tr>
+      <tr><td>轴承与轴承座</td><td>按过盈配合建模，外圈与座孔重叠</td><td>确认是设计意图后排除，或按名义尺寸留 0.01–0.02 mm</td></tr>
+      <tr><td>齿轮啮合</td><td>齿顶与齿根理论重叠</td><td>确认中心距正确后排除齿面，重点查齿顶与另一齿轮的齿根圆</td></tr>
+      <tr><td>运动件扫掠</td><td>只看了静止位置</td><td>拖到极限位置或做 Motion 检查</td></tr>
+      <tr><td>板材与标准件</td><td>孔位偏移 1–2 mm，螺钉头压到板边</td><td>核对孔距，检查螺钉头/垫圈占用空间</td></tr>
+    </table>
+
+    <h3>6. 处理流程</h3>
+    <ol>
+      <li>跑干涉检查，导出清单：零件对、干涉体积、位置</li>
+      <li>逐条判断：真实干涉（改尺寸/改结构）还是建模近似（记录并排除）</li>
+      <li>修改后<strong>重新跑一遍</strong>，确认清零；不要只改一处就交</li>
+      <li>截图存档：干涉检查结果窗口显示「无干涉」</li>
+    </ol>
+
+    <h2>练习项目</h2>
+    <ol>
+      <li><strong>干涉清零（主练习）</strong>：拿本组总装（DC6 / DY5）或 E4 装配体，跑干涉检查，逐条处理到 0 处。</li>
+      <li><strong>间隙验证</strong>：设定最小间隙 1 mm，报告并处理不合格项。</li>
+      <li><strong>Motion 检查</strong>：给一个转动件加旋转马达，做「随时间查找干涉」，截图运动过程。</li>
+      <li><strong>干涉清单</strong>：一张表，列零件对、体积、原因、处理方式。</li>
+    </ol>
+
+    <h2>提交要求</h2>
+    <p>干涉检查截图（0 干涉）+ 间隙验证截图 + Motion 运动截图 + 干涉清单表。命名：<span class="path">D_DA1_干涉_姓名.zip</span>，发微信群。</p>
+
+    <h2>常见错误</h2>
+    <ul>
+      <li>把配合面重合当成干涉，反复改尺寸</li>
+      <li>只查静态位置，不查运动包络</li>
+      <li>忽略螺纹副与轴承过盈，清单里没写排除理由</li>
+      <li>改完不复检，清单和模型对不上</li>
+      <li>Motion 算例没设时间范围，只算了第一帧</li>
+    </ul>
+
+    <h2>外部链接</h2>
+    <ul>
+      <li><a href="https://help.solidworks.com/2024/english/solidworks/sldworks/c_Interference_Detection.htm" target="_blank" rel="noopener">SW 官方帮助：干涉检查</a>：功能说明、结果判读与显示设置。</li>
+      <li><a href="https://help.solidworks.com/2026/english/solidworks/sldworks/c_Detecting_Problems_SWassy.htm" target="_blank" rel="noopener">SW 官方帮助：检测问题</a>：间隙验证与干涉检查的并列说明（含最小间隙设定）。</li>
+      <li><a href="https://help.solidworks.com/2026/English/SolidWorks/motionstudies/t_detecting_interference_motion.htm" target="_blank" rel="noopener">SW 官方帮助：运动中的干涉检测</a>：随时间查找干涉的起始/结束帧设置。</li>
+    </ul>
+  </div>
+</main>
+
+<div class="panel" id="progressBox"></div>
+<div class="panel" id="submitBox"></div>
+<div class="panel comments" id="commentsBox"></div>
+<div class="giscus" style="margin-top:28px"></div>
+<footer class="footer">SUAT RoboMaster 机械组学习平台 · DA1 · 组内专用</footer>
+
+<script src="../js/main.js?v=11"></script>
+
+<script src="https://giscus.app/client.js"
+        data-repo="wenburu/suat-robomaster-mech-website"
+        data-repo-id="R_kgDOVHQvbQ"
+        data-category="Announcements"
+        data-category-id="DIC_kwDOVHQvbc4DJJ74"
+        data-mapping="pathname"
+        data-strict="0"
+        data-reactions-enabled="1"
+        data-emit-metadata="0"
+        data-input-position="bottom"
+        data-theme="light"
+        data-lang="zh-CN"
+        crossorigin="anonymous"
+        async>
+</script>
+
+</body>
+</html>

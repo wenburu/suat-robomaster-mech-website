@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script>window.SITE_PREFIX="../";</script>
+<title>DC6 底盘与传动总装 - SUAT RoboMaster 机械组</title>
+<link rel="stylesheet" href="../css/style.css?v=7">
+</head>
+<body data-stage="D" data-task="dc6">
+
+<header class="topbar">
+  <div class="brand"><span class="logo">RM</span>SUAT 机械组 <small>RoboMaster 学习平台</small></div>
+  <nav>
+    <a href="../index.html">首页</a>
+    <a href="../f/index.html">F 阶段</a>
+    <a href="../e/index.html">E 阶段</a>
+    <a href="index.html">D 阶段</a>
+    <a href="../c/index.html">C 阶段</a>
+    <a href="../b/index.html">B 阶段</a>
+    <a href="../a/index.html">A 阶段</a>
+    <a href="../links.html">外部资源库</a>
+    <a href="../log.html">组内日志</a>
+  </nav>
+  <div class="right">2026 · 深理工第一届 RM 战队</div><span id="userBox" class="userbox"></span>
+</header>
+
+<main class="wrap">
+  <div class="crumb"><a href="../index.html">首页</a> / <a href="index.html">D 阶段</a> / DC6</div>
+  <span class="stage-badge"><span class="dot"></span>DC6 · 阶段作业</span>
+  <h1 style="font-size:28px;margin-bottom:8px">DC6：底盘与传动总装</h1>
+
+  <div class="panel" id="taskJump"></div>
+
+  <div class="lecture">
+<h2>这一部分讲什么</h2>
+    <p>DC6 是底盘与传动组的<strong>阶段作业</strong>：把 DC1–DC5 的布局、底板、轮系、电池仓、传动装成底盘总成，做干涉检查、导出 BOM、出关键零件工程图。这一部分验证的是「能不能把一个子系统完整地装配、检查、交付」。</p>
+
+    <h2>讲义正文</h2>
+    <h3>1. 装配流程</h3>
+    <ol>
+      <li>新建装配体，按顺序插入：底板（第一个零件固定）→ 轮系子装配 → 传动减速箱子装配 → 电池仓 → 电控板/走线件</li>
+      <li>配合选择：底板与轮座用<strong>重合 + 同轴心</strong>；传动轴与轮用同轴心 + 距离（轴向定位）；运动件（轮轴、齿轮轴）只保留旋转自由度</li>
+      <li>插入顺序影响特征树整洁度：从下往上、从大到小、子装配优先</li>
+    </ol>
+
+    <h3>2. 干涉与运动检查</h3>
+    <p>按 DA1 的方法执行：工具 &gt; 评估 &gt; 干涉检查，<strong>干涉清零</strong>；再做间隙验证（运动件与固定件最小间隙 ≥1 mm）；最后给轮轴加一个旋转马达，用 Motion 的「随时间查找干涉」检查整周转动是否有碰撞。</p>
+
+    <h3>3. BOM 与工程图</h3>
+    <p>按 DA2 的方法：装配体插入材料明细表，核对零件数量、材料、标准件型号；给传动箱体（或齿轮轴）出一张零件工程图，给底盘出一张装配工程图（含序号与 BOM）。</p>
+
+    <h3>4. 打包与自检</h3>
+    <ul>
+      <li>所有配合无过定义/欠定义</li>
+      <li>干涉 0 处，间隙验证通过</li>
+      <li>BOM 数量与模型一致，标准件型号齐全</li>
+      <li>命名、单位、材料齐全；用「打包」导出，别人打开不缺件</li>
+    </ul>
+
+    <h2>练习项目</h2>
+    <ol>
+      <li><strong>底盘总装（主练习）</strong>：完成装配 + 干涉检查 + BOM + 关键件工程图 + 打包。</li>
+      <li><strong>导出渲染图</strong>：用 PhotoView 或外观给底盘一张等轴测渲染图，检查整体比例是否协调。</li>
+      <li><strong>评审自述</strong>：准备 3 分钟向组内讲：布局依据、传动比选择、每个零件的用途、干涉处理过程。</li>
+    </ol>
+
+    <h2>提交要求</h2>
+    <p><strong>打包文件（.zip）</strong> + 干涉检查截图（0 干涉）+ BOM 截图 + 零件工程图 PDF + 渲染图 + 评审自述要点。命名：<span class="path">D_DC6_底盘总装_姓名.zip</span>，发微信群。</p>
+
+    <h2>常见错误</h2>
+    <ul>
+      <li>干涉没清零就交付（仿真和加工都会出问题）</li>
+      <li>传动箱与底板接口孔位对不上（DC2 阶段没预留）</li>
+      <li>打包漏零件，别人打开缺件报错</li>
+      <li>配合过定义导致特征树红叉</li>
+      <li>BOM 数量与模型不一致，标准件没写型号</li>
+    </ul>
+
+    <h2>外部链接</h2>
+    <ul>
+      <li><a href="https://help.solidworks.com/2026/English/SolidWorks/cworks/c_Working_with_Assemblies.htm" target="_blank" rel="noopener">SW 官方帮助：使用装配体</a>：子装配、配合与装配体组织的官方说明。</li>
+      <li><a href="https://bbs.robomaster.com/article/7501" target="_blank" rel="noopener">上交步兵开源</a>：整车装配体结构，可对照自己的装配层级与接口处理。</li>
+      <li><a href="https://help.solidworks.com/2024/english/solidworks/sldworks/c_Interference_Detection.htm" target="_blank" rel="noopener">SW 官方帮助：干涉检查</a>：干涉结果判读与选项说明（与 DA1 同一工具）。</li>
+    </ul>
+  </div>
+</main>
+
+<div class="panel" id="progressBox"></div>
+<div class="panel" id="submitBox"></div>
+<div class="panel comments" id="commentsBox"></div>
+<div class="giscus" style="margin-top:28px"></div>
+<footer class="footer">SUAT RoboMaster 机械组学习平台 · DC6 · 组内专用</footer>
+
+<script src="../js/main.js?v=11"></script>
+
+<script src="https://giscus.app/client.js"
+        data-repo="wenburu/suat-robomaster-mech-website"
+        data-repo-id="R_kgDOVHQvbQ"
+        data-category="Announcements"
+        data-category-id="DIC_kwDOVHQvbc4DJJ74"
+        data-mapping="pathname"
+        data-strict="0"
+        data-reactions-enabled="1"
+        data-emit-metadata="0"
+        data-input-position="bottom"
+        data-theme="light"
+        data-lang="zh-CN"
+        crossorigin="anonymous"
+        async>
+</script>
+
+</body>
+</html>

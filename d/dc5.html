@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <script>window.SITE_PREFIX="../";</script>
-<title>DC5 底盘总装与干涉检查 - SUAT RoboMaster 机械组</title>
+<title>DC5 传动设计 - SUAT RoboMaster 机械组</title>
 <link rel="stylesheet" href="../css/style.css?v=7">
 </head>
 <body data-stage="D" data-task="dc5">
@@ -27,59 +27,91 @@
 
 <main class="wrap">
   <div class="crumb"><a href="../index.html">首页</a> / <a href="index.html">D 阶段</a> / DC5</div>
-  <span class="stage-badge"><span class="dot"></span>DC5 · 底盘总装与干涉检查</span>
-  <h1 style="font-size:28px;margin-bottom:8px">DC5：底盘总装与干涉检查</h1>
+  <span class="stage-badge"><span class="dot"></span>DC5 · 传动设计</span>
+  <h1 style="font-size:28px;margin-bottom:8px">DC5：传动设计</h1>
 
   <div class="panel" id="taskJump"></div>
 
   <div class="lecture">
 <h2>这一部分讲什么</h2>
-    <p>DC5 是底盘组的<strong>阶段作业</strong>：把 DC1-DC4 的底板、轮系、电池仓装成底盘总成，做干涉检查，导出 BOM。这一部分验证的是「能不能把一个子系统完整地装配、检查、交付」。</p>
+    <p>传动链把电机的转速与扭矩转成轮子需要的转速与扭矩。底盘与传动组要在这里决定：轮子用<strong>直驱</strong>还是<strong>减速传动</strong>，减速用<strong>齿轮</strong>还是<strong>同步带</strong>，减速比取多少，传动件怎么装到车架上。</p>
+    <p>学完这一部分，能做到：</p>
+    <ul>
+      <li>说出直驱、齿轮减速、同步带三种方式各自适合什么场合</li>
+      <li>按齿数计算减速比，并换算输出转速与扭矩</li>
+      <li>用标准参数（模数、齿数、压力角）建一对啮合齿轮，并按齿数比设齿轮配合</li>
+      <li>把减速箱或同步带传动装进底盘，留出轴承支撑与安装接口</li>
+    </ul>
 
     <h2>讲义正文</h2>
-    <h3>1. 装配流程</h3>
-    <ol>
-      <li>新建装配体，按顺序插入：底板（第一个零件固定）→ 轮系子装配 → 电池仓 → 电控板/走线件</li>
-      <li>配合选择：底板与轮座用<strong>重合 + 同轴心</strong>；运动件（轮轴）只保留旋转自由度</li>
-      <li>插入顺序影响特征树整洁度，从下往上、从大到小</li>
-    </ol>
-    <h3>2. 干涉检查</h3>
-    <p>工具 &gt; 评估 &gt; 干涉检查。把「视重合为干涉」选项考虑清楚：配合面重合不算干涉，实体穿插算干涉，<strong>必须清零</strong>（B 阶段仿真要求模型无干涉）。</p>
-    <h3>3. BOM 与打包</h3>
+    <h3>1. 三种传动方式</h3>
+    <table>
+      <tr><th>方式</th><th>结构</th><th>优点</th><th>代价</th><th>典型用法</th></tr>
+      <tr><td>直驱</td><td>轮毂电机直接装在轮内</td><td>结构最简、无背隙、效率高</td><td>扭矩受限、电机成本高</td><td>小功率步兵、平衡底盘</td></tr>
+      <tr><td>齿轮减速</td><td>电机 + 减速箱 + 传动轴</td><td>减速比大、结构紧凑、承载高</td><td>有背隙、需润滑、噪音大</td><td>RM 底盘主流（M3508 + 减速箱）</td></tr>
+      <tr><td>同步带</td><td>两带轮 + 同步带</td><td>中心距灵活、缓冲、低噪音</td><td>需张紧、占空间、怕异物</td><td>云台、供弹、轻载传动</td></tr>
+    </table>
+
+    <h3>2. 减速比与转速扭矩换算</h3>
     <ul>
-      <li>在装配体插入 BOM 表（表格 &gt; 材料明细表），核对每个零件数量、名称、材料</li>
-      <li>交付用「打包（Pack and Go）」：把装配体 + 全部零件 + 标准件打包成一个文件夹/压缩包，别人打开不缺件</li>
+      <li>齿轮：<strong>i = z₂ / z₁</strong>（从动轮齿数 / 主动轮齿数）</li>
+      <li>同步带：<strong>i = z₂ / z₁</strong>（从动带轮齿数 / 主动带轮齿数）</li>
+      <li>输出转速 <strong>n₂ = n₁ / i</strong>；输出扭矩 <strong>T₂ = T₁ × i × η</strong></li>
+      <li>效率 η：一级齿轮 0.95–0.98，同步带 0.96–0.98；多级连乘</li>
+      <li>例：电机 3000 rpm、扭矩 1 N·m，减速箱 i = 19、η = 0.95 → 输出约 158 rpm、19 N·m</li>
     </ul>
-    <h3>4. 自检</h3>
+    <p>选减速比的依据是<strong>整车目标速度</strong>：轮速 = 输出转速 × π × 轮径 / 60（单位 m/s）。先定目标速度，再倒推减速比，不要先选减速箱再凑速度。</p>
+
+    <h3>3. 齿轮几何与建模</h3>
     <ul>
-      <li>所有配合无过定义/欠定义</li>
-      <li>干涉检查 0 干涉</li>
-      <li>BOM 数量与实物一致</li>
-      <li>命名、单位、材料齐全</li>
+      <li>基本参数：模数 m、齿数 z、压力角 α（标准 20°）</li>
+      <li>分度圆直径 <strong>d = m × z</strong>；齿顶高 hₐ = m；齿根高 h_f = 1.25 m；全齿高 2.25 m</li>
+      <li>标准直齿轮中心距 <strong>a = m × (z₁ + z₂) / 2</strong>——中心距算错，齿轮要么咬死要么脱开</li>
+      <li>SW 里用 <strong>Toolbox</strong> 生成标准齿轮（选 GB 标准、模数、齿数、厚度），或用方程式驱动的齿轮模型</li>
+      <li>装配时不要用物理齿面接触约束，用<strong>机械配合 &gt; 齿轮</strong>：选两轴、填齿数比（如 20:60），软件按比值联动</li>
+    </ul>
+
+    <h3>4. 同步带传动</h3>
+    <ul>
+      <li>带轮参数：齿数、节距（GT2 常用 2 mm）、节圆直径 ≈ 节距 × 齿数 / π</li>
+      <li>中心距由布局定，包角不小于 120°（太小会打滑、齿啮合不足）</li>
+      <li>需要张紧：可调电机座或张紧轮；装配用<strong>皮带/链配合</strong>，或用拉伸草图做带的简化模型</li>
+    </ul>
+
+    <h3>5. 传动布局与安装</h3>
+    <ul>
+      <li>传动链顺序：电机 → 减速箱/带轮 → 传动轴 → 轮；每一段都要有轴承支撑，悬臂轴会弯</li>
+      <li>电机座、减速箱体与底板的接口孔位在 DC2 就要预留，不能装到总装时才发现没地方固定</li>
+      <li>传动轴与轮的连接：键、花键或联轴器；轴上要有轴向定位（轴肩、卡簧）</li>
+      <li>齿轮箱留注油/排油位置，封闭结构留通气孔</li>
     </ul>
 
     <h2>练习项目</h2>
     <ol>
-      <li><strong>底盘总装（主练习）</strong>：完成装配 + 干涉检查 + BOM + 打包。</li>
-      <li><strong>导出渲染图</strong>：用 PhotoView 或外观给底盘一张等轴测渲染图，检查整体比例是否协调。</li>
-      <li><strong>评审自述</strong>：准备 3 分钟向组内讲：布局依据、每个零件的用途、干涉处理过程。</li>
+      <li><strong>两级齿轮减速箱（主练习）</strong>：按 i ≈ 16–20 设计两级（例：z₁=20、z₂=60，z₃=18、z₄=54，m=1.5），建箱体、两根齿轮轴、端盖，装配后用齿轮配合设比值，转到极限看是否咬死。</li>
+      <li><strong>同步带传动</strong>：两个带轮 + 带，中心距 40–60 mm，检查包角是否 ≥120°，加一个张紧轮。</li>
+      <li><strong>传动比计算表</strong>：把电机额定转速/扭矩、减速比、效率、轮径代入，算出轮速与轮上扭矩，和整车目标速度对照。</li>
     </ol>
 
     <h2>提交要求</h2>
-    <p><strong>打包文件（.zip）</strong> + 干涉检查截图（0 干涉）+ BOM 截图 + 渲染图 + 评审自述。命名：<span class="path">D_DC5_底盘总装_姓名.zip</span>，发微信群，组长复核。</p>
+    <p>减速箱<strong>打包文件（.zip）</strong> + 传动比计算表（截图或表格）+ 齿轮配合截图。命名：<span class="path">D_DC5_传动_姓名.zip</span>，发微信群。</p>
 
     <h2>常见错误</h2>
     <ul>
-      <li>干涉没清零就交付（仿真和加工都会出问题）</li>
-      <li>打包漏零件，别人打开缺件报错</li>
-      <li>配合过定义导致特征树红叉</li>
-      <li>BOM 数量与模型不一致</li>
+      <li>中心距用错公式（写成 m(z₁+z₂)，漏了除以 2）</li>
+      <li>减速比写反（i 写成 z₁/z₂，算出的轮速高一个数量级）</li>
+      <li>齿轮配合的比值与实际齿数不一致，转起来齿面穿插</li>
+      <li>同步带没张紧，包角不足，模型上带轮与带脱开</li>
+      <li>传动轴没有轴承支撑，只有一端固定</li>
+      <li>忽略背隙，双向传动时位置有偏差（设计留间隙或选消隙结构）</li>
     </ul>
 
     <h2>外部链接</h2>
     <ul>
-      <li><a href="https://help.solidworks.com/2026/English/SolidWorks/cworks/c_Working_with_Assemblies.htm" target="_blank" rel="noopener">SolidWorks 官方帮助：使用装配体</a>：干涉检查的正确用法（视重合为干涉选项的取舍）。</li>
-      <li><a href="https://bbs.robomaster.com/article/7501" target="_blank" rel="noopener">上交步兵开源</a>：整车装配体结构可对照检查自己的装配逻辑。</li>
+      <li><a href="https://help.solidworks.com/2021/chinese-simplified/solidworks/sldworks/t_Gear_Mates_SWassy.htm" target="_blank" rel="noopener">SW 官方帮助：齿轮配合</a>：齿轮配合的设置方法与齿数比含义。</li>
+      <li><a href="https://help.solidworks.com/2021/chinese-simplified/solidworks/sldworks/c_Mechanical_Mates.htm" target="_blank" rel="noopener">SW 官方帮助：机械配合</a>：齿轮、齿条齿轮、螺旋、万向节等配合一览。</li>
+      <li><a href="https://higher.smartedu.cn/course/68003aedb836e5522a755839" target="_blank" rel="noopener">国家高等教育智慧教育平台：齿轮传动</a>：齿轮机构认识、定轴轮系传动比计算（5.1、8.2 节）。</li>
+      <li><a href="https://www.bilibili.com/video/BV17kt2zEEtz/" target="_blank" rel="noopener">B 站《机械设计基础》（三）</a>：渐开线形成、模数/压力角/齿数、齿轮传动特性。</li>
     </ul>
   </div>
 </main>
@@ -90,7 +122,7 @@
 <div class="giscus" style="margin-top:28px"></div>
 <footer class="footer">SUAT RoboMaster 机械组学习平台 · DC5 · 组内专用</footer>
 
-<script src="../js/main.js?v=10"></script>
+<script src="../js/main.js?v=11"></script>
 
 <script src="https://giscus.app/client.js"
         data-repo="wenburu/suat-robomaster-mech-website"
