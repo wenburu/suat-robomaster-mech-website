@@ -51,16 +51,19 @@
   }
 
   /* 顶栏导航高亮 */
-  var path = location.pathname.split("/").pop() || "index.html";
+  function normPath(p) {
+    p = p.replace(/\/index\.html$/, "/").replace(/\/$/, "");
+    return p === "/" ? "" : p;
+  }
+  var here = normPath(location.pathname);
   document.querySelectorAll(".topbar nav a").forEach(function (a) {
-    var href = a.getAttribute("href").split("/").pop();
-    if (href === path) a.classList.add("active");
-    else if (path.indexOf("f") === 0 && href === "f/") a.classList.add("active");
-    else if (path.indexOf("e") === 0 && href === "e/") a.classList.add("active");
-    else if (path.indexOf("d") === 0 && href === "d/") a.classList.add("active");
-    else if (path.indexOf("c") === 0 && href === "c/") a.classList.add("active");
-    else if (path.indexOf("b") === 0 && href === "b/") a.classList.add("active");
-    else if (path.indexOf("a") === 0 && href === "a/") a.classList.add("active");
+    var href = a.getAttribute("href");
+    if (!href || href.charAt(0) === "#") return;
+    var target = normPath(new URL(href, location.href).pathname);
+    var hit = (target === "")
+      ? (here === "")
+      : (here === target || here.indexOf(target + "/") === 0);
+    if (hit) a.classList.add("active");
   });
 
   var scriptSrc = document.currentScript ? document.currentScript.getAttribute("src") : "";

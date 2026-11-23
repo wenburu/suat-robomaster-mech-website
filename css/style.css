@@ -32,23 +32,23 @@ a:hover { text-decoration: underline; }
   position: sticky; top: 0; z-index: 100;
   background: var(--ink); color: #fff;
   display: flex; align-items: center; gap: 18px;
-  padding: 0 24px; height: 56px;
+  padding: 8px 24px; min-height: 56px;
   box-shadow: 0 2px 8px rgba(0,0,0,.25);
 }
-.topbar .brand { display: flex; align-items: center; gap: 10px; font-weight: 700; font-size: 16px; letter-spacing: .5px; }
+.topbar .brand { display: flex; align-items: center; gap: 10px; font-weight: 700; font-size: 16px; letter-spacing: .5px; white-space: nowrap; flex: none; }
 .topbar .brand .logo {
   width: 26px; height: 26px; border-radius: 6px;
   background: var(--rm-red); display: inline-flex; align-items: center; justify-content: center;
   font-size: 14px; font-weight: 800; color: #fff;
 }
 .topbar .brand small { font-weight: 400; color: #9aa0a8; font-size: 12px; }
-.topbar nav { display: flex; gap: 4px; margin-left: 8px; flex-wrap: wrap; }
+.topbar nav { display: flex; gap: 2px 4px; margin-left: 8px; flex-wrap: wrap; }
 .topbar nav a {
-  color: #cfd3d9; padding: 7px 12px; border-radius: 8px; font-size: 14px; font-weight: 500;
+  color: #cfd3d9; padding: 6px 9px; border-radius: 8px; font-size: 13px; font-weight: 500; white-space: nowrap;
 }
 .topbar nav a:hover { color: #fff; background: rgba(255,255,255,.08); text-decoration: none; }
 .topbar nav a.active { color: #fff; background: var(--rm-red); }
-.topbar .right { margin-left: auto; font-size: 12.5px; color: #9aa0a8; }
+.topbar .right { margin-left: auto; font-size: 12.5px; color: #9aa0a8; white-space: nowrap; flex: none; }
 
 /* ---------- 布局 ---------- */
 .wrap { max-width: 1080px; margin: 0 auto; padding: 28px 24px 64px; }
@@ -249,8 +249,8 @@ details .body { padding: 2px 16px 14px; font-size: 14px; }
 .fig figcaption { font-size: 13px; color: var(--text-sub); margin-top: 8px; }
 
 /* ============ 互动：账号 / 进度 / 提交 / 评论 ============ */
-.userbox { display: flex; align-items: center; gap: 10px; font-size: 13.5px; }
-.userbox .u-login { color: #fff; border: 1px solid rgba(255,255,255,.35); border-radius: 999px; padding: 3px 14px; }
+.userbox { display: flex; align-items: center; gap: 10px; font-size: 13.5px; flex: none; white-space: nowrap; }
+.userbox .u-login { color: #fff; border: 1px solid rgba(255,255,255,.35); border-radius: 999px; padding: 3px 14px; white-space: nowrap; }
 .userbox .u-login:hover { background: rgba(255,255,255,.12); text-decoration: none; }
 .userbox .u-name { color: #fff; }
 .userbox .u-name i { font-style: normal; color: rgba(255,255,255,.5); margin-left: 5px; font-size: 12px; }
@@ -304,3 +304,7 @@ details .body { padding: 2px 16px 14px; font-size: 14px; }
 
 /* Giscus 评论区 */
 .giscus { width: 100%; max-width: 860px; margin: 0 auto 24px; }
+
+@media (max-width: 1500px) {
+  .topbar .brand small { display: none; }
+}
