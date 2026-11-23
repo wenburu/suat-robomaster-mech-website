@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script>window.SITE_PREFIX="../";</script>
+<title>轮腿探索组 - SUAT RoboMaster 机械组</title>
+<link rel="stylesheet" href="../css/style.css?v=7">
+</head>
+<body data-stage="WL">
+
+<header class="topbar">
+  <div class="brand"><span class="logo">RM</span>SUAT 机械组 <small>RoboMaster 学习平台</small></div>
+  <nav>
+    <a href="../index.html">首页</a>
+    <a href="../f/index.html">F 阶段</a>
+    <a href="../e/index.html">E 阶段</a>
+    <a href="../d/index.html">D 阶段</a>
+    <a href="../c/index.html">C 阶段</a>
+    <a href="../b/index.html">B 阶段</a>
+    <a href="../a/index.html">A 阶段</a>
+    <a href="../links.html">外部资源库</a>
+    <a href="../project/index.html">整车项目</a>
+    <a href="index.html" class="active">轮腿探索</a>
+    <a href="../log.html">组内日志</a>
+  </nav>
+  <div class="right">2026 · 深理工第一届 RM 战队</div><span id="userBox" class="userbox"></span>
+</header>
+
+<main class="wrap">
+  <div class="page-head">
+    <div class="crumb"><a href="../index.html">首页</a> / 轮腿探索组</div>
+    <span class="stage-badge"><span class="dot"></span>WL · 选修探索 · 不设考核</span>
+    <h1>轮腿探索组</h1>
+    <p class="sub">给未来留的一条线。成员来自底盘组和云台组，主业不变，有空就来这里看结构与资料。不占阶段名额，不设考核，不交作业；学到哪算哪，能做出一条单腿验证就算有产出。</p>
+  </div>
+
+  <div class="lecture">
+
+    <h2>一、这组是干什么的</h2>
+    <p>轮腿构型的价值在越障和姿态调整：腿能让车体保持水平、上台阶、跨沟，轮让它在平地跑得快。这不是本赛季的刚需，所以放在选修位置。目标是先看懂、看懂之后能画出一条能动的单腿，而不是今年就造出整车。</p>
+    <ul>
+      <li><strong>谁参加</strong>：底盘与传动组、云台与发射组的人，自愿。</li>
+      <li><strong>什么时候</strong>：主线任务做完之后的空档，不占用正式学习时间。</li>
+      <li><strong>产出</strong>：单腿装配（能手动摆动、无干涉）+ 一份结构说明，不做答辩。</li>
+    </ul>
+
+    <h2>二、先分清三种构型</h2>
+    <p>「轮腿」不是一种结构，是三类做法的统称。看资料前先对号，别看混了。</p>
+    <table>
+      <tr><th>构型</th><th>结构特征</th><th>公开资料</th></tr>
+      <tr><td>串联腿（双足轮腿）</td><td>左右各一条腿，腿上有 2–3 个关节，靠两个轮子平衡，腿负责调姿态与越障</td><td>开源多，Upkie、FLORES 都有完整仓库</td></tr>
+      <tr><td>轮圈腿</td><td>轮与腿做成一体化的环状结构，轮圈本身参与支撑</td><td>只有新闻与演示视频，没有开源图纸，不能作为建模依据</td></tr>
+      <tr><td>轮腿 + 转向</td><td>在轮腿基础上加一套转向关节，兼顾横移</td><td>少数队伍有开源，结构复杂度明显更高</td></tr>
+    </table>
+    <p>本组先按<strong>串联腿</strong>入手：资料最全，单腿就能验证，不需要整车。</p>
+
+    <h2>三、机械侧到底要看什么</h2>
+    <p>轮腿的难点不在画出来，在于受力与间隙。看别人的车，盯着这六件事：</p>
+    <ul>
+      <li><strong>自由度</strong>：每条腿几个关节、转动平面是否共面、有没有踝关节。关节越多越难控，机械上也越容易松。</li>
+      <li><strong>腿长与轮径比</strong>：腿越长越能跨障，但重心高、关节弯矩大。先量别人的比例，再换算到自己的轮径。</li>
+      <li><strong>驱动位置</strong>：关节电机放在腿根还是腿中，直接决定惯量、走线空间和配重。放在末端省线但增重。</li>
+      <li><strong>连杆受力</strong>：大腿、小腿以受弯为主，截面和材料要按弯矩选，不是按拉伸选。</li>
+      <li><strong>间隙</strong>：关节轴承、限位块、脚轮与腿体的最小间隙，装配时最容易卡死在这里。</li>
+      <li><strong>材料疲劳</strong>：轮腿是高频往复载荷，PLA 打印件撑不住长期循环，受力件用 PETG、尼龙或直接上金属。</li>
+    </ul>
+
+    <h2>四、怎么学：从一条腿开始</h2>
+    <ol>
+      <li><strong>看整机跑</strong>：找 3–5 段开源机器人的实机视频，只看运动方式，判断腿是蹲、是跨还是保持水平。</li>
+      <li><strong>读仓库结构</strong>：打开 Upkie 或 FLORES 的仓库，只看机械部分——腿长、关节位置、电机型号、轴承规格，不看控制代码。</li>
+      <li><strong>画一条单腿</strong>：两个关节、一根大腿一根小腿、末端一个轮。约束住转动平面，先保证能摆到极限位置不打架。</li>
+      <li><strong>做装配与间隙检查</strong>：把轴承、限位、轮都装进去，转到极限位置查干涉，这一步比建模本身费时间。</li>
+      <li><strong>打印验证</strong>：单腿打印出来手动摆动，感受有没有别劲、关节会不会旷。别一开始就冲整机。</li>
+    </ol>
+    <p>整机留到下一次。一条腿能顺滑摆动、受力件不裂，这一轮就算完成。</p>
+
+    <h2>五、资料</h2>
+    <ul>
+      <li><a href="http://cxzx.neu.edu.cn/2025/0613/c1511a287738/pagem.htm" target="_blank" rel="noopener">东北大学 T-DT「轮圈腿构型」步兵（2025）</a>：国内最直接的轮腿步兵案例，只有新闻与视频，用来理解构型，不用来抄图。</li>
+      <li><a href="https://www.neutdt.cn/about" target="_blank" rel="noopener">东北大学 T-DT 官网</a>：看他们对步兵底盘与地形适应的定位描述。</li>
+      <li><a href="https://bbs.robomaster.com/article/17668" target="_blank" rel="noopener">北科大 Reborn RM2024 轮腿步兵嵌入式开源</a>：RM 体系内的轮腿车，机械与控制都有，重点看底盘结构。</li>
+      <li><a href="https://upkie.github.io/upkie/" target="_blank" rel="noopener">Upkie 开源轮腿机器人</a>：结构最简洁的双足轮腿，有完整硬件说明与零件清单。</li>
+      <li><a href="https://arxiv.org/html/2507.22345" target="_blank" rel="noopener">FLORES 论文（arXiv）</a>：讲转向与地形适应的构型改造，看结构图与关节设计那一节。</li>
+      <li><a href="https://github.com/ZhichengSong6/FLORES" target="_blank" rel="noopener">FLORES 开源仓库</a>：论文对应的模型与代码。</li>
+      <li><a href="https://gitee.com/StackForce/bipedal_wheeled_robot" target="_blank" rel="noopener">StackForce 双足轮腿开源</a>：国产方案，零件选型偏国内供应链，便于对照采购。</li>
+    </ul>
+
+    <h2>六、边界</h2>
+    <p>机械组只做结构与传动：腿的连杆、关节、轮座、限位。电机选型、驱动器、平衡控制算法属于电控与算法，不在本组范围；需要配合时提出接口需求，不自己写控制。</p>
+    <p>也不要把轮腿的资源直接搬进主线任务。主线还是底盘与云台两套，轮腿只是多看一步。</p>
+
+  </div>
+</main>
+
+<div class="panel comments" id="commentsBox"></div>
+<div class="giscus" style="margin-top:28px"></div>
+<footer class="footer">SUAT RoboMaster 机械组学习平台 · 轮腿探索组 · 组内专用</footer>
+<script src="../js/main.js?v=12"></script>
+
+<script src="https://giscus.app/client.js"
+        data-repo="wenburu/suat-robomaster-mech-website"
+        data-repo-id="R_kgDOVHQvbQ"
+        data-category="Announcements"
+        data-category-id="DIC_kwDOVHQvbc4DJJ74"
+        data-mapping="pathname"
+        data-strict="0"
+        data-reactions-enabled="1"
+        data-emit-metadata="0"
+        data-input-position="bottom"
+        data-theme="light"
+        data-lang="zh-CN"
+        crossorigin="anonymous"
+        async>
+</script>
+
+</body>
+</html>

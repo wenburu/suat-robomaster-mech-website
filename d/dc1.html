@@ -20,6 +20,8 @@
     <a href="../b/index.html">B 阶段</a>
     <a href="../a/index.html">A 阶段</a>
     <a href="../links.html">外部资源库</a>
+    <a href="../project/index.html">整车项目</a>
+    <a href="../wheelleg/index.html">轮腿探索</a>
     <a href="../log.html">组内日志</a>
   </nav>
   <div class="right">2026 · 深理工第一届 RM 战队</div><span id="userBox" class="userbox"></span>
@@ -46,10 +48,10 @@
     <h3>1. 尺寸边界</h3>
     <p>1v1 步兵的外形尺寸、重量限制以<strong>当年 RM 规则书</strong>为准（不同年份可能微调）。布局规划第一步，是把限制数字抄到设计笔记第一行，所有后续设计都在这个框内做。</p>
     <h3>2. 轮系布置</h3>
-    <p>步兵底盘常见四轮布置：四个<strong>麦克纳姆轮</strong>（或全向轮），通过不同轮速组合实现前后、横移、原地旋转。画俯视图时注意：</p>
+    <p>步兵底盘常见四轮布置。本队按<strong>全向轮</strong>走：四轮独立驱动能前后走、差速转向，<strong>横移要靠额外的转向机构</strong>——麦轮可以靠 45° 辊子分解出横移，全向轮不行，差别见 DC3。画俯视图时注意：</p>
     <ul>
       <li>轮距（左右轮中心距）与轴距（前后轮中心距）决定转弯半径与横向稳定性，一般轮距略大于轴距</li>
-      <li>四个轮的辊子方向要配对（左前/右后同向、右前/左后同向），否则整车横移时会自转</li>
+      <li>同侧两轮的辊子轴要平行，否则直行会持续跑偏；装了转向机构的，预留关节回转空间</li>
       <li>轮子外缘不能超出规则书尺寸线</li>
     </ul>
     <h3>3. 重心</h3>
@@ -96,7 +98,7 @@
 <div class="giscus" style="margin-top:28px"></div>
 <footer class="footer">SUAT RoboMaster 机械组学习平台 · DC1 · 组内专用</footer>
 
-<script src="../js/main.js?v=11"></script>
+<script src="../js/main.js?v=12"></script>
 
 <script src="https://giscus.app/client.js"
         data-repo="wenburu/suat-robomaster-mech-website"

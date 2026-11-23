@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script>window.SITE_PREFIX="../";</script>
+<title>整车项目 · 第一台步兵 - SUAT RoboMaster 机械组</title>
+<link rel="stylesheet" href="../css/style.css?v=7">
+</head>
+<body data-stage="P">
+
+<header class="topbar">
+  <div class="brand"><span class="logo">RM</span>SUAT 机械组 <small>RoboMaster 学习平台</small></div>
+  <nav>
+    <a href="../index.html">首页</a>
+    <a href="../f/index.html">F 阶段</a>
+    <a href="../e/index.html">E 阶段</a>
+    <a href="../d/index.html">D 阶段</a>
+    <a href="../c/index.html">C 阶段</a>
+    <a href="../b/index.html">B 阶段</a>
+    <a href="../a/index.html">A 阶段</a>
+    <a href="../links.html">外部资源库</a>
+    <a href="index.html" class="active">整车项目</a>
+    <a href="../wheelleg/index.html">轮腿探索</a>
+    <a href="../log.html">组内日志</a>
+  </nav>
+  <div class="right">2026 · 深理工第一届 RM 战队</div><span id="userBox" class="userbox"></span>
+</header>
+
+<main class="wrap">
+  <div class="page-head">
+    <div class="crumb"><a href="../index.html">首页</a> / 整车项目</div>
+    <span class="stage-badge"><span class="dot"></span>P1 · 整车仿制 · 与阶段学习并行</span>
+    <h1>第一台步兵：仿制东大全向轮车</h1>
+    <p class="sub">目标：一月底出一台能跑、能转、能发射的整车。做法是完全仿制东北大学 T-DT RM2023 全向轮步兵，不自创结构，先把一台车复刻出来。阶段学习不停，两条线并行。</p>
+  </div>
+
+  <div class="lecture">
+
+    <h2>一、这件事和学习怎么并行</h2>
+    <p>两条线分开记，不互相顶替：阶段线照常推进，E6 考核保留作保底；项目线按本页九周计划走，交付物是实物。</p>
+    <p>两条线会在时间上打架：十二月中下旬是考试周，进度必然掉。所以 W4 的总装压到 12/21 之前，后面留缓冲。掉了一周就在本页写明掉了哪一周，不要悄悄顺延。</p>
+
+    <h2>二、参考图纸怎么用</h2>
+    <p>开源资料在 RoboMaster 社区（<a href="https://bbs.robomaster.com/article/9437" target="_blank" rel="noopener">RM2023 全向轮步兵开源</a>，网盘地址与提取码见原帖）。按顺序读，不要一上来就拆零件：</p>
+    <ol>
+      <li><strong>先看总装</strong>：整车长宽高、轮距、轴距、离地间隙、云台回转范围，各记一组数。</li>
+      <li><strong>再拆模块</strong>：底盘、轮系、传动、电池仓、立柱、云台、发射，逐块看。</li>
+      <li><strong>列两张清单</strong>：能买的（电机、轮组、轴承、螺丝、板材）与要做的（打印件、加工件）。</li>
+    </ol>
+    <p>开源文件与实车未必一致，收到实物后以实测为准；图纸标注缺失处自己补测，不按比例猜。</p>
+
+    <h3>整车关键尺寸（W1 填完）</h3>
+    <table>
+      <tr><th>项目</th><th>数值</th><th>用途</th></tr>
+      <tr><td>整车长 / 宽 / 高</td><td>待测</td><td>护甲、云台干涉边界</td></tr>
+      <tr><td>轮距 / 轴距</td><td>待测</td><td>轮系布置、横移稳定性</td></tr>
+      <tr><td>离地间隙</td><td>待测</td><td>越障、台阶通过</td></tr>
+      <tr><td>轮径 / 轮宽</td><td>待测</td><td>轮安装座、避震行程</td></tr>
+      <tr><td>云台俯仰范围</td><td>待测</td><td>立柱高度、枪管长度</td></tr>
+      <tr><td>电池仓净空</td><td>待测</td><td>电池固定与快拆</td></tr>
+    </table>
+
+    <h2>三、九周里程碑</h2>
+    <table>
+      <tr><th>周次</th><th>日期</th><th>交付物</th></tr>
+      <tr><td>W1</td><td>11/24–11/30</td><td>读完图纸；尺寸表填完；采购与打印清单定稿</td></tr>
+      <tr><td>W2</td><td>12/01–12/07</td><td>底盘件建模（底板、轮安装座、传动座）；首批打印下单</td></tr>
+      <tr><td>W3</td><td>12/08–12/14</td><td>云台轴系、发射机构建模；打印件到手核对尺寸</td></tr>
+      <tr><td>W4</td><td>12/15–12/21</td><td>全车总装；干涉清零；BOM 与工程图</td></tr>
+      <tr><td>W5</td><td>12/22–12/28</td><td>首轮实物装配；记录装不进、转不动的件</td></tr>
+      <tr><td>W6</td><td>12/29–01/04</td><td>结构修正；二次打印与补加工</td></tr>
+      <tr><td>W7</td><td>01/05–01/11</td><td>机械侧联调：轮系顺滑、云台转动、发射动作、走线空间</td></tr>
+      <tr><td>W8</td><td>01/12–01/18</td><td>加固与备件：易损件备份、螺丝规格统一</td></tr>
+      <tr><td>W9</td><td>01/19–01/25</td><td>整车验收：能跑、能转向、能发射（横移能力以参考车轮组实测为准）</td></tr>
+    </table>
+
+    <h2>四、件怎么分</h2>
+    <ul>
+      <li><strong>底盘与传动组</strong>：底板、车架、轮系、传动、电池仓。</li>
+      <li><strong>云台与发射组</strong>：轴系、发射、弹仓、枪管、立柱。</li>
+      <li><strong>全组轮值</strong>：打印排产、装配、返修，按周轮，不固定给一个人。</li>
+      <li><strong>没人认领的件</strong>：周会现场指派，结果写进「当前状态」。</li>
+    </ul>
+
+    <h2>五、打印与装配的规矩</h2>
+    <p>打印件出问题，八成不是模型错，是参数和摆放方向错。统一按下面来，改参数要在本页记一笔。</p>
+    <ul>
+      <li><strong>参数</strong>：起步 0.2 mm 层高、3 层壁、20% 填充；受力件（轮安装座、云台臂、立柱）加到 4 层壁、40%。</li>
+      <li><strong>孔位余量</strong>：留 0.2–0.3 mm，装不进先扩孔，不要硬敲，敲进去的件下次就裂。</li>
+      <li><strong>螺纹</strong>：不在打印件上直接攻丝，用热熔铜螺母，或贯穿螺栓加螺母。</li>
+      <li><strong>摆放方向</strong>：层纹垂直于主受力方向时最弱，摆件让层纹顺着受力方向。</li>
+      <li><strong>装配顺序</strong>：轮系 → 底板 → 传动 → 电池仓 → 立柱 → 云台 → 发射，每装完一级拍一张照。</li>
+      <li><strong>返修留痕</strong>：改过的件留前后对比照，写清改了什么，别只写「已修」。</li>
+    </ul>
+
+    <h2>六、每周怎么同步</h2>
+    <p>本页每周日 21:00 前更新一次，只写三行：这周做完什么、卡在哪、下周谁做什么。写具体件名，不写「推进中」。</p>
+    <p>组内日志只记里程碑：首件打印完成、底盘落地、云台能转、整车首次跑动。日常进展留在本页，不往日志里堆。</p>
+
+    <h3>当前状态（每周更新）</h3>
+    <table>
+      <tr><th>周次</th><th>做完什么</th><th>卡在哪</th><th>下周谁做什么</th></tr>
+      <tr><td>W1</td><td>待填</td><td>待填</td><td>待填</td></tr>
+    </table>
+
+    <h2>七、三个会被低估的风险</h2>
+    <ul>
+      <li><strong>全向轮不是麦轮</strong>。四轮固定布局的全向轮没有侧向驱动力，想横移必须配转向机构。先确认参考车的轮组带不带转向，再定轮系方案；按麦轮思路装会得到一台只能前后走的车。</li>
+      <li><strong>加工周期</strong>。外协件一到两周，打印件两到四天。晚一周下单，后面每一环都晚一周。</li>
+      <li><strong>考试周掉进度</strong>。十二月中下旬必然慢下来，W4 的总装不能再往后压。</li>
+    </ul>
+
+    <h2>外部链接</h2>
+    <ul>
+      <li><a href="https://bbs.robomaster.com/article/9437" target="_blank" rel="noopener">RM2023 全向轮步兵开源（东北大学 T-DT）</a>：本次仿制的直接参照，网盘内含整机文件。</li>
+      <li><a href="https://www.neutdt.cn/about" target="_blank" rel="noopener">东北大学 T-DT 创新实验室</a>：看他们怎么描述步兵的底盘定位与地形适应。</li>
+      <li><a href="https://www.robomaster.com/zh-CN/products/components/detail/135" target="_blank" rel="noopener">RoboMaster 官方麦克纳姆轮参数页</a>：本次不用麦轮，仅作轮径 152.5 mm 的尺寸对照，确认手头轮组规格时参考。</li>
+      <li><a href="https://bbs.robomaster.com/article/7501" target="_blank" rel="noopener">上交步兵开源</a>：轮系与悬挂结构的另一套做法，可交叉比对。</li>
+    </ul>
+
+  </div>
+</main>
+
+<div class="panel comments" id="commentsBox"></div>
+<div class="giscus" style="margin-top:28px"></div>
+<footer class="footer">SUAT RoboMaster 机械组学习平台 · 整车项目 · 组内专用</footer>
+<script src="../js/main.js?v=12"></script>
+
+<script src="https://giscus.app/client.js"
+        data-repo="wenburu/suat-robomaster-mech-website"
+        data-repo-id="R_kgDOVHQvbQ"
+        data-category="Announcements"
+        data-category-id="DIC_kwDOVHQvbc4DJJ74"
+        data-mapping="pathname"
+        data-strict="0"
+        data-reactions-enabled="1"
+        data-emit-metadata="0"
+        data-input-position="bottom"
+        data-theme="light"
+        data-lang="zh-CN"
+        crossorigin="anonymous"
+        async>
+</script>
+
+</body>
+</html>

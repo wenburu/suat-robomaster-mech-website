@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <script>window.SITE_PREFIX="../";</script>
-<title>DC3 轮系与悬挂 - SUAT RoboMaster 机械组</title>
+<title>DC3 轮系与悬挂 · 全向轮 - SUAT RoboMaster 机械组</title>
 <link rel="stylesheet" href="../css/style.css?v=7">
 </head>
 <body data-stage="D" data-task="dc3">
@@ -20,6 +20,8 @@
     <a href="../b/index.html">B 阶段</a>
     <a href="../a/index.html">A 阶段</a>
     <a href="../links.html">外部资源库</a>
+    <a href="../project/index.html">整车项目</a>
+    <a href="../wheelleg/index.html">轮腿探索</a>
     <a href="../log.html">组内日志</a>
   </nav>
   <div class="right">2026 · 深理工第一届 RM 战队</div><span id="userBox" class="userbox"></span>
@@ -27,47 +29,60 @@
 
 <main class="wrap">
   <div class="crumb"><a href="../index.html">首页</a> / <a href="index.html">D 阶段</a> / DC3</div>
-  <span class="stage-badge"><span class="dot"></span>DC3 · 轮系与悬挂</span>
-  <h1 style="font-size:28px;margin-bottom:8px">DC3：轮系与悬挂</h1>
+  <span class="stage-badge"><span class="dot"></span>DC3 · 轮系与悬挂 · 全向轮</span>
+  <h1 style="font-size:28px;margin-bottom:8px">DC3：轮系与悬挂（全向轮）</h1>
 
   <div class="panel" id="taskJump"></div>
 
   <div class="lecture">
 <h2>这一部分讲什么</h2>
-    <p>轮系是底盘「走得动」的核心：<strong>麦克纳姆轮（或全向轮）→ 安装座 → 轴承 → 悬挂</strong>。这一部分做轮子与车架之间的连接件：轮毂电机安装座、轴承座，并组装一条轮系。</p>
+    <p>轮系是底盘「走得动」的核心：<strong>全向轮 → 安装座 → 轴承 → 悬挂</strong>。这一部分做轮子与车架之间的连接件：轮毂电机安装座、轴承座，并组装一条轮系。本队参考东北大学 RM2023 全向轮步兵，所以轮组按<strong>全向轮</strong>走，不是麦轮。</p>
 
     <h2>讲义正文</h2>
-    <h3>1. 麦轮与辊子方向</h3>
-    <p>麦克纳姆轮由轮毂和斜 45° 的辊子组成。四个轮按「左前/右后辊子方向一致、右前/左后一致」配对，才能合成横移。建模或装配时<strong>辊子方向是最容易错的一处</strong>，装反整车无法横移。</p>
-    <h3>2. 电机与安装座</h3>
+    <h3>1. 先分清：全向轮和麦轮不是一回事</h3>
+    <p>两者外形都像「轮毂上排一圈小辊子」，差别在辊子的角度，而这个角度决定了车能不能横移。</p>
+    <table>
+      <tr><th>对比项</th><th>麦克纳姆轮</th><th>全向轮（omni）</th></tr>
+      <tr><td>辊子轴线</td><td>与轮轴成 45°</td><td>与轮轴垂直</td></tr>
+      <tr><td>是否有侧向驱动</td><td>有：四轮转速组合即可合成横移与斜行</td><td>没有：单轮只沿轮面方向出力，辊子方向可以自由滑</td></tr>
+      <tr><td>横移条件</td><td>四轮独立驱动，靠 45° 分解</td><td>四轮固定布局无法直接横移，需加转向机构或改用三轮布局</td></tr>
+      <tr><td>效率与路面</td><td>辊子斜置，滑动摩擦多，路面不平时易打滑、偏航</td><td>辊子垂直，正反向滚动阻力小，打滑倾向较低</td></tr>
+      <tr><td>维护</td><td>辊子磨损后整轮性能下降，需成套换</td><td>辊子单独更换，维护便宜</td></tr>
+    </table>
+    <p><strong>这一条必须先确认</strong>：参考车的轮组若不带转向，就只能前后走加差速转向。定轮系方案前，先把参考车的轮组结构看明白，不要按麦轮思路直接装四个全向轮。</p>
+
+    <h3>2. 全向轮组怎么摆</h3>
+    <p>常见两种：四轮独立驱动（靠左右差速转向），或每轮加一套舵向关节（可原地横移）。前者结构简单、零件少，后者动作灵活但每轮多一组关节与驱动。本站 D 阶段按<strong>四轮独立驱动</strong>讲，转向方案等确认参考车后再补。</p>
+    <h3>3. 电机与安装座</h3>
     <p>轮子的驱动分两种：<strong>轮毂电机直驱</strong>，或<strong>电机 + 减速箱 + 传动轴</strong>（减速传动见 DC5）。安装座要保证：</p>
     <ul>
       <li>电机轴与车轮轴同轴（装配时用同轴心配合）</li>
       <li>座体固定在底板孔位上，孔距与 DC2 底板一致（两组要核对接口）</li>
       <li>座体强度足够：受力方向沿电机轴向与轮子径向</li>
     </ul>
-    <h3>3. 轴承座</h3>
+    <h3>4. 轴承座</h3>
     <p>转轴处用轴承座：按轴承型号开安装孔（轴承外径配合），座体固定到车架。注意：</p>
     <ul>
       <li>轴承外圈与座孔用过渡/过盈配合，内圈与轴用过渡配合（配合概念见 E4）</li>
       <li>轴肩或卡簧做轴向定位，防止窜动</li>
     </ul>
-    <h3>4. 悬挂</h3>
+    <h3>5. 悬挂</h3>
     <p>步兵常见悬挂形式：拉杆式、板簧式、弹簧减震。作用是四轮着地、吸收冲击。悬挂件（摆臂、减震座）是典型铸/机加件，先按开源结构画简化版。</p>
 
     <h2>练习项目</h2>
     <ol>
       <li><strong>轮毂电机安装座建模（主练习）</strong>：按一个假想电机法兰尺寸（如四孔均布 Φ3.2，中心 Φ10）做安装座，固定孔位与 DC2 底板一致。</li>
-      <li><strong>麦轮轮系装配</strong>：用 SW 自带 Toolbox 标准件（轴承、卡簧）或简化件，把 轮子-轴-安装座-底板 装成一条轮系，做干涉检查。</li>
-      <li><strong>麦轮整组装配</strong>：四个轮装到底板上，检查辊子方向配对与轮子外沿尺寸。</li>
+      <li><strong>全向轮轮系装配</strong>：用 Toolbox 标准件（轴承、卡簧）或简化件，把 轮子-轴-安装座-底板 装成一条轮系，转动查干涉。</li>
+      <li><strong>四轮整组装配</strong>：四个轮装到底板，检查轮距、轴距、四轮是否同时着地，辊子方向是否同侧平行。</li>
     </ol>
 
     <h2>提交要求</h2>
-    <p>安装座 .SLDPRT + 轮系装配截图 + 辊子方向说明。命名：<span class="path">D_DC3_轮系_姓名.SLDASM</span>。</p>
+    <p>安装座 .SLDPRT + 轮系装配截图 + 一段轮组布局说明（写清转向方案：独立驱动还是带舵向）。命名：<span class="path">D_DC3_轮系_姓名.SLDASM</span>。</p>
 
     <h2>常见错误</h2>
     <ul>
-      <li>辊子方向配对错（横移变成原地自转）</li>
+      <li>把全向轮当麦轮装，指望四轮转速组合出横移——全向轮没有侧向力，车只能前后走</li>
+      <li>同侧两轮辊子轴不平行，直行时持续跑偏</li>
       <li>安装座孔距与底板对不上（两组接口没对齐）</li>
       <li>轴承轴向没定位，转起来窜动</li>
       <li>配合过定义（同一自由度被重复约束）</li>
@@ -75,9 +90,10 @@
 
     <h2>外部链接</h2>
     <ul>
-      <li><a href="https://m.mfcad.com/ziliao/mf_28283.html" target="_blank" rel="noopener">沐风网：SolidWorks 麦克纳姆轮从建模到装配</a>：从支架到轮体到装配的完整案例，跟着做一遍轮系。</li>
-      <li><a href="https://m.sohu.com/a/304366267_100042821/" target="_blank" rel="noopener">搜狐：用 SolidWorks 建模的麦克纳姆轮</a>：麦轮建模的逐步演示，重点看轮毂与辊子阵列。</li>
-      <li><a href="https://bbs.robomaster.com/article/7501" target="_blank" rel="noopener">上交步兵开源</a>：轮组设计与悬挂结构可对照。</li>
+      <li><a href="https://bbs.robomaster.com/article/9437" target="_blank" rel="noopener">RM2023 全向轮步兵开源（东北大学 T-DT）</a>：本次仿制的直接参照，重点看轮组布局、避震与转向方式。</li>
+      <li><a href="https://www.robomaster.com/zh-CN/products/components/detail/135" target="_blank" rel="noopener">RoboMaster 官方麦克纳姆轮参数页</a>：45° 辊子、直径 152.5 mm，用于和手里的轮组对照，避免买错类型。</li>
+      <li><a href="https://m.mfcad.com/ziliao/mf_28283.html" target="_blank" rel="noopener">沐风网：轮组从建模到装配</a>：建模流程可借用，但这是麦轮案例，辊子角度不要照抄。</li>
+      <li><a href="https://bbs.robomaster.com/article/7501" target="_blank" rel="noopener">上交步兵开源</a>：轮组设计与悬挂结构的另一套做法，可对照。</li>
     </ul>
   </div>
 </main>
@@ -88,7 +104,7 @@
 <div class="giscus" style="margin-top:28px"></div>
 <footer class="footer">SUAT RoboMaster 机械组学习平台 · DC3 · 组内专用</footer>
 
-<script src="../js/main.js?v=11"></script>
+<script src="../js/main.js?v=12"></script>
 
 <script src="https://giscus.app/client.js"
         data-repo="wenburu/suat-robomaster-mech-website"

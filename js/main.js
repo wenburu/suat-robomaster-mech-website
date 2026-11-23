@@ -37,7 +37,9 @@
     { id: "derr", stage: "D", num: "D!", title: "D 阶段常见错误合集", file: "d/err.html" },
     { id: "c0", stage: "C", num: "C0", title: "阶段说明", file: "c/c0.html" },
     { id: "b0", stage: "B", num: "B0", title: "阶段说明", file: "b/b0.html" },
-    { id: "a0", stage: "A", num: "A0", title: "阶段说明", file: "a/a0.html" }
+    { id: "a0", stage: "A", num: "A0", title: "阶段说明", file: "a/a0.html" },
+    { id: "p1", stage: "项目", num: "P1", title: "整车项目 · 第一台步兵", file: "project/index.html" },
+    { id: "wl", stage: "探索", num: "WL", title: "轮腿探索组", file: "wheelleg/index.html" }
   ];
   /* 有成品作业的任务（其余任务只自检、不提交） */
   var SUBMIT_TASKS = { f4: 1, f5: 1, e2: 1, e3: 1, e4: 1, e5: 1, e6: 1, dc5: 1, dc6: 1, dy5: 1, da1: 1, da2: 1 };
@@ -114,7 +116,9 @@
       derr: "错误 底盘 云台 装配 文件",
       c0: "工程图 视图 尺寸 公差 BOM 阶段",
       b0: "仿真 干涉 有限元 材料 阶段",
-      a0: "整车 集成 步兵 全流程 阶段"
+      a0: "整车 集成 步兵 全流程 阶段",
+      p1: "整车 仿制 东北大学 全向轮 打印 装配 里程碑 项目",
+      wl: "轮腿 轮圈腿 探索 开源 单腿 构型"
     };
     q.addEventListener("input", function () {
       var v = q.value.trim().toLowerCase();
@@ -127,7 +131,7 @@
       if (!hits.length) { res.style.display = "block"; res.innerHTML = '<div class="hit">没有找到匹配任务，换个关键词试试（如：草图 / 装配 / 旋转）。</div>'; return; }
       res.style.display = "block";
       res.innerHTML = hits.map(function (t) {
-        return '<div class="hit"><a href="' + PREFIX + t.file + '">' + t.num + " · " + t.title + "</a><div style='font-size:12.5px;color:#6b7078'>" + t.stage + " 阶段</div></div>";
+        return '<div class="hit"><a href="' + PREFIX + t.file + '">' + t.num + " · " + t.title + "</a><div style='font-size:12.5px;color:#6b7078'>" + ((t.stage === "项目" || t.stage === "探索") ? t.stage : t.stage + " 阶段") + "</div></div>";
       }).join("");
     });
   }
