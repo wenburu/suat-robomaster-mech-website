@@ -62,7 +62,7 @@
     var target = normPath(new URL(href, location.href).pathname);
     var hit = (target === "")
       ? (here === "")
-      : (here === target || here.indexOf(target + "/") === 0);
+      : (here === target || (here.indexOf(target + "/") === 0 && /\/(f|e|d|c|b|a)$/.test(target)));
     if (hit) a.classList.add("active");
   });
 
